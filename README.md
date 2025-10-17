@@ -22,7 +22,7 @@ Como Foi Feito
 -Primeiro pensei na estrutura semântica, usando `<header>`, `<main>`, `<footer>` e `<section>`.  
 -Depois, criei cada página HTML separadamente, tentando organizar o conteúdo de forma clara.  
 -Usei formulários HTML com `<fieldset>` e `<legend>` para agrupar os dados do cadastro.   
--Não usei CSS ou JavaScript nesta primeira parte, mas vai ter nas próximas.
+-Não usei CSS ou JavaScript nesta primeira parte, mas vai ter nas próximas. use use
 
 
 
