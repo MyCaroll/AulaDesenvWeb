@@ -1,32 +1,22 @@
-AulaDesenvWeb
-Projeto ONG Skate SP
+🛹 Projeto ONG Skate SP
+🌟 Sobre o Projeto
 
-Sobre o Projeto
-Oi! Este é meu primeiro projeto do curso de Análise e Desenvolvimento de Sistemas (ADS).  
-Criei uma plataforma simples para uma ONG de skate, pensando em como divulgar os projetos, engajar voluntários e mostrar a missão da organização.  
+Oi! 👋 Este é meu primeiro projeto desenvolvido no curso de Análise e Desenvolvimento de Sistemas (ADS).
+Criei uma plataforma simples e informativa para uma ONG de skate fictícia, com o objetivo de divulgar suas ações sociais, apresentar sua missão e facilitar o cadastro de voluntários e apoiadores.
 
-Como ainda estamos começando, o foco foi apenas em HTML5 semântico nessa primeira parte, mas terá atualizações hehe.
+Esta é a primeira versão, feita somente com HTML5 semântico, mas nas próximas etapas o projeto vai ganhar CSS e JavaScript para deixar tudo mais bonito e interativo. 💻💕
 
+📄 Páginas do Projeto
 
+index.html → Página inicial da ONG, com seções de Quem Somos, Missão, Visão e Valores.
 
-Páginas do Projeto
--index.html: Aqui a ONG se apresenta! Tem informações sobre Quem Somos, Missão, Visão e Valores, e Contato.  
--projeto.html: Mostra os projetos sociais da ONG e explica como as pessoas podem ajudar ou se voluntariar.  
--cadastro.html: Uma página com formulário para quem quer se cadastrar como voluntário ou apoiador.  
+projeto.html → Apresenta os projetos sociais e as ações que a ONG realiza.
 
-Cada página tem um menu de navegação para facilitar a troca entre elas.
+cadastro.html → Contém um formulário para quem deseja se cadastrar como voluntário ou apoiador.
 
+Cada página possui um menu de navegação para facilitar o acesso entre elas.
 
-
-Como Foi Feito 
--Primeiro pensei na estrutura semântica, usando `<header>`, `<main>`, `<footer>` e `<section>`.  
--Depois, criei cada página HTML separadamente, tentando organizar o conteúdo de forma clara.  
--Usei formulários HTML com `<fieldset>` e `<legend>` para agrupar os dados do cadastro.   
--Não usei CSS ou JavaScript nesta primeira parte, mas vai ter nas próximas. use use
-
-
-
-Estrutura de Pastas 
+🧱 Estrutura do Projeto
 meu-projeto-ong/
 │
 ├── index.html
@@ -34,15 +24,43 @@ meu-projeto-ong/
 ├── cadastro.html
 └── README.md
 
+🧠 Como Foi Desenvolvido
 
-Como Visualizar o Projeto 
-1. Abra a pasta do projeto no VS Code.  
-2. Clique com o botão direito em index.html → Open with Live Server.  
-3. Use o menu para navegar entre Início, Projeto e Cadastro e explorar todo o conteúdo.  
+Utilização de HTML5 semântico (<header>, <main>, <section>, <footer> etc).
 
+Criação de formulários organizados com <fieldset> e <legend>.
 
+Estrutura de pastas simples e intuitiva.
 
-Feito com carinho por Carolina Fávero  
-Curso: ADS – 2025
+Desenvolvimento realizado no Visual Studio Code.
+
+Preview feito com a extensão Live Server.
+
+🚀 Como Visualizar o Projeto
+
+Abra a pasta do projeto no VS Code.
+
+Clique com o botão direito em index.html.
+
+Selecione “Open with Live Server”.
+
+Navegue entre as páginas Início, Projeto e Cadastro usando o menu superior.
+
+💬 Sobre o Aprendizado
+
+Esse projeto me ajudou a:
+
+Compreender a estrutura de um site em HTML5.
+
+Trabalhar com links e navegação entre páginas.
+
+Criar formulários de forma acessível e organizada.
+
+Usar o Git e o GitHub para versionar código.
+
+💖 Autoria
+
+Feito com carinho por Carolina Fávero 💜
+📚 Curso: Análise e Desenvolvimento de Sistemas (ADS) — 2025
    
 
