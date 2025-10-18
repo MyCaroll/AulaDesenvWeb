@@ -26,7 +26,7 @@ meu-projeto-ong/
 
 🧠 Como Foi Desenvolvido
 
-Utilização de HTML5 semântico (<header>, <main>, <section>, <footer> etc).
+Utilização de HTML5 semântico (<header>, <main>, <section>, <footer etc).
 
 Criação de formulários organizados com <fieldset> e <legend>.
 
