@@ -69,23 +69,18 @@ Validação dos Arquivos HTML
 Todos os arquivos HTML foram validados com sucesso no W3C Validator.  
 As imagens abaixo mostram os resultados da validação de cada página:
 
-1. **Validação página index.html**  
-   ![Validação Index](Validind.jpg)
+1. Validação página index.html  
+   ![Validação Index](/Meu-Projeto-ONG-Skate/img/Validind.jpg)
 
-2. **Validação página projeto.html**  
-   ![Validação Projeto](Validproj.jpg)
+2. Validação página projeto.html  
+   ![Validação Projeto](/Meu-Projeto-ONG-Skate/img/Validproj.jpg)
 
-3. **Validação página cadastro.html**  
-   ![Validação Cadastro](Validcadas.jpg)
+3. Validação página cadastro.html  
+   ![Validação Cadastro](/Meu-Projeto-ONG-Skate/img/Validcadas.jpg)
 
-Considerações Finais
-
-Este projeto foi uma experiência importante para aplicar os conhecimentos aprendidos na disciplina de Desenvolvimento Web.  
-Criar o site da ONG Skate SP ajudou a entender melhor como HTML e Git podem ser utilizados juntos para desenvolver páginas organizadas.
 
 
 Autoria
-
 Feito por: Carolina Fávero  
 Curso: Análise e Desenvolvimento de Sistemas (ADS) — 2025
 
