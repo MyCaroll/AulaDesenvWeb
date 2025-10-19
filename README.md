@@ -70,13 +70,13 @@ Todos os arquivos HTML foram validados com sucesso no W3C Validator.
 As imagens abaixo mostram os resultados da validação de cada página:
 
 Página Inicial (index.html)
-<img src="img/Validindex.png" alt="Validação da página index.html" width="500">
+![Validação da página index.html](./img/ValidInd.jpg)
 
 Página de Projeto (projeto.html)
-<img src="img/Validprojeto.png" alt="Validação da página projeto.html" width="500">
+![Validação da página projeto.html](./img/ValidProj.jpg)
 
 Página de Cadastro (cadastro.html)
-<img src="img/Validcad.png" alt="Validação da página cadastro.html" width="500">
+![Validação da página cadastro.html](./img/ValidCadas.jpg)
 
 Considerações Finais
 
