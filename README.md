@@ -57,7 +57,9 @@ Trabalhar com links e navegação entre páginas.
 Criar formulários de forma acessível e organizada.
 
 Usar o Git e o GitHub para versionar código.
-![Logo da ONG Skate SP](img/ValidProj.jpg)
+<img src="img/Validcad.png" alt="Logo da ONG Skate SP" width="200">
+
+
 
 Autoria
 Feito por Carolina Fávero 
