@@ -1,69 +1,94 @@
 Projeto ONG Skate SP
-    Sobre o Projeto
 
-Oi!  Este é meu primeiro projeto desenvolvido no curso de Análise e Desenvolvimento de Sistemas (ADS).
-Criei uma plataforma simples e informativa para uma ONG de skate fictícia, com o objetivo de divulgar suas ações sociais, apresentar sua missão e facilitar o cadastro de voluntários e apoiadores.
+Introdução
 
-Esta é a primeira versão, feita somente com HTML5 semântico, mas nas próximas etapas o projeto vai ganhar CSS e JavaScript para deixar tudo mais bonito e interativo. 
+Este projeto foi desenvolvido como parte das atividades da disciplina de Desenvolvimento Web, no curso de Análise e Desenvolvimento de Sistemas (ADS).  
+O objetivo foi criar um site simples e funcional para uma ONG fictícia chamada Skate SP, que tem como missão promover a inclusão social por meio do skate.
 
-Páginas do Projeto
+Durante o desenvolvimento, foram aplicados conceitos fundamentais de HTML5, CSS3 e versionamento com Git e GitHub.  
+O projeto também proporcionou a prática de boas práticas de organização e estruturação de páginas web.
 
-index.html → Página inicial da ONG, com seções de Quem Somos, Missão, Visão e Valores.
 
-projeto.html → Apresenta os projetos sociais e as ações que a ONG realiza.
+Estrutura do projeto
 
-cadastro.html → Contém um formulário para quem deseja se cadastrar como voluntário ou apoiador.
+A organização das pastas foi feita para manter o projeto limpo e fácil de entender. A estrutura ficou da seguinte forma:
 
-Cada página possui um menu de navegação para facilitar o acesso entre elas.
-
-Estrutura do Projeto
-meu-projeto-ong/
+AulaDesenvWeb/
 │
-├── index.html
-├── projeto.html
-├── cadastro.html
-└── README.md
+├── cadastro.html → Página com o formulário de cadastro de participantes.
+├── index.html → Página inicial do site, com apresentação da ONG e navegação principal.
+├── projeto.html → Página que descreve os projetos e ações sociais da ONG.
+├── README.md → Documento explicativo sobre o projeto.
+│
+└── img/ → Pasta que reúne todas as imagens utilizadas no site e nas validações.
+├── logo.png → Logotipo da ONG Skate SP.
+├── skate.jpg → Imagem utilizada no conteúdo do site.
+├── skatedoacao.jpg → Imagem sobre ações de doação.
+├── skategaleria.jpg → Imagem da galeria de fotos.
+├── skatemul.jpg → Imagem representando mulheres no skate.
+├── skateverde.jpg → Imagem de fundo e apoio visual.
+├── Validcad.jpg → Validação da página de cadastro (cadastro.html).
+├── ValidInd.jpg → Validação da página inicial (index.html).
+└── ValidProj.jpg → Validação da página de projetos (projeto.html).
 
-Como Foi Desenvolvido
 
-Utilização de HTML5 semântico (header, main, section, footer etc).
+Cada arquivo tem uma função específica dentro do site, e a pasta `img` concentra todos os recursos visuais utilizados.  
+Essa estrutura facilita o entendimento do projeto e torna o código mais organizado, o que é essencial para trabalhos colaborativos e versionados com Git e GitHub.
 
-Criação de formulários organizados com fieldset e legend.
 
-Estrutura de pastas simples e intuitiva.
+- index.html: página inicial com a apresentação da ONG.  
+- projeto.html: informações sobre os projetos e ações da ONG.  
+- cadastro.html: formulário para o cadastro de novos participantes.  
 
-Desenvolvimento realizado no Visual Studio Code.
 
-Preview feito com a extensão Live Server.
 
-Como Visualizar o Projeto
+Como visualizar o projeto
 
-Abra a pasta do projeto no VS Code.
+1. Abra a pasta do projeto no VS Code.  
+2. Clique com o botão direito sobre o arquivo index.html.  
+3. Selecione a opção “Open with Live Server” (caso tenha a extensão instalada).  
+4. Navegue entre as páginas Início, Projeto e Cadastro usando o menu superior.
 
-Clique com o botão direito em index.html.
 
-Selecione “Open with Live Server”.
 
-Navegue entre as páginas Início, Projeto e Cadastro usando o menu superior.
+Sobre o aprendizado
 
-Sobre o Aprendizado
+A construção deste projeto foi importante para compreender o funcionamento de um site desde a sua estrutura até a navegação entre páginas.  
+Com ele, foi possível:
 
-Esse projeto me ajudou a:
+- Entender melhor a estrutura de um site em HTML5.  
+- Trabalhar com links e navegação interna.  
+- Criar formulários organizados e acessíveis.  
+- Utilizar o Git e o GitHub para versionar o código.  
+- Realizar a validação dos arquivos HTML de forma correta.  
+- Organizar as pastas e arquivos de maneira padronizada.
 
-Compreender a estrutura de um site em HTML5.
 
-Trabalhar com links e navegação entre páginas.
+Validação dos Arquivos HTML
 
-Criar formulários de forma acessível e organizada.
+Todos os arquivos HTML foram validados com sucesso no W3C Validator.  
+As imagens abaixo mostram os resultados da validação de cada página:
 
-Usar o Git e o GitHub para versionar código.
-<img src="img/Validcad.png" alt="Logo da ONG Skate SP" width="200">
+Página Inicial (index.html)
+<img src="img/Validindex.png" alt="Validação da página index.html" width="500">
 
+Página de Projeto (projeto.html)
+<img src="img/Validprojeto.png" alt="Validação da página projeto.html" width="500">
+
+Página de Cadastro (cadastro.html)
+<img src="img/Validcad.png" alt="Validação da página cadastro.html" width="500">
+
+Considerações Finais
+
+Este projeto foi uma experiência importante para aplicar os conhecimentos aprendidos na disciplina de Desenvolvimento Web.  
+Criar o site da ONG Skate SP ajudou a entender melhor como HTML, CSS e Git podem ser utilizados juntos para desenvolver páginas organizadas, funcionais e acessíveis.
 
 
 Autoria
-Feito por Carolina Fávero 
+
+Feito por: Carolina Fávero  
 Curso: Análise e Desenvolvimento de Sistemas (ADS) — 2025
+
 
 
    
