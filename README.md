@@ -1,12 +1,12 @@
-🛹 Projeto ONG Skate SP
-🌟 Sobre o Projeto
+Projeto ONG Skate SP
+    Sobre o Projeto
 
-Oi! 👋 Este é meu primeiro projeto desenvolvido no curso de Análise e Desenvolvimento de Sistemas (ADS).
+Oi!  Este é meu primeiro projeto desenvolvido no curso de Análise e Desenvolvimento de Sistemas (ADS).
 Criei uma plataforma simples e informativa para uma ONG de skate fictícia, com o objetivo de divulgar suas ações sociais, apresentar sua missão e facilitar o cadastro de voluntários e apoiadores.
 
-Esta é a primeira versão, feita somente com HTML5 semântico, mas nas próximas etapas o projeto vai ganhar CSS e JavaScript para deixar tudo mais bonito e interativo. 💻💕
+Esta é a primeira versão, feita somente com HTML5 semântico, mas nas próximas etapas o projeto vai ganhar CSS e JavaScript para deixar tudo mais bonito e interativo. 
 
-📄 Páginas do Projeto
+Páginas do Projeto
 
 index.html → Página inicial da ONG, com seções de Quem Somos, Missão, Visão e Valores.
 
@@ -16,7 +16,7 @@ cadastro.html → Contém um formulário para quem deseja se cadastrar como volu
 
 Cada página possui um menu de navegação para facilitar o acesso entre elas.
 
-🧱 Estrutura do Projeto
+Estrutura do Projeto
 meu-projeto-ong/
 │
 ├── index.html
@@ -24,11 +24,11 @@ meu-projeto-ong/
 ├── cadastro.html
 └── README.md
 
-🧠 Como Foi Desenvolvido
+Como Foi Desenvolvido
 
-Utilização de HTML5 semântico (<header>, <main>, <section>, <footer etc).
+Utilização de HTML5 semântico (header, main, section, footer etc).
 
-Criação de formulários organizados com <fieldset> e <legend>.
+Criação de formulários organizados com fieldset e legend.
 
 Estrutura de pastas simples e intuitiva.
 
@@ -36,7 +36,7 @@ Desenvolvimento realizado no Visual Studio Code.
 
 Preview feito com a extensão Live Server.
 
-🚀 Como Visualizar o Projeto
+Como Visualizar o Projeto
 
 Abra a pasta do projeto no VS Code.
 
@@ -46,7 +46,7 @@ Selecione “Open with Live Server”.
 
 Navegue entre as páginas Início, Projeto e Cadastro usando o menu superior.
 
-💬 Sobre o Aprendizado
+Sobre o Aprendizado
 
 Esse projeto me ajudou a:
 
@@ -58,9 +58,13 @@ Criar formulários de forma acessível e organizada.
 
 Usar o Git e o GitHub para versionar código.
 
-💖 Autoria
+Autoria
 
-Feito com carinho por Carolina Fávero 💜
-📚 Curso: Análise e Desenvolvimento de Sistemas (ADS) — 2025
+<img src="Meu-Projeto-ONG-Skate/ValidInd.ppg" alt="ONG Skate SP em ação" width="400" height="250">
+
+Feito por Carolina Fávero 
+Curso: Análise e Desenvolvimento de Sistemas (ADS) — 2025
+
+
    
 
