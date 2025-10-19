@@ -57,11 +57,9 @@ Trabalhar com links e navegação entre páginas.
 Criar formulários de forma acessível e organizada.
 
 Usar o Git e o GitHub para versionar código.
+![Logo da ONG Skate SP](img/ValidProj.jpg)
 
 Autoria
-
-<img src="Meu-Projeto-ONG-Skate/ValidInd.ppg" alt="ONG Skate SP em ação" width="400" height="250">
-
 Feito por Carolina Fávero 
 Curso: Análise e Desenvolvimento de Sistemas (ADS) — 2025
 
