@@ -79,7 +79,6 @@ As imagens abaixo mostram os resultados da validação de cada página:
    ![Validação Cadastro](/Meu-Projeto-ONG-Skate/img/Validcadas.jpg)
 
 
-
 Autoria
 Feito por: Carolina Fávero  
 Curso: Análise e Desenvolvimento de Sistemas (ADS) — 2025
