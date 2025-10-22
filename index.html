@@ -4,59 +4,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>ONG Skate SP - Início</title>
 </head>
 
-<body>
+<body class="bg-background">
+    <!-- Header com largura total -->
     <header>
-        <h1>ONG Skate SP</h1>
-        <img src="Meu-Projeto-ONG-Skate/img/skate.jpg" alt="ONG Skate SP em ação" width="400" height="250">
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projeto.html">Projeto</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-            </ul>
-        </nav>
+        <div class="header-container">
+            <div class="header-grid">
+                <h1 class="text-orange">ONG <span class="glitter-text">Skate SP</span></h1>
+                <img src="img/skate.jpg" alt="ONG Skate SP em ação" width="400" height="250" class="header-img">
+                <button class="menu-toggle">☰</button>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section>
-            <h2>Quem Somos?</h2>
-            <p>Somos uma ONG sem fins lucrativos que promove a transformação social através do skate.</p>
+    <!-- Navegação com largura total -->
+    <nav class="nav-main">
+        <div class="nav-container">
+            <ul class="nav-list" id="mainMenu">
+                <li><a href="index.html" class="nav-link active">Início</a></li>
+                <li><a href="projeto.html" class="nav-link">Projeto</a></li>
+                <li><a href="cadastro.html" class="nav-link">Cadastro</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal com container normal -->
+    <main class="container main-grid">
+        <section class="section-with-icon quem-somos">
+            <h2 class="text-orange">Quem Somos?</h2>
+            <p>Somos uma ONG sem fins lucrativos que promove a <strong>transformação social</strong> através do skate.
+            </p>
         </section>
 
-        <section>
-            <h2>Missão</h2>
-            <p>Incentivar a prática do skate como ferramenta de inclusão social, promovendo aprendizado, disciplina
-                e integração na comunidade.</p>
+        <section class="section-with-icon missao">
+            <h2 class="text-orange">Missão</h2>
+            <p>Incentivar a prática do skate como ferramenta de <strong>inclusão social</strong>, promovendo
+                aprendizado, disciplina e integração na comunidade.</p>
 
-            <h2>Visão</h2>
-            <p>Ser reconhecida como uma ONG que transforma vidas através do esporte, inspirando jovens e crianças a
-                superarem desafios.</p>
+            <h2 class="text-orange mt-3">Visão</h2>
+            <p>Ser reconhecida como uma ONG que <strong>transforma vidas</strong> através do esporte, inspirando jovens
+                e crianças a superarem desafios.</p>
 
-            <h2>Valores</h2>
-            <ul>
+            <h2 class="text-orange mt-3">Valores</h2>
+            <ul class="values-list">
                 <li>Respeito às pessoas e ao esporte</li>
                 <li>Inclusão social e diversidade</li>
                 <li>Comprometimento com a comunidade</li>
                 <li>Ética e transparência</li>
             </ul>
         </section>
-
-        <section>
-            <h2>Contato</h2>
-            <address>
-                <p>Rua Ladeira, 82 - Vila Primavera - São Paulo/SP</p>
-                <p>Telefone: (11) 99999-9999</p>
-                <p>Email: skate@skate.com.br</p>
-            </address>
-        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 ONG Skate SP</p>
+    <!-- Footer com largura total e contato -->
+    <footer class="bg-surface">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-contact">
+                    <h3 class="text-orange">Contato</h3>
+                    <address class="contact-info">
+                        <p>📍 Rua Ladeira, 82 - Vila Primavera - São Paulo/SP</p>
+                        <p>📞 Telefone: <strong>(11) 99999-9999</strong></p>
+                        <p>📧 Email: <strong class="glitter-text">skate@skate.com.br</strong></p>
+                    </address>
+                </div>
+                <div class="footer-copyright">
+                    <p class="text-dark">&copy; 2025 ONG <span class="glitter-text">Skate SP</span></p>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Menu mobile toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            document.getElementById('mainMenu').classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>
