@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - ONG Skate SP</title>
+</head>
+
+<body>
+
+    <figure>
+        <img src="Meu-Projeto-ONG-Skate/img/skatecadas1.png" alt="ONG Skate SP em ação" width="200" height="155">
+    </figure>
+
+    <header>
+        <h1>Cadastro de Voluntário, Aluno e Doador</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="projeto.html">Projeto</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Cadastro de Voluntário</h2>
+            <form>
+                <fieldset>
+                    <legend>Informações Pessoais</legend>
+
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" required>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" required>
+
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+
+                    <label for="dataNasc">Data de Nascimento:</label>
+                    <input type="date" id="dataNasc" name="dataNasc" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Endereço</legend>
+
+                    <label for="rua">Rua:</label>
+                    <input type="text" id="rua" name="rua" required>
+
+                    <label for="numero">Nº:</label>
+                    <input type="text" id="numero" name="numero" required>
+
+                    <label for="complemento">Complemento:</label>
+                    <input type="text" id="complemento" name="complemento">
+
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" name="cep" required>
+
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" required>
+
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" name="estado" required>
+                </fieldset>
+
+                <button type="submit">Enviar</button>
+                <button type="reset">Limpar</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Cadastro de Alunos</h2>
+            <p>Se você quer participar das aulas de skate da nossa ONG, preencha seus dados abaixo </p>
+
+            <form>
+                <fieldset>
+                    <legend>Informações do Aluno</legend>
+
+                    <label for="nomeAluno">Nome Completo:</label>
+                    <input type="text" id="nomeAluno" name="nomeAluno" required>
+
+                    <label for="emailAluno">E-mail:</label>
+                    <input type="email" id="emailAluno" name="emailAluno" required>
+
+                    <label for="telefoneAluno">Telefone:</label>
+                    <input type="tel" id="telefoneAluno" name="telefoneAluno" required>
+
+                    <label for="dataNascAluno">Data de Nascimento:</label>
+                    <input type="date" id="dataNascAluno" name="dataNascAluno" required>
+
+                    <label for="nivel">Nível de Habilidade no Skate:</label>
+                    <select id="nivel" name="nivel" required>
+                        <option value="">Selecione...</option>
+                        <option value="iniciante">Iniciante</option>
+                        <option value="intermediario">Intermediário</option>
+                        <option value="avancado">Avançado</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Endereço</legend>
+
+                    <label for="ruaAluno">Rua:</label>
+                    <input type="text" id="ruaAluno" name="ruaAluno" required>
+
+                    <label for="numeroAluno">Nº:</label>
+                    <input type="text" id="numeroAluno" name="numeroAluno" required>
+
+                    <label for="cepAluno">CEP:</label>
+                    <input type="text" id="cepAluno" name="cepAluno" required>
+
+                    <label for="cidadeAluno">Cidade:</label>
+                    <input type="text" id="cidadeAluno" name="cidadeAluno" required>
+
+                    <label for="estadoAluno">Estado:</label>
+                    <input type="text" id="estadoAluno" name="estadoAluno" required>
+                </fieldset>
+
+                <button type="submit">Enviar</button>
+                <button type="reset">Limpar</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Quer fazer uma doação?</h2>
+            <p>Preencha seus dados e entraremos em contato com você </p>
+
+            <form>
+                <fieldset>
+                    <legend>Informações do Doador</legend>
+
+                    <label for="nomeDoador">Nome:</label>
+                    <input type="text" id="nomeDoador" name="nomeDoador" required>
+
+                    <label for="emailDoador">E-mail:</label>
+                    <input type="email" id="emailDoador" name="emailDoador" required>
+
+                    <label for="telefoneDoador">Telefone:</label>
+                    <input type="tel" id="telefoneDoador" name="telefoneDoador" required>
+                </fieldset>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ONG Skate SP</p>
+    </footer>
+</body>
+
+</html>
