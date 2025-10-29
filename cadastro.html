@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - ONG Skate SP</title>
+    <link rel="stylesheet" href="AulaDesenvWebCSS/cadastro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-
-    <figure>
-        <img src="Meu-Projeto-ONG-Skate/img/skatecadas1.png" alt="ONG Skate SP em ação" width="200" height="155">
-    </figure>
-
     <header>
         <h1>Cadastro de Voluntário, Aluno e Doador</h1>
         <nav>
@@ -24,8 +22,9 @@
         </nav>
     </header>
 
-    <main>
-        <section>
+    <main class="container">
+        <!-- Cadastro Voluntário -->
+        <section class="card pequeno">
             <h2>Cadastro de Voluntário</h2>
             <form>
                 <fieldset>
@@ -74,7 +73,8 @@
             </form>
         </section>
 
-        <section>
+        <!-- Cadastro Aluno -->
+        <section class="card pequeno">
             <h2>Cadastro de Alunos</h2>
             <p>Se você quer participar das aulas de skate da nossa ONG, preencha seus dados abaixo </p>
 
@@ -127,7 +127,8 @@
             </form>
         </section>
 
-        <section>
+        <!-- Cadastro Doador -->
+        <section class="card pequeno">
             <h2>Quer fazer uma doação?</h2>
             <p>Preencha seus dados e entraremos em contato com você </p>
 
@@ -151,7 +152,17 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 ONG Skate SP</p>
+        <div class="footer-left">
+            <p>Rua Ladeira, 82 - Vila Primavera - São Paulo/SP</p>
+            <p>📞 Telefone: <strong>(11) 99999-9999</strong></p>
+            <p>📧 Email: <strong class="glitter-text">skate@skate.com.br</strong></p>
+        </div>
+        <div class="footer-center">
+            <p>&copy; 2025 ONG Skate SP - Todos os direitos reservados</p>
+        </div>
+        <div class="footer-right">
+            <a href="#">Instagram</a> | <a href="#">YouTube</a>
+        </div>
     </footer>
 </body>
 
