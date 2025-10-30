@@ -26,7 +26,7 @@
 
         <section class="card pequeno">
             <h2>Cadastro de Voluntário</h2>
-            <p>Se você quer compartilhar sua paixão pelo skate como instrutor, ou colaborar de outras formas - ajunte-se
+            <p>Se você quer compartilhar sua paixão pelo skate como instrutor, ou colaborar de outras formas - junte-se
                 a nós!</p>
             <form>
                 <fieldset>
@@ -39,10 +39,12 @@
                     <input type="email" id="email" name="email" required>
 
                     <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" required>
+                    <input type="text" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                        placeholder="000.000.000-00" required>
 
                     <label for="telefone">Telefone:</label>
-                    <input type="tel" id="telefone" name="telefone" required>
+                    <input type="tel" id="telefone" name="telefone" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
+                        placeholder="(11) 91234-5678" required>
 
                     <label for="dataNasc">Data de Nascimento:</label>
                     <input type="date" id="dataNasc" name="dataNasc" required>
@@ -61,7 +63,7 @@
                     <input type="text" id="complemento" name="complemento">
 
                     <label for="cep">CEP:</label>
-                    <input type="text" id="cep" name="cep" required>
+                    <input type="text" id="cep" name="cep" pattern="\d{5}-\d{3}" placeholder="00000-000" required>
 
                     <label for="cidade">Cidade:</label>
                     <input type="text" id="cidade" name="cidade" required>
@@ -74,7 +76,6 @@
                 <button type="reset">Limpar</button>
             </form>
         </section>
-
 
         <section class="card pequeno">
             <h2>Cadastro de Alunos</h2>
@@ -91,7 +92,8 @@
                     <input type="email" id="emailAluno" name="emailAluno" required>
 
                     <label for="telefoneAluno">Telefone:</label>
-                    <input type="tel" id="telefoneAluno" name="telefoneAluno" required>
+                    <input type="tel" id="telefoneAluno" name="telefoneAluno" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
+                        placeholder="(11) 91234-5678" required>
 
                     <label for="dataNascAluno">Data de Nascimento:</label>
                     <input type="date" id="dataNascAluno" name="dataNascAluno" required>
@@ -115,7 +117,8 @@
                     <input type="text" id="numeroAluno" name="numeroAluno" required>
 
                     <label for="cepAluno">CEP:</label>
-                    <input type="text" id="cepAluno" name="cepAluno" required>
+                    <input type="text" id="cepAluno" name="cepAluno" pattern="\d{5}-\d{3}" placeholder="00000-000"
+                        required>
 
                     <label for="cidadeAluno">Cidade:</label>
                     <input type="text" id="cidadeAluno" name="cidadeAluno" required>
@@ -128,7 +131,6 @@
                 <button type="reset">Limpar</button>
             </form>
         </section>
-
 
         <section class="card pequeno">
             <h2>Quer fazer uma doação?</h2>
@@ -145,7 +147,8 @@
                     <input type="email" id="emailDoador" name="emailDoador" required>
 
                     <label for="telefoneDoador">Telefone:</label>
-                    <input type="tel" id="telefoneDoador" name="telefoneDoador" required>
+                    <input type="tel" id="telefoneDoador" name="telefoneDoador" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
+                        placeholder="(11) 91234-5678" required>
                 </fieldset>
 
                 <button type="submit">Enviar</button>
