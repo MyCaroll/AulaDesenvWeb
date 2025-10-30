@@ -1,82 +1,62 @@
-Projeto ONG Skate SP
-
+Projeto ONG Skate SP — Estilização com CSS
 Introdução
 
-Este projeto foi desenvolvido como parte das atividades da disciplina de Desenvolvimento Web, no curso de Análise e Desenvolvimento de Sistemas (ADS).  
-O objetivo foi criar um site simples e funcional para uma ONG fictícia chamada Skate SP, que tem como missão promover a inclusão social por meio do skate.
+Esta segunda etapa do projeto teve como objetivo aplicar a estilização ao site Skate SP, desenvolvido na disciplina de Desenvolvimento Web, no curso de Análise e Desenvolvimento de Sistemas (ADS).
+Após a criação da estrutura em HTML5, foi criada uma nova branch destinada exclusivamente ao CSS, onde foram implementados os estilos visuais do site.
 
-Durante o desenvolvimento, foram aplicados conceitos fundamentais de HTML5, CSS3 e versionamento com Git e GitHub.  
-O projeto também proporcionou a prática de boas práticas de organização e estruturação de páginas web.
-
+Durante o desenvolvimento, foram aplicados conceitos fundamentais de CSS3, como formatação de textos, uso de cores, imagens de fundo, transparência, layout com Flexbox e efeitos visuais.
+Esta etapa permitiu aprimorar o entendimento sobre a separação entre conteúdo e apresentação, tornando o site mais atrativo e funcional.
 
 Estrutura do projeto
 
-A organização das pastas foi feita para manter o projeto limpo e fácil de entender. A estrutura ficou da seguinte forma:
-
-AulaDesenvWeb/
+Na branch de CSS, a organização dos arquivos foi feita de forma semelhante à versão em HTML, mantendo a coerência e a facilidade de navegação.
+A estrutura ficou da seguinte forma:
+AulaDesenvWebCSS/
 │
-├── cadastro.html → Página com o formulário de cadastro de participantes.
-├── index.html → Página inicial do site, com apresentação da ONG e navegação principal.
-├── projeto.html → Página que descreve os projetos e ações sociais da ONG.
-├── README.md → Documento explicativo sobre o projeto.
+├── img/
+│   ├── skate.jpg
+│   ├── skatecadas1.png
+│   ├── Validcadas.jpg
+│   ├── Validind.jpg
+│   └── Validproj.jpg
 │
-└── img/ → Pasta que reúne todas as imagens utilizadas no site e nas validações.
-├── logo.png → Logotipo da ONG Skate SP.
-├── skate.jpg → Imagem utilizada no conteúdo do site.
-├── skatedoacao.jpg → Imagem sobre ações de doação.
-├── skategaleria.jpg → Imagem da galeria de fotos.
-├── skatemul.jpg → Imagem representando mulheres no skate.
-├── skateverde.jpg → Imagem de fundo e apoio visual.
-├── Validcad.jpg → Validação da página de cadastro (cadastro.html).
-├── ValidInd.jpg → Validação da página inicial (index.html).
-└── ValidProj.jpg → Validação da página de projetos (projeto.html).
+├── Cadastro.css
+├── Projeto.css
+├── components.css
+├── layout.css
+├── reset.css
+├── style.css
+│
+├── cadastro.html
+├── index.html
+├── projeto.html
+└── README.md
 
+Cada arquivo CSS é responsável pela aparência e formatação de uma página específica, garantindo uma melhor organização e manutenção do código.
 
-Cada arquivo tem uma função específica dentro do site, e a pasta `img` concentra todos os recursos visuais utilizados.  
-Essa estrutura facilita o entendimento do projeto e torna o código mais organizado, o que é essencial para trabalhos colaborativos e versionados com Git e GitHub.
-
-
-- index.html: página inicial com a apresentação da ONG.  
-- projeto.html: informações sobre os projetos e ações da ONG.  
-- cadastro.html: formulário para o cadastro de novos participantes.  
-
-
+Principais recursos utilizados
+Durante a construção dos arquivos de estilo, foram aplicadas as seguintes técnicas e conceitos de CSS3:
+Cores e fontes personalizadas, destacando a identidade visual do projeto.
+Uso de imagens de fundo com transparência, aplicadas por meio de pseudo-elementos ::before.
+Efeitos visuais com transições suaves e sombras em cards.
+Organização das seções com Flexbox, facilitando o alinhamento e o espaçamento entre os elementos.
+Responsividade, adaptando o conteúdo para diferentes tamanhos de tela.
+Comentários e padronização no código, mantendo a clareza e a boa estrutura dos estilos.
 
 Como visualizar o projeto
-
-1. Abra a pasta do projeto no VS Code.  
-2. Clique com o botão direito sobre o arquivo index.html.  
-3. Selecione a opção “Open with Live Server” (caso tenha a extensão instalada).  
-4. Navegue entre as páginas Início, Projeto e Cadastro usando o menu superior.
-
-
+Abra a pasta do projeto AulaDesenvWebCSS no VS Code.
+Clique com o botão direito sobre o arquivo index.html.
+Selecione a opção “Open with Live Server” (caso tenha a extensão instalada).
+Navegue pelas páginas Início, Projeto e Cadastro utilizando o menu superior.
 
 Sobre o aprendizado
+A criação da parte visual do site foi essencial para compreender o papel do CSS na construção de páginas web completas.
+Com esta etapa, foi possível:
 
-A construção deste projeto foi importante para compreender o funcionamento de um site desde a sua estrutura até a navegação entre páginas.  
-Com ele, foi possível:
-
-- Entender melhor a estrutura de um site em HTML5.  
-- Trabalhar com links e navegação interna.  
-- Criar formulários organizados e acessíveis.  
-- Utilizar o Git e o GitHub para versionar o código.  
-- Realizar a validação dos arquivos HTML de forma correta.  
-- Organizar as pastas e arquivos de maneira padronizada.
-
-
-Validação dos Arquivos HTML
-
-Todos os arquivos HTML foram validados com sucesso no W3C Validator.  
-As imagens abaixo mostram os resultados da validação de cada página:
-
-1. Validação página index.html  
-   ![Validação Index](/Meu-Projeto-ONG-Skate/img/Validind.jpg)
-
-2. Validação página projeto.html  
-   ![Validação Projeto](/Meu-Projeto-ONG-Skate/img/Validproj.jpg)
-
-3. Validação página cadastro.html  
-   ![Validação Cadastro](/Meu-Projeto-ONG-Skate/img/Validcadas.jpg)
+Entender como aplicar estilos de forma estruturada e organizada.
+Trabalhar com backgrounds, transparência e sobreposição de elementos.
+Aprimorar a habilidade de criar layouts modernos e responsivos.
+Consolidar o uso do Git e GitHub em diferentes branches do mesmo projeto.
 
 
 Autoria
