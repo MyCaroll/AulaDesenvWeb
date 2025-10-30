@@ -1,4 +1,4 @@
-/* ======== ESTILO GERAL ======== */
+/* ESTILO GERAL  */
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 
 body {
@@ -8,7 +8,7 @@ body {
     color: #222;
 }
 
-/* ======== CABEÇALHO ======== */
+/* CABEÇALHO */
 header {
     background-color: #111;
     color: white;
@@ -47,7 +47,9 @@ nav ul li a:hover {
     background-color: #4b0082;
 }
 
-/* ======== MAIN E CARDS ======== */
+/*
+MAIN E CARDS 
+ */
 main {
     max-width: 1200px;
     margin: 40px auto;
@@ -68,7 +70,7 @@ section {
     width: 70%;
 }
 
-/* ======== BACKGROUND DAS SEÇÕES ======== */
+/* BACKGROUND DAS SEÇÕES */
 section::before {
     content: '';
     position: absolute;
@@ -86,7 +88,7 @@ section::before {
     /* garante que links funcionem */
 }
 
-/* ======== BACKGROUND ESPECÍFICO PARA CADA CARD ======== */
+/*BACKGROUND ESPECÍFICO PARA CADA CARD  */
 .projeto1::before {
     background-image: url('img/Skategente.jpg');
 }
@@ -103,14 +105,13 @@ section::before {
     background-image: url('img/skatedoacao.jpg');
 }
 
-/* ======== CONTEÚDO DOS CARDS ======== */
+/*  CONTEÚDO DOS CARDS  */
 section h2,
 section p,
 section figure,
 section a {
     position: relative;
     z-index: 1;
-    /* garante que fique acima da imagem de fundo */
 }
 
 section h2 {
@@ -147,7 +148,7 @@ section a:hover {
     transform: scale(1.05);
 }
 
-/* ======== RODAPÉ ======== */
+/* RODAPÉ  */
 footer {
     background-color: #111;
     color: white;
@@ -184,13 +185,13 @@ footer {
     color: #4b0082;
 }
 
-/* ======== TEXTO GLITTER SIMPLES ======== */
+/* TEXTO GLITTER SIMPLES*/
 .glitter-text {
     color: #ff6600;
     font-weight: bold;
 }
 
-/* ======== RESPONSIVIDADE ======== */
+/* RESPONSIVIDADE  */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
