@@ -8,28 +8,64 @@ body {
     color: #222;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 /* ======== CABEÇALHO ======== */
 header {
     background-color: #111;
     color: white;
-    text-align: center;
-    padding: 30px 0;
+    padding: 20px 0;
+    position: relative;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 header h1 {
     font-family: 'Rock Salt', cursive;
-    font-size: 3rem;
-    margin: 0 0 15px 0;
+    font-size: 2.5rem;
+    margin: 0;
     color: #fff;
+}
+
+/* Menu responsivo */
+#menu-checkbox {
+    display: none;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+    transition: 0.3s;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-    margin-top: 20px;
+    margin: 0;
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    gap: 15px;
+}
+
+nav ul li {
+    position: relative;
 }
 
 nav ul li a {
@@ -37,7 +73,7 @@ nav ul li a {
     background-color: #ff6600;
     color: white;
     text-decoration: none;
-    padding: 10px 25px;
+    padding: 10px 20px;
     border-radius: 10px;
     font-weight: bold;
     transition: 0.3s;
@@ -47,42 +83,68 @@ nav ul li a:hover {
     background-color: #4b0082;
 }
 
-/* ======== FIGURE E IMAGEM TOPO ======== */
-figure {
-    text-align: center;
-    margin-bottom: 30px;
+/* Dropdown menu */
+.nav-item {
+    position: relative;
 }
 
-figure img {
-    border-radius: 15px;
-    max-width: 100%;
-    height: auto;
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 100;
+    min-width: 200px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #222;
+    text-decoration: none;
+    border-bottom: 1px solid #f2f2f2;
+    background-color: #fff;
+    border-radius: 0;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f2f2f2;
+    color: #4b0082;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
 }
 
 /* ======== CONTEÚDO PRINCIPAL ======== */
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    padding: 40px 20px;
+    padding: 40px 0;
 }
 
-/* ======== SEÇÕES / CARDS ======== */
-section {
+.page-title {
+    text-align: center;
+    color: #4b0082;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+/* ======== CARDS COM IMAGENS DE FUNDO ======== */
+.card {
     position: relative;
-    padding: 20px 30px;
+    padding: 25px;
     border-radius: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     overflow: hidden;
-    width: 100%;
-    max-width: 900px;
     background-color: rgba(255, 255, 255, 0.85);
-    /* fundo transparente */
+    margin-bottom: 30px;
 }
 
-
-section::before {
+/* Imagens de fundo para os cards */
+.card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -94,34 +156,35 @@ section::before {
     background-repeat: no-repeat;
     opacity: 0.2;
     z-index: 1;
-
 }
 
-/* Background específico para cada seção */
-section:nth-child(1)::before {
+/* Imagem específica para o card de Voluntário */
+.card.pequeno:nth-child(1)::before {
     background-image: url('img/Skateeste.jfif');
 }
 
-section:nth-child(2)::before {
+/* Imagem específica para o card de Alunos */
+.card.pequeno:nth-child(2)::before {
     background-image: url('img/Skatedoe3.jpg');
 }
 
-section:nth-child(3)::before {
+/* Imagem específica para o card de Doação */
+.card.pequeno:nth-child(3)::before {
     background-image: url('img/Skatedoe4.jfif');
 }
 
-/* Conteúdo acima do fundo */
-section h2,
-section p,
-fieldset,
-form {
-    position: relative;
-    z-index: 1;
-}
-
-section h2 {
+.card h2 {
     color: #4b0082;
     margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.card p {
+    margin-bottom: 20px;
+    color: #555;
+    position: relative;
+    z-index: 2;
 }
 
 /* ======== FORMULÁRIOS ======== */
@@ -129,34 +192,48 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    position: relative;
+    z-index: 2;
 }
 
 fieldset {
     border: 2px solid #4b0082;
     border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
     background-color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    z-index: 2;
 }
 
 legend {
     font-weight: bold;
     color: #ff6600;
     padding: 0 10px;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 2;
 }
 
 label {
+    display: block;
     font-weight: 500;
     margin-bottom: 5px;
+    color: #333;
+    position: relative;
+    z-index: 2;
 }
 
 input,
 select {
-    padding: 8px 10px;
+    width: 100%;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
-    width: 100%;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
 }
 
 input:focus,
@@ -164,7 +241,7 @@ select:focus {
     outline: 2px solid #4b0082;
 }
 
-/* ======== BOTÕES ======== */
+/* ======== BOTÕES ORIGINAIS ======== */
 button[type="submit"],
 button[type="reset"] {
     display: inline-block;
@@ -174,9 +251,11 @@ button[type="reset"] {
     font-weight: bold;
     border-radius: 8px;
     transition: 0.3s;
-    text-transform: uppercase;
     border: none;
     cursor: pointer;
+    margin-right: 10px;
+    position: relative;
+    z-index: 2;
 }
 
 button[type="submit"]:hover,
@@ -233,22 +312,49 @@ footer {
 
 /* ======== RESPONSIVIDADE ======== */
 @media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    nav {
+        width: 100%;
+        display: none;
+    }
+
+    #menu-checkbox:checked~nav {
+        display: block;
+    }
+
     nav ul {
         flex-direction: column;
         gap: 10px;
+        margin-top: 20px;
     }
 
-    section {
-        padding: 15px 20px;
-    }
-
-    input,
-    select {
-        font-size: 0.95rem;
+    .nav-item:hover .dropdown-menu {
+        position: static;
+        display: block;
+        margin-top: 10px;
     }
 
     footer {
         flex-direction: column;
         text-align: center;
+        gap: 15px;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        text-align: center;
+        width: 100%;
     }
 }

@@ -12,17 +12,35 @@
 
 <body>
     <header>
-        <h1>Cadastro de Voluntário, Aluno e Doador</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projeto.html">Projeto</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>ONG SKATE SP</h1>
+
+            <input type="checkbox" id="menu-checkbox">
+            <label for="menu-checkbox" class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li class="nav-item">
+                        <a href="projeto.html">Projeto ▼</a>
+                        <div class="dropdown-menu">
+                            <a href="#">Skate Para Todos</a>
+                            <a href="#">Skate Para Elas</a>
+                            <a href="#">Skate Verde</a>
+                        </div>
+                    </li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main class="container">
+        <h1 class="page-title">Cadastro de Voluntário, Aluno e Doador</h1>
 
         <section class="card pequeno">
             <h2>Cadastro de Voluntário</h2>
