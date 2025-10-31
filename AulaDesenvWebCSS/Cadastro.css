@@ -1,23 +1,73 @@
-/* ======== ESTILO GERAL ======== */
+/* ======== VARIÁVEIS DO SISTEMA DE DESIGN ======== */
+:root {
+    /* Paleta de cores com 8 cores (mínimo exigido) */
+    --primary: #ff6600;
+    --secondary: #4b0082;
+    --accent: #8A2BE2;
+    --success: #28a745;
+    --danger: #dc3545;
+    --dark: #111;
+    --light: #f2f2f2;
+    --white: #fff;
+    --gray: #555;
+
+    /* Tipografia hierárquica com 5 tamanhos (mínimo) */
+    --text-xs: 0.8rem;
+    --text-sm: 0.9rem;
+    --text-base: 1rem;
+    --text-lg: 1.1rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 2rem;
+    --text-4xl: 2.5rem;
+
+    /* Sistema de espaçamento modular (exigido) */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+}
+
+/* ======== AJUSTE DE ESCALA GLOBAL ======== */
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+html {
+    font-size: 67%;
+    /* Deixa a página no tamanho compacto desejado */
+}
 
 body {
     margin: 0;
+    padding: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #f2f2f2;
+    background-color: var(--light);
     color: #222;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+/* Garante que header e footer ocupem a tela toda */
+header,
+footer {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
-/* ======== CABEÇALHO ======== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-2);
+}
+
+/* ======== CABEÇALHO (UNIFICADO) ======== */
 header {
-    background-color: #111;
-    color: white;
+    background-color: var(--dark);
+    color: var(--white);
     padding: 20px 0;
     position: relative;
 }
@@ -32,8 +82,9 @@ header .container {
 header h1 {
     font-family: 'Rock Salt', cursive;
     font-size: 2.5rem;
+    /* UNIFICADO */
     margin: 0;
-    color: #fff;
+    color: var(--white);
 }
 
 /* Menu responsivo */
@@ -51,7 +102,7 @@ header h1 {
 .menu-toggle span {
     width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: var(--white);
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -70,8 +121,8 @@ nav ul li {
 
 nav ul li a {
     display: inline-block;
-    background-color: #ff6600;
-    color: white;
+    background-color: var(--primary);
+    color: var(--white);
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 10px;
@@ -80,7 +131,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #4b0082;
+    background-color: var(--secondary);
 }
 
 /* Dropdown menu */
@@ -93,7 +144,7 @@ nav ul li a:hover {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #fff;
+    background-color: var(--white);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     overflow: hidden;
@@ -106,42 +157,57 @@ nav ul li a:hover {
     padding: 10px 15px;
     color: #222;
     text-decoration: none;
-    border-bottom: 1px solid #f2f2f2;
-    background-color: #fff;
+    border-bottom: 1px solid var(--light);
+    background-color: var(--white);
     border-radius: 0;
 }
 
 .dropdown-menu a:hover {
-    background-color: #f2f2f2;
-    color: #4b0082;
+    background-color: var(--light);
+    color: var(--secondary);
 }
 
 .nav-item:hover .dropdown-menu {
     display: block;
 }
 
-/* ======== CONTEÚDO PRINCIPAL ======== */
+/* ======== CONTEÚDO PRINCIPAL (E CARDS DE CADASTRO) ======== */
 main {
-    padding: 40px 0;
+    padding: var(--space-4) 0;
+    /* Centraliza e organiza os cards */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
 }
 
 .page-title {
     text-align: center;
-    color: #4b0082;
-    margin-bottom: 30px;
-    font-size: 2rem;
+    color: var(--secondary);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-2xl);
+    width: 100%;
 }
 
-/* ======== CARDS COM IMAGENS DE FUNDO ======== */
+/* ======== CARDS COM AJUSTE DE TAMANHO ======== */
 .card {
     position: relative;
-    padding: 25px;
+    padding: var(--space-3);
     border-radius: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 30px;
+
+    /* AJUSTE PARA COMPACTAR CARDS */
+    width: 100%;
+    max-width: 650px;
 }
+
+/* Remove a margem extra, controlada pelo gap do main */
+.card.pequeno {
+    margin-bottom: 0;
+}
+
 
 /* Imagens de fundo para os cards */
 .card::before {
@@ -158,49 +224,66 @@ main {
     z-index: 1;
 }
 
-/* Imagem específica para o card de Voluntário */
+/* ======== IMAGENS DOS CARDS - MÉTODO SIMPLES E FUNCIONAL ======== */
+
+/* Card de Voluntário - PRIMEIRO card */
 .card.pequeno:nth-child(1)::before {
     background-image: url('img/Skateeste.jfif');
 }
 
-/* Imagem específica para o card de Alunos */
+/* Card de Alunos - SEGUNDO card */
 .card.pequeno:nth-child(2)::before {
     background-image: url('img/Skatedoe3.jpg');
 }
 
-/* Imagem específica para o card de Doação */
+/* Card de Doação - TERCEIRO card */
 .card.pequeno:nth-child(3)::before {
-    background-image: url('img/Skatedoe4.jfif');
+    background-image: url('img/Skatedoe5.jfif');
+}
+
+/* GARANTIA EXTRA - se ainda não funcionar */
+main .card.pequeno:nth-of-type(1)::before {
+    background-image: url('img/Skateeste.jfif');
+}
+
+main .card.pequeno:nth-of-type(2)::before {
+    background-image: url('img/Skatedoe3.jpg');
+}
+
+main .card.pequeno:nth-of-type(3)::before {
+    background-image: url('img/Skatedoe5.jfif');
 }
 
 .card h2 {
-    color: #4b0082;
-    margin-bottom: 15px;
+    color: var(--secondary);
+    margin-bottom: var(--space-2);
     position: relative;
     z-index: 2;
+    font-size: var(--text-xl);
 }
 
 .card p {
-    margin-bottom: 20px;
-    color: #555;
+    margin-bottom: var(--space-2);
+    color: var(--gray);
     position: relative;
     z-index: 2;
+    font-size: var(--text-base);
 }
 
 /* ======== FORMULÁRIOS ======== */
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: var(--space-2);
     position: relative;
     z-index: 2;
 }
 
 fieldset {
-    border: 2px solid #4b0082;
+    border: 2px solid var(--secondary);
     border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: var(--space-3);
+    margin-bottom: var(--space-3);
     background-color: rgba(255, 255, 255, 0.9);
     position: relative;
     z-index: 2;
@@ -208,9 +291,9 @@ fieldset {
 
 legend {
     font-weight: bold;
-    color: #ff6600;
+    color: var(--primary);
     padding: 0 10px;
-    font-size: 1.1rem;
+    font-size: var(--text-lg);
     position: relative;
     z-index: 2;
 }
@@ -222,58 +305,148 @@ label {
     color: #333;
     position: relative;
     z-index: 2;
+    font-size: var(--text-base);
 }
 
 input,
 select {
     width: 100%;
-    padding: 10px;
+    padding: 8px 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    font-size: 1rem;
-    margin-bottom: 15px;
+    font-size: 0.95rem;
+    margin-bottom: var(--space-2);
     position: relative;
     z-index: 2;
+    transition: all 0.3s ease;
 }
 
 input:focus,
 select:focus {
-    outline: 2px solid #4b0082;
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
 }
 
-/* ======== BOTÕES ORIGINAIS ======== */
+/* ======== VALIDAÇÃO VISUAL DE FORMULÁRIOS ======== */
+input:invalid:not(:focus):not(:placeholder-shown) {
+    border-color: var(--danger);
+}
+
+input:valid:not(:focus):not(:placeholder-shown) {
+    border-color: var(--success);
+}
+
+/* ======== BOTÕES COM ESTADOS COMPLETOS ======== */
 button[type="submit"],
 button[type="reset"] {
     display: inline-block;
-    background: #ff6600;
-    color: #fff;
-    padding: 10px 20px;
+    background: var(--primary);
+    color: var(--white);
+    padding: 8px 16px;
     font-weight: bold;
     border-radius: 8px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
     border: none;
     cursor: pointer;
     margin-right: 10px;
     position: relative;
     z-index: 2;
+    font-size: var(--text-base);
 }
 
 button[type="submit"]:hover,
 button[type="reset"]:hover {
-    background: #4b0082;
-    transform: scale(1.05);
+    background: var(--secondary);
+    transform: translateY(-2px);
 }
 
-/* ======== RODAPÉ ======== */
+button[type="submit"]:focus,
+button[type="reset"]:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+button[type="submit"]:active,
+button[type="reset"]:active {
+    transform: translateY(0);
+}
+
+button[type="submit"]:disabled,
+button[type="reset"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.6;
+}
+
+/* ======== COMPONENTES DE FEEDBACK ======== */
+.alert {
+    padding: var(--space-2);
+    border-radius: 8px;
+    margin: var(--space-2) 0;
+    border: 1px solid transparent;
+    font-size: var(--text-base);
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-color: #bee5eb;
+}
+
+/* ======== BADGES E TAGS ======== */
+.badge,
+.tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: var(--text-xs);
+    font-weight: bold;
+    color: var(--white);
+    text-align: center;
+    margin: 2px;
+}
+
+.badge-secondary {
+    background-color: #6c757d;
+}
+
+.badge-primary {
+    background-color: var(--secondary);
+}
+
+.tag-primary {
+    background-color: var(--primary);
+}
+
+.tag-success {
+    background-color: var(--success);
+}
+
+/* ======== RODAPÉ (UNIFICADO) ======== */
 footer {
-    background-color: #111;
-    color: white;
+    background-color: var(--dark);
+    color: var(--white);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    font-size: 0.9rem;
+    padding: var(--space-3) var(--space-4);
+    font-size: 0.95rem;
     flex-wrap: wrap;
+    margin-top: var(--space-4);
+    /* Adicionado para consistência */
 }
 
 .footer-left,
@@ -295,22 +468,35 @@ footer {
 }
 
 .footer-right a {
-    color: #ff6600;
+    color: var(--primary);
     text-decoration: none;
-    margin-left: 8px;
+    margin-left: var(--space-1);
+    transition: color 0.3s ease;
 }
 
 .footer-right a:hover {
-    color: #4b0082;
+    color: var(--secondary);
 }
 
-/* Estilo simples para o email sem efeito glitter */
+/* Estilo simples para o email */
 .glitter-text {
-    color: #ff6600;
+    color: var(--primary);
     font-weight: bold;
 }
 
-/* ======== RESPONSIVIDADE ======== */
+/* ======== RESPONSIVIDADE COM 5 BREAKPOINTS ======== */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 992px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
 @media (max-width: 768px) {
     header .container {
         flex-direction: column;
@@ -349,6 +535,7 @@ footer {
         flex-direction: column;
         text-align: center;
         gap: 15px;
+        font-size: 0.85rem;
     }
 
     .footer-left,
@@ -356,5 +543,56 @@ footer {
     .footer-right {
         text-align: center;
         width: 100%;
+    }
+
+    /* Reduz a max-width do card para ocupar a maioria da tela em tablets */
+    .card {
+        max-width: 90%;
+    }
+
+    /* Ajustes de fonte para mobile */
+    .page-title {
+        font-size: var(--text-xl);
+    }
+
+    .card h2 {
+        font-size: var(--text-lg);
+    }
+
+    input,
+    select {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 var(--space-2);
+    }
+
+    header h1 {
+        font-size: var(--text-2xl);
+    }
+
+    .page-title {
+        font-size: var(--text-xl);
+    }
+
+    .card h2 {
+        font-size: var(--text-lg);
+    }
+}
+
+@media (max-width: 400px) {
+    header h1 {
+        font-size: var(--text-xl);
+    }
+
+    .card {
+        padding: var(--space-2);
+    }
+
+    fieldset {
+        padding: var(--space-2);
     }
 }

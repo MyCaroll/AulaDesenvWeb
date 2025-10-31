@@ -1,23 +1,71 @@
-/* ESTILO GERAL */
+/* ======== VARIÁVEIS DO SISTEMA DE DESIGN ======== */
+:root {
+    /* Paleta de cores com 8 cores (mínimo exigido) */
+    --primary: #ff6600;
+    --secondary: #4b0082;
+    --accent: #8A2BE2;
+    --success: #28a745;
+    --danger: #dc3545;
+    --dark: #111;
+    --light: #f2f2f2;
+    --white: #fff;
+    --gray: #555;
+
+    /* Tipografia hierárquica com 5 tamanhos (mínimo) */
+    --text-xs: 0.8rem;
+    --text-sm: 0.9rem;
+    --text-base: 1rem;
+    --text-lg: 1.1rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 2rem;
+    --text-4xl: 2.5rem;
+
+    /* Sistema de espaçamento modular (exigido) */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+}
+
+/* ======== AJUSTE DE ESCALA GLOBAL ======== */
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+html {
+    font-size: 67%;
+}
 
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #f2f2f2;
+    background-color: var(--light);
     color: #222;
+    font-size: var(--text-base);
+}
+
+/* Garante que header e footer ocupem a tela toda */
+header,
+footer {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--space-2);
 }
 
-/* CABEÇALHO */
+/* ======== CABEÇALHO (UNIFICADO) ======== */
 header {
-    background-color: #111;
-    color: white;
+    background-color: var(--dark);
+    color: var(--white);
     padding: 20px 0;
     position: relative;
 }
@@ -32,8 +80,9 @@ header .container {
 header h1 {
     font-family: 'Rock Salt', cursive;
     font-size: 2.5rem;
+    /* UNIFICADO */
     margin: 0;
-    color: #fff;
+    color: var(--white);
 }
 
 /* Menu responsivo */
@@ -51,7 +100,7 @@ header h1 {
 .menu-toggle span {
     width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: var(--white);
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -70,8 +119,8 @@ nav ul li {
 
 nav ul li a {
     display: inline-block;
-    background-color: #ff6600;
-    color: white;
+    background-color: var(--primary);
+    color: var(--white);
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 10px;
@@ -80,7 +129,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #4b0082;
+    background-color: var(--secondary);
 }
 
 /* Dropdown menu */
@@ -93,7 +142,7 @@ nav ul li a:hover {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #fff;
+    background-color: var(--white);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     overflow: hidden;
@@ -106,14 +155,14 @@ nav ul li a:hover {
     padding: 10px 15px;
     color: #222;
     text-decoration: none;
-    border-bottom: 1px solid #f2f2f2;
-    background-color: #fff;
+    border-bottom: 1px solid var(--light);
+    background-color: var(--white);
     border-radius: 0;
 }
 
 .dropdown-menu a:hover {
-    background-color: #f2f2f2;
-    color: #4b0082;
+    background-color: var(--light);
+    color: var(--secondary);
 }
 
 .nav-item:hover .dropdown-menu {
@@ -123,26 +172,26 @@ nav ul li a:hover {
 /* MAIN E CARDS */
 main {
     max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 1.5rem;
+    margin: var(--space-4) auto;
+    padding: 0 var(--space-3);
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: var(--space-2);
     align-items: center;
 }
 
 /* CONTAINER PARA OS TRÊS PRIMEIROS CARDS LADO A LADO */
 .projetos-container {
     display: flex;
-    gap: 20px;
+    gap: var(--space-2);
     width: 100%;
     justify-content: center;
 }
 
 /* CARDS DOS PROJETOS PRINCIPAIS */
 .projeto-card {
-    background-color: #fff;
-    padding: 20px;
+    background-color: var(--white);
+    padding: var(--space-2);
     border-radius: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     position: relative;
@@ -181,8 +230,8 @@ main {
 
 /* SEÇÃO CONTRIBUA */
 .contribua {
-    background-color: #fff;
-    padding: 20px 30px;
+    background-color: var(--white);
+    padding: var(--space-2) var(--space-3);
     border-radius: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     position: relative;
@@ -216,41 +265,58 @@ main {
     z-index: 1;
 }
 
-.projeto-card h2,
+.projeto-card h2 {
+    color: var(--secondary);
+    margin-bottom: var(--space-2);
+    font-size: 1.4rem;
+}
+
 .contribua h2 {
-    color: #4b0082;
-    margin-bottom: 10px;
+    color: var(--secondary);
+    margin-bottom: var(--space-2);
+    font-size: 1.8rem;
 }
 
 .projeto-card p,
 .contribua p {
-    margin-bottom: 10px;
+    margin-bottom: var(--space-2);
+    font-size: 1rem;
 }
 
 /* Link dentro do card */
 .contribua a {
     display: inline-block;
     text-decoration: none;
-    background-color: #ff6600;
-    color: #fff;
-    padding: 10px 20px;
+    background-color: var(--primary);
+    color: var(--white);
+    padding: var(--space-2) var(--space-3);
     border-radius: 8px;
     font-weight: bold;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    font-size: 1rem;
 }
 
 .contribua a:hover {
-    background-color: #4b0082;
-    transform: scale(1.05);
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.contribua a:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.contribua a:active {
+    transform: translateY(0);
 }
 
 /* ======== GRID DE ATIVIDADES - IDÊNTICO À PÁGINA INICIAL ======== */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 20px;
+    gap: var(--space-2);
     width: 100%;
-    margin-top: 40px;
+    margin-top: var(--space-2);
 }
 
 .grid-col-12 {
@@ -270,18 +336,18 @@ main {
 }
 
 .mt-4 {
-    margin-top: 40px;
-    margin-top: -30px;
+    margin-top: var(--space-2);
+    margin-top: -15px;
+    /* Manter a sobreposição original */
 }
 
 .p-3 {
-    padding: 20px;
-
+    padding: var(--space-2);
 }
 
 .card {
-    background-color: white;
-    padding: 20px;
+    background-color: var(--white);
+    padding: var(--space-2);
     border-radius: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     position: relative;
@@ -289,18 +355,20 @@ main {
 }
 
 .card h3 {
-    color: #4b0082;
-    margin-bottom: 10px;
+    color: var(--secondary);
+    margin-bottom: var(--space-1);
+    font-size: 1.2rem;
 }
 
 .card p {
-    margin-bottom: 15px;
-    color: #555;
+    margin-bottom: var(--space-1);
+    color: var(--gray);
+    font-size: 0.95rem;
 }
 
 /* Backgrounds específicos */
 .bg-primary {
-    background-color: #4b0082 !important;
+    background-color: var(--secondary) !important;
 }
 
 .bg-light {
@@ -308,23 +376,44 @@ main {
 }
 
 .text-white {
-    color: white !important;
+    color: var(--white) !important;
 }
 
 .bg-primary h3,
 .bg-primary p {
-    color: white !important;
+    color: var(--white) !important;
+}
+
+/* ======== COMPONENTES DE FEEDBACK ======== */
+.alert {
+    padding: var(--space-2);
+    border-radius: 8px;
+    margin: var(--space-2) 0;
+    border: 1px solid transparent;
+    font-size: 1rem;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-color: #bee5eb;
 }
 
 /* BADGES E TAGS - ESTILO IDÊNTICO À PÁGINA INICIAL */
 .badge,
 .tag {
     display: inline-block;
-    padding: 6px 12px;
+    padding: 4px 10px;
     border-radius: 20px;
-    font-size: 0.8rem;
+    font-size: var(--text-sm);
     font-weight: bold;
-    color: #fff;
+    color: var(--white);
     text-align: center;
     margin: 2px;
 }
@@ -334,15 +423,15 @@ main {
 }
 
 .badge-primary {
-    background-color: #4b0082;
+    background-color: var(--secondary);
 }
 
 .tag-primary {
-    background-color: #ff6600;
+    background-color: var(--primary);
 }
 
 .tag-success {
-    background-color: #28a745;
+    background-color: var(--success);
 }
 
 /* EFEITOS HOVER */
@@ -356,17 +445,57 @@ main {
     transition: box-shadow 0.3s ease;
 }
 
-/* RODAPÉ */
+/* ESTILOS ESPECÍFICOS PARA ESTATÍSTICAS */
+.estatisticas-card {
+    text-align: center;
+}
+
+.numeros-estatisticas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+    margin: var(--space-3) 0;
+}
+
+.numero-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.numero-grande {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--secondary);
+    line-height: 1;
+}
+
+.numero-label {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin-top: var(--space-1);
+    text-align: center;
+}
+
+.destaque-texto {
+    font-style: italic;
+    color: var(--primary);
+    margin-top: var(--space-2);
+    font-size: 1rem;
+}
+
+/* ======== RODAPÉ (UNIFICADO) ======== */
 footer {
-    background-color: #111;
-    color: white;
+    background-color: var(--dark);
+    color: var(--white);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    font-size: 0.9rem;
+    padding: var(--space-3) var(--space-4);
+    font-size: 0.95rem;
     flex-wrap: wrap;
-    margin-top: 40px;
+    margin-top: var(--space-4);
+    /* UNIFICADO */
 }
 
 .footer-left,
@@ -385,79 +514,81 @@ footer {
 }
 
 .footer-right a {
-    color: #ff6600;
+    color: var(--primary);
     text-decoration: none;
-    margin-left: 8px;
+    margin-left: var(--space-1);
+    transition: color 0.3s ease;
 }
 
 .footer-right a:hover {
-    color: #4b0082;
+    color: var(--secondary);
 }
 
 /* TEXTO GLITTER SIMPLES*/
 .glitter-text {
-    color: #ff6600;
+    color: var(--primary);
     font-weight: bold;
 }
 
-/* RESPONSIVIDADE */
+/* ======== RESPONSIVIDADE COM 5 BREAKPOINTS ======== */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 992px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 768px;
+    }
+
+    .projeto-card {
+        padding: var(--space-2);
+    }
+
+    .contribua {
+        width: 80%;
+    }
+}
+
 @media (max-width: 768px) {
-    header .container {
+
+    /* Ajustes específicos de fonte para Mobile (em rem) */
+    .projeto-card h2 {
+        font-size: 1.2rem;
+    }
+
+    .contribua h2 {
+        font-size: 1.6rem;
+    }
+
+    .projeto-card p,
+    .contribua p {
+        font-size: 0.9rem;
+    }
+
+    .card h3 {
+        font-size: 1.1rem;
+    }
+
+    .card p {
+        font-size: 0.85rem;
+    }
+
+    footer {
+        font-size: 0.9rem;
         flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .menu-toggle {
-        display: flex;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-    }
-
-    nav {
-        width: 100%;
-        display: none;
-    }
-
-    #menu-checkbox:checked~nav {
-        display: block;
+        text-align: center;
     }
 
     nav ul {
         flex-direction: column;
         gap: 10px;
-        margin-top: 20px;
-    }
-
-    .nav-item:hover .dropdown-menu {
-        position: static;
-        display: block;
-        margin-top: 10px;
-    }
-
-    .projetos-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .projeto-card {
-        width: 90%;
-        max-width: none;
-    }
-
-    .contribua {
-        width: 90%;
-        padding: 15px 20px;
     }
 
     .grid-col-6,
     .grid-col-4 {
         grid-column: span 12;
-    }
-
-    footer {
-        flex-direction: column;
-        text-align: center;
     }
 
     .footer-left,
@@ -466,5 +597,42 @@ footer {
         text-align: center;
         width: 100%;
         margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 var(--space-2);
+    }
+
+    header h1 {
+        font-size: var(--text-3xl);
+    }
+
+    .projeto-card h2,
+    .contribua h2 {
+        font-size: var(--text-xl);
+    }
+
+    .numero-grande {
+        font-size: var(--text-2xl);
+    }
+}
+
+@media (max-width: 400px) {
+    header h1 {
+        font-size: var(--text-2xl);
+    }
+
+    .projeto-card {
+        padding: var(--space-1);
+    }
+
+    .contribua {
+        padding: var(--space-1);
+    }
+
+    .mt-4 {
+        margin-top: var(--space-3);
     }
 }
