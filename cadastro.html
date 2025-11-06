@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="cadastro-page">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - ONG Skate SP</title>
-    <link rel="stylesheet" href="AulaDesenvWebCSS/cadastro.css">
+
+    <!-- CSS GLOBAL -->
+    <link rel="stylesheet" href="AulaDesenvWebCSS/style.css">
+    <link rel="stylesheet" href="AulaDesenvWebCSS/Cadastro.css">
+
+    <!-- FONTES -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=Roboto:wght@300;400;700&display=swap"
         rel="stylesheet">
 </head>
 
-<body>
+
+<body class="pagina-cadastro">
     <header>
         <div class="container">
             <h1>ONG SKATE SP</h1>
@@ -39,85 +45,91 @@
         </div>
     </header>
 
-    <main class="container">
+    <main>
         <h1 class="page-title">Cadastro de Voluntário, Aluno e Doador</h1>
 
-        <section class="card pequeno">
+        <!-- Card Voluntário -->
+        <div class="card pequeno">
             <h2>Cadastro de Voluntário</h2>
             <p>Se você quer compartilhar sua paixão pelo skate como instrutor, ou colaborar de outras formas - junte-se
                 a nós!</p>
-            <form>
+
+            <form id="form-voluntario">
                 <fieldset>
                     <legend>Informações Pessoais</legend>
 
-                    <label for="nome">Nome Completo:</label>
-                    <input type="text" id="nome" name="nome" required>
+                    <label for="nomeVoluntario">Nome Completo *</label>
+                    <input type="text" id="nomeVoluntario" name="nome" required>
 
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="emailVoluntario">E-mail *</label>
+                    <input type="email" id="emailVoluntario" name="email" required>
 
-                    <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                    <label for="cpfVoluntario">CPF *</label>
+                    <input type="text" id="cpfVoluntario" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
                         placeholder="000.000.000-00" required>
 
-                    <label for="telefone">Telefone:</label>
-                    <input type="tel" id="telefone" name="telefone" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
+                    <label for="telefoneVoluntario">Telefone *</label>
+                    <input type="tel" id="telefoneVoluntario" name="telefone" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
                         placeholder="(11) 91234-5678" required>
 
-                    <label for="dataNasc">Data de Nascimento:</label>
-                    <input type="date" id="dataNasc" name="dataNasc" required>
+                    <label for="dataNascVoluntario">Data de Nascimento *</label>
+                    <input type="date" id="dataNascVoluntario" name="dataNasc" required>
                 </fieldset>
 
                 <fieldset>
                     <legend>Endereço</legend>
 
-                    <label for="rua">Rua:</label>
-                    <input type="text" id="rua" name="rua" required>
+                    <label for="ruaVoluntario">Rua *</label>
+                    <input type="text" id="ruaVoluntario" name="rua" required>
 
-                    <label for="numero">Nº:</label>
-                    <input type="text" id="numero" name="numero" required>
+                    <label for="numeroVoluntario">Nº *</label>
+                    <input type="text" id="numeroVoluntario" name="numero" required>
 
-                    <label for="complemento">Complemento:</label>
-                    <input type="text" id="complemento" name="complemento">
+                    <label for="complementoVoluntario">Complemento</label>
+                    <input type="text" id="complementoVoluntario" name="complemento">
 
-                    <label for="cep">CEP:</label>
-                    <input type="text" id="cep" name="cep" pattern="\d{5}-\d{3}" placeholder="00000-000" required>
+                    <label for="cepVoluntario">CEP *</label>
+                    <input type="text" id="cepVoluntario" name="cep" pattern="\d{5}-\d{3}" placeholder="00000-000"
+                        required>
 
-                    <label for="cidade">Cidade:</label>
-                    <input type="text" id="cidade" name="cidade" required>
+                    <label for="cidadeVoluntario">Cidade *</label>
+                    <input type="text" id="cidadeVoluntario" name="cidade" required>
 
-                    <label for="estado">Estado:</label>
-                    <input type="text" id="estado" name="estado" required>
+                    <label for="estadoVoluntario">Estado *</label>
+                    <input type="text" id="estadoVoluntario" name="estado" required>
                 </fieldset>
 
-                <button type="submit">Enviar</button>
-                <button type="reset">Limpar</button>
+                <div class="botoes-formulario">
+                    <button type="submit">Enviar Cadastro</button>
+                    <button type="reset">Limpar</button>
+                </div>
             </form>
-        </section>
+        </div>
 
-        <section class="card pequeno">
+        <!-- Card Aluno -->
+        <div class="card pequeno">
             <h2>Cadastro de Alunos</h2>
             <p>Se você quer participar das aulas de skate da nossa ONG, cadastre-se!</p>
 
-            <form>
+            <form id="form-aluno">
                 <fieldset>
                     <legend>Informações do Aluno</legend>
 
-                    <label for="nomeAluno">Nome Completo:</label>
-                    <input type="text" id="nomeAluno" name="nomeAluno" required>
+                    <label for="nomeAluno">Nome Completo *</label>
+                    <input type="text" id="nomeAluno" name="nome" required>
 
-                    <label for="emailAluno">E-mail:</label>
-                    <input type="email" id="emailAluno" name="emailAluno" required>
+                    <label for="emailAluno">E-mail *</label>
+                    <input type="email" id="emailAluno" name="email" required>
 
-                    <label for="telefoneAluno">Telefone:</label>
-                    <input type="tel" id="telefoneAluno" name="telefoneAluno" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
+                    <label for="telefoneAluno">Telefone *</label>
+                    <input type="tel" id="telefoneAluno" name="telefone" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
                         placeholder="(11) 91234-5678" required>
 
-                    <label for="dataNascAluno">Data de Nascimento:</label>
-                    <input type="date" id="dataNascAluno" name="dataNascAluno" required>
+                    <label for="dataNascAluno">Data de Nascimento *</label>
+                    <input type="date" id="dataNascAluno" name="dataNasc" required>
 
-                    <label for="nivel">Nível de Habilidade no Skate:</label>
-                    <select id="nivel" name="nivel" required>
+                    <label for="nivelAluno">Nível de Habilidade no Skate *</label>
+                    <select id="nivelAluno" name="nivel" required>
                         <option value="">Selecione...</option>
                         <option value="iniciante">Iniciante</option>
                         <option value="intermediario">Intermediário</option>
@@ -128,50 +140,64 @@
                 <fieldset>
                     <legend>Endereço</legend>
 
-                    <label for="ruaAluno">Rua:</label>
-                    <input type="text" id="ruaAluno" name="ruaAluno" required>
+                    <label for="ruaAluno">Rua *</label>
+                    <input type="text" id="ruaAluno" name="rua" required>
 
-                    <label for="numeroAluno">Nº:</label>
-                    <input type="text" id="numeroAluno" name="numeroAluno" required>
+                    <label for="numeroAluno">Nº *</label>
+                    <input type="text" id="numeroAluno" name="numero" required>
 
-                    <label for="cepAluno">CEP:</label>
-                    <input type="text" id="cepAluno" name="cepAluno" pattern="\d{5}-\d{3}" placeholder="00000-000"
-                        required>
+                    <label for="cepAluno">CEP *</label>
+                    <input type="text" id="cepAluno" name="cep" pattern="\d{5}-\d{3}" placeholder="00000-000" required>
 
-                    <label for="cidadeAluno">Cidade:</label>
-                    <input type="text" id="cidadeAluno" name="cidadeAluno" required>
+                    <label for="cidadeAluno">Cidade *</label>
+                    <input type="text" id="cidadeAluno" name="cidade" required>
 
-                    <label for="estadoAluno">Estado:</label>
-                    <input type="text" id="estadoAluno" name="estadoAluno" required>
+                    <label for="estadoAluno">Estado *</label>
+                    <input type="text" id="estadoAluno" name="estado" required>
                 </fieldset>
 
-                <button type="submit">Enviar</button>
-                <button type="reset">Limpar</button>
+                <div class="botoes-formulario">
+                    <button type="submit">Enviar Cadastro</button>
+                    <button type="reset">Limpar</button>
+                </div>
             </form>
-        </section>
+        </div>
 
-        <section class="card pequeno">
+        <!-- Card Doador -->
+        <div class="card pequeno">
             <h2>Quer fazer uma doação?</h2>
-            <p>Preencha seus dados e entraremos em contato com você! </p>
+            <p>Preencha seus dados e entraremos em contato com você!</p>
 
-            <form>
+            <form id="form-doador">
                 <fieldset>
                     <legend>Informações do Doador</legend>
 
-                    <label for="nomeDoador">Nome:</label>
-                    <input type="text" id="nomeDoador" name="nomeDoador" required>
+                    <label for="nomeDoador">Nome Completo *</label>
+                    <input type="text" id="nomeDoador" name="nome" required>
 
-                    <label for="emailDoador">E-mail:</label>
-                    <input type="email" id="emailDoador" name="emailDoador" required>
+                    <label for="emailDoador">E-mail *</label>
+                    <input type="email" id="emailDoador" name="email" required>
 
-                    <label for="telefoneDoador">Telefone:</label>
-                    <input type="tel" id="telefoneDoador" name="telefoneDoador" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
+                    <label for="telefoneDoador">Telefone *</label>
+                    <input type="tel" id="telefoneDoador" name="telefone" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
                         placeholder="(11) 91234-5678" required>
+
+                    <label for="valorDoacao">Valor da Doação</label>
+                    <select id="valorDoacao" name="valor">
+                        <option value="">Selecione...</option>
+                        <option value="50">R$ 50,00</option>
+                        <option value="100">R$ 100,00</option>
+                        <option value="200">R$ 200,00</option>
+                        <option value="outro">Outro valor</option>
+                    </select>
                 </fieldset>
 
-                <button type="submit">Enviar</button>
+                <div class="botoes-formulario">
+                    <button type="submit">Enviar Cadastro</button>
+                    <button type="reset">Limpar</button>
+                </div>
             </form>
-        </section>
+        </div>
     </main>
 
     <footer>
@@ -187,6 +213,8 @@
             <a href="#">Instagram</a> | <a href="#">YouTube</a>
         </div>
     </footer>
+
+    <script type="module" src="AulaDesenvWebJS/main.js"></script>
 </body>
 
 </html>

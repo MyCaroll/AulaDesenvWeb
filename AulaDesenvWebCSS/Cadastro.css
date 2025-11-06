@@ -1,34 +1,4 @@
 /* ======== VARIÁVEIS DO SISTEMA DE DESIGN ======== */
-:root {
-    /* Paleta de cores com 8 cores (mínimo exigido) */
-    --primary: #ff6600;
-    --secondary: #4b0082;
-    --accent: #8A2BE2;
-    --success: #28a745;
-    --danger: #dc3545;
-    --dark: #111;
-    --light: #f2f2f2;
-    --white: #fff;
-    --gray: #555;
-
-    /* Tipografia hierárquica com 5 tamanhos (mínimo) */
-    --text-xs: 0.8rem;
-    --text-sm: 0.9rem;
-    --text-base: 1rem;
-    --text-lg: 1.1rem;
-    --text-xl: 1.25rem;
-    --text-2xl: 1.5rem;
-    --text-3xl: 2rem;
-    --text-4xl: 2.5rem;
-
-    /* Sistema de espaçamento modular (exigido) */
-    --space-1: 8px;
-    --space-2: 16px;
-    --space-3: 24px;
-    --space-4: 32px;
-    --space-5: 48px;
-    --space-6: 64px;
-}
 
 /* ======== AJUSTE DE ESCALA GLOBAL ======== */
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
@@ -44,24 +14,6 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--light);
     color: #222;
-}
-
-/* Garante que header e footer ocupem a tela toda */
-header,
-footer {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--space-2);
 }
 
 /* ======== CABEÇALHO (UNIFICADO) ======== */

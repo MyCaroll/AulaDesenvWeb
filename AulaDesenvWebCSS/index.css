@@ -1,0 +1,218 @@
+/* ======== LAYOUT PRINCIPAL ======== */
+/* ======== AJUSTE DE ESCALA GLOBAL ======== */
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+main {
+    margin-top: var(--space-4);
+}
+
+main>.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+    gap: var(--space-2);
+}
+
+/* ======== CARDS SUPERIORES (Missão, Visão, Valores e Sobre) ======== */
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-2);
+    width: 100%;
+    padding: var(--space-4) 0;
+}
+
+.cards-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    width: 45%;
+}
+
+.card {
+    background-color: var(--white);
+    padding: var(--space-2);
+    border-radius: 15px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card.pequeno {
+    padding: var(--space-2);
+}
+
+.card.grande {
+    width: 55%;
+    padding: var(--space-3);
+}
+
+/* ======== IMAGENS DE FUNDO ======== */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+    z-index: 0;
+}
+
+.card.pequeno:nth-child(1)::before {
+    background-image: url('img/Skatemissao.png');
+}
+
+.card.pequeno:nth-child(2)::before {
+    background-image: url('img/Skatevisao.png');
+}
+
+.card.pequeno:nth-child(3)::before {
+    background-image: url('img/Skatevalores.png');
+}
+
+.card.grande::before {
+    background-image: url('img/skategalera.jpg');
+}
+
+/* ======== CONTEÚDO DOS CARDS ======== */
+.card h2,
+.card h3,
+.card p,
+.card strong {
+    position: relative;
+    z-index: 1;
+}
+
+.card h2 {
+    color: var(--secondary);
+    margin-bottom: 8px;
+    font-size: var(--text-xl);
+}
+
+.card.grande h2 {
+    font-size: var(--text-2xl);
+}
+
+/* ======== SEÇÃO DE ATIVIDADES (GRID INFERIOR) ======== */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--space-3);
+    width: 100%;
+    margin-top: var(--space-4);
+}
+
+.grid-col-12 {
+    grid-column: span 12;
+}
+
+.grid-col-6 {
+    grid-column: span 6;
+}
+
+.bg-primary {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.bg-light {
+    background-color: #f9f9f9;
+}
+
+.text-white {
+    color: var(--white);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.p-3 {
+    padding: var(--space-3);
+}
+
+.mt-4 {
+    margin-top: var(--space-4);
+}
+
+/* ======== VOLUNTARIADO ======== */
+.voluntariado-linha {
+    display: flex;
+    gap: var(--space-3);
+    margin: var(--space-3) 0;
+    text-align: left;
+}
+
+.voluntariado-coluna {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.vaga-item {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+.vaga-item h4 {
+    color: var(--secondary);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.vaga-desc {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.vaga-requisito {
+    color: var(--success);
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+/* ======== EFEITOS ======== */
+.hover-lift:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 768px) {
+    .cards-container {
+        flex-direction: column;
+        padding: var(--space-2) 0;
+    }
+
+    .cards-info,
+    .card.grande {
+        width: 100%;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+    }
+
+    .voluntariado-linha {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+}

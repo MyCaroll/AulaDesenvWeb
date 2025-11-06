@@ -5,12 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONG Skate SP - Início</title>
+
+    <!-- ======== CSS GLOBAL ======== -->
     <link rel="stylesheet" href="AulaDesenvWebCSS/style.css">
+    <link rel="stylesheet" href="AulaDesenvWebCSS/index.css">
+
+    <!-- ======== FONTES ======== -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=Roboto:wght@300;400;700&display=swap"
         rel="stylesheet">
 </head>
 
+
+
 <body>
+
+    <body class="pagina-inicio"></body>
     <header>
         <div class="container">
             <h1>ONG SKATE SP</h1>
@@ -123,10 +132,10 @@
             <div class="grid-col-6">
                 <div class="card bg-light p-3 text-center hover-lift h-100">
                     <h3>Campeonatos</h3>
-                    <div class="proximos-eventos">
+                    <div class="proximos-eventos" style="display: flex; flex-direction: column; gap: 20px;">
                         <div class="evento-item">
                             <h4>🏆 Campeonato Verão 2026</h4>
-                            <p class="evento-data">📅 15 de Março - 14h</p>
+                            <p class="evento-data">📅 15 de Janeiro - 14h</p>
                             <p class="evento-categorias">Categorias: Iniciante, Intermediário, Avançado</p>
                         </div>
 
@@ -144,16 +153,16 @@
                     <h3>Workshops</h3>
                     <p>Aprenda manobras novas</p>
 
-                    <div class="proximos-workshops">
+                    <div class="proximos-workshops" style="display: flex; flex-direction: column; gap: 20px;">
                         <div class="workshop-item">
                             <h4>🛹 Workshop Iniciante</h4>
-                            <p class="workshop-data">📅 20 de Dezembro - 9h às 12h</p>
+                            <p class="workshop-data">📅 20 de Dezembro/2025 - 9h às 12h</p>
                             <p class="workshop-desc">Manobras básicas e equilíbrio</p>
                         </div>
 
                         <div class="workshop-item">
                             <h4>🔥 Workshop Intermediário</h4>
-                            <p class="workshop-data">📅 27 de Janeiro - 14h às 17h</p>
+                            <p class="workshop-data">📅 27 de Novembro/2025 - 14h às 17h</p>
                             <p class="workshop-desc">Ollies, flips e técnicas avançadas</p>
                         </div>
                     </div>
@@ -200,6 +209,52 @@
             <a href="#">Instagram</a> | <a href="#">YouTube</a>
         </div>
     </footer>
+
+    <!-- ✅ SCRIPT ESPECÍFICO PARA INDEX.HTML -->
+    <script>
+        // CÓDIGO QUE FUNCIONA APENAS NA PÁGINA INICIAL
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('Página inicial da ONG Skate SP carregada!');
+
+            // Adicionar interação aos cards
+            const cards = document.querySelectorAll('.hover-lift');
+            cards.forEach(card => {
+                card.addEventListener('click', function () {
+                    console.log('Card clicado:', this.querySelector('h2, h3').textContent);
+                });
+            });
+
+            // Contador de visitas (simulado)
+            let visitas = localStorage.getItem('visitas_index') || 0;
+            visitas++;
+            localStorage.setItem('visitas_index', visitas);
+            console.log('Esta página foi carregada', visitas, 'vezes');
+
+            // Menu mobile
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function () {
+                    console.log('Menu mobile aberto/fechado');
+                });
+            }
+
+            // Menu dropdown
+            const dropdownItems = document.querySelectorAll('.nav-item');
+            dropdownItems.forEach(item => {
+                item.addEventListener('mouseenter', function () {
+                    console.log('Menu dropdown aberto');
+                });
+                item.addEventListener('mouseleave', function () {
+                    console.log('Menu dropdown fechado');
+                });
+            });
+        });
+    </script>
+
+    <!-- ✅ SCRIPT PRINCIPAL DO SPA -->
+    <script type="module" src="AulaDesenvWebJS/main.js"></script>
+
+
 </body>
 
 </html>
