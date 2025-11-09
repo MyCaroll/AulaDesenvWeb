@@ -13,6 +13,21 @@
     <!-- ======== FONTES ======== -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=Roboto:wght@300;400;700&display=swap"
         rel="stylesheet">
+
+    <!-- SPA - APENAS ACRESCENTADO -->
+    <style>
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .nav-active {
+            background-color: var(--secondary) !important;
+        }
+    </style>
 </head>
 
 
@@ -20,7 +35,6 @@
     <header>
         <div class="container">
             <h1>ONG SKATE SP</h1>
-
 
             <input type="checkbox" id="menu-checkbox">
             <label for="menu-checkbox" class="menu-toggle" aria-label="Abrir menu">
@@ -31,13 +45,16 @@
 
             <nav>
                 <ul>
-                    <li><a href="/index.html">Início</a></li>
+                    <!-- LINKS NORMAIS - NÃO ALTERADO -->
+                    <li><a href="index.html">Início</a></li>
+
+                    <!-- SPA - APENAS ACRESCENTADO data-page -->
                     <li class="nav-item">
-                        <a href="projeto.html">Projeto ▼</a>
+                        <a href="#projetos" class="nav-link" data-page="projetos">Projetos ▼</a>
                         <div class="dropdown-menu">
-                            <a href="#">Skate Para Todos</a>
-                            <a href="#">Skate Para Elas</a>
-                            <a href="#">Skate Verde</a>
+                            <a href="#skate-todos" class="nav-link" data-page="skate-todos">Skate Para Todos</a>
+                            <a href="#skate-elas" class="nav-link" data-page="skate-elas">Skate Para Elas</a>
+                            <a href="#skate-verde" class="nav-link" data-page="skate-verde">Skate Verde</a>
                         </div>
                     </li>
                     <li><a href="cadastro.html">Cadastro</a></li>
@@ -46,97 +63,169 @@
         </div>
     </header>
 
-    <main>
-        <div class="projetos-container">
-            <section class="projeto-card projeto1 hover-lift">
-                <h2>Skate para Todos</h2>
-                <p>Mais do que ensinar manobras, este projeto usa o skate como ferramenta de transformação. Sobre quatro
-                    rodas, crianças e jovens constroem autoconfiança, respeito e trabalho em equipe. A iniciativa quebra
-                    barreiras sociais, criando um ambiente inclusivo onde todos são bem-vindos para crescer e se
-                    desenvolver juntos.</p>
-            </section>
+    <!-- SPA - APENAS ACRESCENTADO -->
+    <main id="main-content">
+        <!-- PÁGINA PROJETOS - SEU CONTEÚDO ORIGINAL -->
+        <section id="projetos" class="page active">
+            <div class="projetos-container">
+                <section class="projeto-card projeto1 hover-lift">
+                    <h2>Skate para Todos</h2>
+                    <p>Mais do que ensinar manobras, este projeto usa o skate como ferramenta de transformação. Sobre
+                        quatro
+                        rodas, crianças e jovens constroem autoconfiança, respeito e trabalho em equipe. A iniciativa
+                        quebra
+                        barreiras sociais, criando um ambiente inclusivo onde todos são bem-vindos para crescer e se
+                        desenvolver juntos.</p>
+                </section>
 
-            <section class="projeto-card projeto2 hover-lift">
-                <h2>Skate para Elas</h2>
-                <p>Este programa cria um espaço de acolhimento e incentivo exclusivo para meninas e mulheres no skate.
-                    Através da prática esportiva, ele fortalece a autoestima, a sororidade e a coragem para ocuparem
-                    qualquer
-                    lugar que desejarem. Sobre o shape, elas quebram não apenas as barreiras do equilíbrio, mas também
-                    os
-                    preconceitos que limitam seu potencial.</p>
-            </section>
+                <section class="projeto-card projeto2 hover-lift">
+                    <h2>Skate para Elas</h2>
+                    <p>Este programa cria um espaço de acolhimento e incentivo exclusivo para meninas e mulheres no
+                        skate.
+                        Através da prática esportiva, ele fortalece a autoestima, a sororidade e a coragem para ocuparem
+                        qualquer
+                        lugar que desejarem. Sobre o shape, elas quebram não apenas as barreiras do equilíbrio, mas
+                        também
+                        os
+                        preconceitos que limitam seu potencial.</p>
+                </section>
 
-            <section class="projeto-card projeto3 hover-lift">
-                <h2>Skate Verde</h2>
-                <p>Esta iniciativa integra a cultura do skate a um compromisso com o futuro do planeta. Os skatistas se
-                    tornam agentes ativos, participando de ações de sustentabilidade que preservam e revigoram os
-                    espaços
-                    públicos da comunidade. A mensagem é clara: a adrenalina do esporte e o cuidado com o meio ambiente
-                    andam
-                    juntos, criando um legado de skate verde para as próximas gerações.</p>
-            </section>
-        </div>
-
-        <section class="grid-container mt-4">
-            <div class="grid-col-4">
-                <div class="card estatisticas-card hover-lift">
-                    <h3>📊 Impacto do Skate para Todos</h3>
-                    <div class="numeros-estatisticas">
-                        <div class="numero-item"><span class="numero-grande">1.250</span><span
-                                class="numero-label">Crianças Atendidas</span></div>
-                        <div class="numero-item"><span class="numero-grande">850</span><span class="numero-label">Jovens
-                                Inscritos</span></div>
-                        <div class="numero-item"><span class="numero-grande">320</span><span
-                                class="numero-label">Adultos Participantes</span></div>
-                        <div class="numero-item"><span class="numero-grande">2.420</span><span
-                                class="numero-label">Total de Vidas Transformadas</span></div>
-                    </div>
-                    <p class="destaque-texto">Mais que skate: é sobre acreditar que todos podem fazer parte!</p>
-                </div>
+                <section class="projeto-card projeto3 hover-lift">
+                    <h2>Skate Verde</h2>
+                    <p>Esta iniciativa integra a cultura do skate a um compromisso com o futuro do planeta. Os skatistas
+                        se
+                        tornam agentes ativos, participando de ações de sustentabilidade que preservam e revigoram os
+                        espaços
+                        públicos da comunidade. A mensagem é clara: a adrenalina do esporte e o cuidado com o meio
+                        ambiente
+                        andam
+                        juntos, criando um legado de skate verde para as próximas gerações.</p>
+                </section>
             </div>
 
-            <div class="grid-col-4">
-                <div class="card estatisticas-card hover-lift">
-                    <h3>👩‍👧‍👦 Impacto do Skate para Elas</h3>
-                    <div class="numeros-estatisticas">
-                        <div class="numero-item"><span class="numero-grande">180</span><span
-                                class="numero-label">Mulheres 30+ Inscritas</span></div>
-                        <div class="numero-item"><span class="numero-grande">95</span><span
-                                class="numero-label">Mulheres 40+ Participantes</span></div>
-                        <div class="numero-item"><span class="numero-grande">65</span><span class="numero-label">Mães
-                                que praticam com os filhos</span></div>
-                        <div class="numero-item"><span class="numero-grande">340</span><span class="numero-label">Total
-                                de Mulheres Empoderadas</span></div>
+            <section class="grid-container mt-4">
+                <div class="grid-col-4">
+                    <div class="card estatisticas-card hover-lift">
+                        <h3>📊 Impacto do Skate para Todos</h3>
+                        <div class="numeros-estatisticas">
+                            <div class="numero-item"><span class="numero-grande">1.250</span><span
+                                    class="numero-label">Crianças Atendidas</span></div>
+                            <div class="numero-item"><span class="numero-grande">850</span><span
+                                    class="numero-label">Jovens
+                                    Inscritos</span></div>
+                            <div class="numero-item"><span class="numero-grande">320</span><span
+                                    class="numero-label">Adultos Participantes</span></div>
+                            <div class="numero-item"><span class="numero-grande">2.420</span><span
+                                    class="numero-label">Total de Vidas Transformadas</span></div>
+                        </div>
+                        <p class="destaque-texto">Mais que skate: é sobre acreditar que todos podem fazer parte!</p>
                     </div>
-                    <p class="destaque-texto">Mulheres descobrindo a alegria do skate, muitas vezes junto com seus
-                        filhos!</p>
                 </div>
-            </div>
 
-            <div class="grid-col-4">
-                <div class="card estatisticas-card hover-lift">
-                    <h3>🌱 Impacto do Skate Verde</h3>
-                    <div class="numeros-estatisticas">
-                        <div class="numero-item"><span class="numero-grande">850</span><span
-                                class="numero-label">Árvores Plantadas</span></div>
-                        <div class="numero-item"><span class="numero-grande">45</span><span
-                                class="numero-label">Toneladas de Lixo Recolhidas</span></div>
-                        <div class="numero-item"><span class="numero-grande">28</span><span class="numero-label">Espaços
-                                Públicos Revitalizados</span></div>
-                        <div class="numero-item"><span class="numero-grande">1.200</span><span
-                                class="numero-label">Skatistas Conscientizados</span></div>
+                <div class="grid-col-4">
+                    <div class="card estatisticas-card hover-lift">
+                        <h3>👩‍👧‍👦 Impacto do Skate para Elas</h3>
+                        <div class="numeros-estatisticas">
+                            <div class="numero-item"><span class="numero-grande">180</span><span
+                                    class="numero-label">Mulheres 30+ Inscritas</span></div>
+                            <div class="numero-item"><span class="numero-grande">95</span><span
+                                    class="numero-label">Mulheres 40+ Participantes</span></div>
+                            <div class="numero-item"><span class="numero-grande">65</span><span
+                                    class="numero-label">Mães
+                                    que praticam com os filhos</span></div>
+                            <div class="numero-item"><span class="numero-grande">340</span><span
+                                    class="numero-label">Total
+                                    de Mulheres Empoderadas</span></div>
+                        </div>
+                        <p class="destaque-texto">Mulheres descobrindo a alegria do skate, muitas vezes junto com seus
+                            filhos!</p>
                     </div>
-                    <p class="destaque-texto">Unindo a paixão pelo skate com o cuidado com o meio ambiente!</p>
+                </div>
+
+                <div class="grid-col-4">
+                    <div class="card estatisticas-card hover-lift">
+                        <h3>🌱 Impacto do Skate Verde</h3>
+                        <div class="numeros-estatisticas">
+                            <div class="numero-item"><span class="numero-grande">850</span><span
+                                    class="numero-label">Árvores Plantadas</span></div>
+                            <div class="numero-item"><span class="numero-grande">45</span><span
+                                    class="numero-label">Toneladas de Lixo Recolhidas</span></div>
+                            <div class="numero-item"><span class="numero-grande">28</span><span
+                                    class="numero-label">Espaços
+                                    Públicos Revitalizados</span></div>
+                            <div class="numero-item"><span class="numero-grande">1.200</span><span
+                                    class="numero-label">Skatistas Conscientizados</span></div>
+                        </div>
+                        <p class="destaque-texto">Unindo a paixão pelo skate com o cuidado com o meio ambiente!</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contribua">
+                <h2>Quer contribuir?</h2>
+                <p>Junte-se a nós como voluntário ou apoiador e faça parte desta transformação. Sua energia e recursos
+                    são a
+                    base que permite levar os benefícios do skate para cada vez mais vidas, criando um futuro com mais
+                    oportunidades e inclusão.</p>
+                <p><a href="cadastro.html">Cadastre-se</a></p>
+            </section>
+        </section>
+
+        <!-- PÁGINA SKATE TODOS - SPA ACRESCENTADO -->
+        <section id="skate-todos" class="page">
+            <div class="container">
+                <h1>Skate Para Todos - Detalhes</h1>
+                <div class="card grande">
+                    <h2>Projeto de Inclusão Social</h2>
+                    <p>O Skate Para Todos é nosso projeto principal, focando na inclusão de crianças e jovens de
+                        comunidades carentes através do skate.</p>
+                    <h3>Atividades:</h3>
+                    <ul>
+                        <li>Aulas gratuitas de skate</li>
+                        <li>Workshops educacionais</li>
+                        <li>Eventos comunitários</li>
+                        <li>Acompanhamento escolar</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section class="contribua">
-            <h2>Quer contribuir?</h2>
-            <p>Junte-se a nós como voluntário ou apoiador e faça parte desta transformação. Sua energia e recursos são a
-                base que permite levar os benefícios do skate para cada vez mais vidas, criando um futuro com mais
-                oportunidades e inclusão.</p>
-            <p><a href="cadastro.html">Cadastre-se</a></p>
+        <!-- PÁGINA SKATE ELAS - SPA ACRESCENTADO -->
+        <section id="skate-elas" class="page">
+            <div class="container">
+                <h1>Skate Para Elas - Detalhes</h1>
+                <div class="card grande">
+                    <h2>Empoderamento Feminino</h2>
+                    <p>Espaço seguro e acolhedor para mulheres e meninas descobrirem o skate e se fortalecerem através
+                        do esporte.</p>
+                    <h3>Atividades:</h3>
+                    <ul>
+                        <li>Aulas exclusivas para mulheres</li>
+                        <li>Workshops de autoestima</li>
+                        <li>Encontros de sororidade</li>
+                        <li>Eventos femininos</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PÁGINA SKATE VERDE - SPA ACRESCENTADO -->
+        <section id="skate-verde" class="page">
+            <div class="container">
+                <h1>Skate Verde - Detalhes</h1>
+                <div class="card grande">
+                    <h2>Sustentabilidade e Skate</h2>
+                    <p>Unindo a paixão pelo skate com a conscientização ambiental e ações de preservação do meio
+                        ambiente.</p>
+                    <h3>Atividades:</h3>
+                    <ul>
+                        <li>Mutirões de limpeza</li>
+                        <li>Oficinas de reciclagem</li>
+                        <li>Plantação de árvores</li>
+                        <li>Educação ambiental</li>
+                    </ul>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -154,8 +243,33 @@
         </div>
     </footer>
 
-    <!-- ✅ SCRIPT ESPECÍFICO DA PÁGINA -->
+    <!-- ✅ SCRIPT ESPECÍFICO DA PÁGINA - NÃO ALTERADO -->
     <script src="../AulaDesenvWebJS/projeto.js"></script>
+
+    <!-- SPA - APENAS ACRESCENTADO -->
+    <script>
+        // SPA SIMPLES
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                // Esconde todas as páginas
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+
+                // Mostra página clicada
+                const pageId = link.getAttribute('data-page');
+                document.getElementById(pageId).classList.add('active');
+
+                // Destaca link ativo
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('nav-active'));
+                link.classList.add('nav-active');
+
+                console.log('SPA Projetos: Navegando para', pageId);
+            });
+        });
+    </script>
 </body>
 
 </html>
