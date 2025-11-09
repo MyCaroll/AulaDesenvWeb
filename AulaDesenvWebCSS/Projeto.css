@@ -21,6 +21,7 @@ header {
     color: var(--white);
     padding: 20px 0;
     position: relative;
+    z-index: 10;
 }
 
 header .container {
@@ -33,7 +34,6 @@ header .container {
 header h1 {
     font-family: 'Rock Salt', cursive;
     font-size: 2.5rem;
-    /* UNIFICADO */
     margin: 0;
     color: var(--white);
 }
@@ -48,6 +48,7 @@ header h1 {
     flex-direction: column;
     cursor: pointer;
     padding: 5px;
+    z-index: 1000;
 }
 
 .menu-toggle span {
@@ -56,6 +57,7 @@ header h1 {
     background-color: var(--white);
     margin: 3px 0;
     transition: 0.3s;
+    border-radius: 2px;
 }
 
 nav ul {
@@ -85,7 +87,7 @@ nav ul li a:hover {
     background-color: var(--secondary);
 }
 
-/* Dropdown menu */
+/* Dropdown menu - ESTILO IDÊNTICO AO CADASTRO.CSS */
 .nav-item {
     position: relative;
 }
@@ -268,7 +270,6 @@ main {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: var(--space-4);
-    /* Aumenta o espaçamento vertical e horizontal */
     width: 100%;
     margin-top: var(--space-3);
     margin-bottom: var(--space-4);
@@ -292,7 +293,6 @@ main {
 
 .mt-4 {
     margin-top: var(--space-3);
-    /* remove o valor negativo */
 }
 
 .p-3 {
@@ -308,7 +308,6 @@ main {
     position: relative;
     overflow: hidden;
     margin-bottom: var(--space-4);
-    /* adiciona espaço entre as linhas de cards */
 }
 
 .card h3 {
@@ -322,7 +321,6 @@ main {
     color: var(--gray);
     font-size: 0.95rem;
 }
-
 
 /* Backgrounds específicos */
 .bg-primary {
@@ -453,7 +451,6 @@ footer {
     font-size: 0.95rem;
     flex-wrap: wrap;
     margin-top: var(--space-4);
-    /* UNIFICADO */
 }
 
 .footer-left,
@@ -511,6 +508,36 @@ footer {
 
 @media (max-width: 768px) {
 
+    /* MENU HAMBURGUER - MOSTRAR OS 3 RISQUINHOS */
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    nav {
+        width: 100%;
+        display: none;
+    }
+
+    #menu-checkbox:checked~nav {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    /* DROPDOWN NO MOBILE - IGUAL AO CADASTRO.CSS */
+    .nav-item:hover .dropdown-menu {
+        position: static;
+        display: block;
+        margin-top: 10px;
+    }
+
     /* Ajustes específicos de fonte para Mobile (em rem) */
     .projeto-card h2 {
         font-size: 1.2rem;
@@ -537,11 +564,6 @@ footer {
         font-size: 0.9rem;
         flex-direction: column;
         text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
     }
 
     .grid-col-6,

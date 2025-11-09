@@ -22,6 +22,7 @@ header {
     color: var(--white);
     padding: 20px 0;
     position: relative;
+    z-index: 10;
 }
 
 header .container {

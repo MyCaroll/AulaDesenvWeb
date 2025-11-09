@@ -215,4 +215,11 @@ main>.container {
         flex-direction: column;
         gap: var(--space-2);
     }
+
+    /* DROPDOWN NO MOBILE - IGUAL AO CADASTRO.CSS */
+    .nav-item:hover .dropdown-menu {
+        position: static;
+        display: block;
+        margin-top: 10px;
+    }
 }
