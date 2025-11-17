@@ -6,15 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro - ONG Skate SP</title>
 
-    <!-- CSS GLOBAL -->
     <link rel="stylesheet" href="AulaDesenvWebCSS/style.css?v=1.0">
     <link rel="stylesheet" href="AulaDesenvWebCSS/Cadastro.css?v=1.0">
 
-    <!-- FONTES -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=Roboto:wght@300;400;700&display=swap"
         rel="stylesheet">
 
-    <!-- SPA - APENAS ACRESCENTADO -->
     <style>
         .page {
             display: none;
@@ -25,6 +22,7 @@
         }
 
         .nav-active {
+            /* Como o menu de cadastro não é SPA, esta classe não é usada, mas mantida por consistência */
             background-color: var(--secondary) !important;
         }
     </style>
@@ -45,16 +43,14 @@
 
             <nav>
                 <ul>
-                    <!-- LINKS NORMAIS - NÃO ALTERADO -->
                     <li><a href="index.html">Início</a></li>
 
-                    <!-- SPA - APENAS ACRESCENTADO data-page -->
                     <li class="nav-item">
-                        <a href="#projetos" class="nav-link" data-page="projetos">Projetos ▼</a>
+                        <a href="projeto.html" class="nav-link">Projetos ▼</a>
                         <div class="dropdown-menu">
-                            <a href="#skate-todos" class="nav-link" data-page="skate-todos">Skate Para Todos</a>
-                            <a href="#skate-elas" class="nav-link" data-page="skate-elas">Skate Para Elas</a>
-                            <a href="#skate-verde" class="nav-link" data-page="skate-verde">Skate Verde</a>
+                            <a href="projeto.html#skate-todos" class="nav-link">Skate Para Todos</a>
+                            <a href="projeto.html#skate-elas" class="nav-link">Skate Para Elas</a>
+                            <a href="projeto.html#skate-verde" class="nav-link">Skate Verde</a>
                         </div>
                     </li>
                     <li><a href="cadastro.html">Cadastro</a></li>
@@ -63,13 +59,10 @@
         </div>
     </header>
 
-    <!-- SPA - APENAS ACRESCENTADO -->
     <main id="main-content">
-        <!-- PÁGINA CADASTROS - SEU CONTEÚDO ORIGINAL -->
         <section id="cadastros" class="page active">
             <h1 class="page-title">Cadastro de Voluntário, Aluno e Doador</h1>
 
-            <!-- Card Voluntário -->
             <div class="card pequeno">
                 <h2>Cadastro de Voluntário</h2>
                 <p>Se você quer compartilhar sua paixão pelo skate como instrutor, ou colaborar de outras formas -
@@ -128,7 +121,6 @@
                 </form>
             </div>
 
-            <!-- Card Aluno -->
             <div class="card pequeno">
                 <h2>Cadastro de Alunos</h2>
                 <p>Se você quer participar das aulas de skate da nossa ONG, cadastre-se!</p>
@@ -186,7 +178,6 @@
                 </form>
             </div>
 
-            <!-- Card Doador -->
             <div class="card pequeno">
                 <h2>Quer fazer uma doação?</h2>
                 <p>Preencha seus dados e entraremos em contato com você!</p>
@@ -223,131 +214,6 @@
             </div>
         </section>
 
-        <!-- PÁGINA VOLUNTÁRIO - SPA ACRESCENTADO -->
-        <section id="voluntario" class="page">
-            <div class="container">
-                <h1>Cadastro de Voluntário</h1>
-                <div class="card grande">
-                    <h2>Seja um Voluntário</h2>
-                    <p>Junte-se à nossa equipe de voluntários e ajude a transformar vidas através do skate!</p>
-
-                    <!-- Formulário do voluntário movido para cá -->
-                    <form id="form-voluntario-spa">
-                        <fieldset>
-                            <legend>Informações Pessoais</legend>
-
-                            <label for="nomeVoluntarioSpa">Nome Completo *</label>
-                            <input type="text" id="nomeVoluntarioSpa" name="nome" required>
-
-                            <label for="emailVoluntarioSpa">E-mail *</label>
-                            <input type="email" id="emailVoluntarioSpa" name="email" required>
-
-                            <label for="cpfVoluntarioSpa">CPF *</label>
-                            <input type="text" id="cpfVoluntarioSpa" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-                                placeholder="000.000.000-00" required>
-
-                            <label for="telefoneVoluntarioSpa">Telefone *</label>
-                            <input type="tel" id="telefoneVoluntarioSpa" name="telefone"
-                                pattern="\(\d{2}\)\s?\d{4,5}-\d{4}" placeholder="(11) 91234-5678" required>
-
-                            <label for="dataNascVoluntarioSpa">Data de Nascimento *</label>
-                            <input type="date" id="dataNascVoluntarioSpa" name="dataNasc" required>
-                        </fieldset>
-
-                        <div class="botoes-formulario">
-                            <button type="submit">Enviar Cadastro</button>
-                            <button type="reset">Limpar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- PÁGINA ALUNO - SPA ACRESCENTADO -->
-        <section id="aluno" class="page">
-            <div class="container">
-                <h1>Cadastro de Aluno</h1>
-                <div class="card grande">
-                    <h2>Seja Nosso Aluno</h2>
-                    <p>Participe das nossas aulas de skate e faça parte dessa comunidade incrível!</p>
-
-                    <!-- Formulário do aluno movido para cá -->
-                    <form id="form-aluno-spa">
-                        <fieldset>
-                            <legend>Informações do Aluno</legend>
-
-                            <label for="nomeAlunoSpa">Nome Completo *</label>
-                            <input type="text" id="nomeAlunoSpa" name="nome" required>
-
-                            <label for="emailAlunoSpa">E-mail *</label>
-                            <input type="email" id="emailAlunoSpa" name="email" required>
-
-                            <label for="telefoneAlunoSpa">Telefone *</label>
-                            <input type="tel" id="telefoneAlunoSpa" name="telefone" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
-                                placeholder="(11) 91234-5678" required>
-
-                            <label for="dataNascAlunoSpa">Data de Nascimento *</label>
-                            <input type="date" id="dataNascAlunoSpa" name="dataNasc" required>
-
-                            <label for="nivelAlunoSpa">Nível de Habilidade no Skate *</label>
-                            <select id="nivelAlunoSpa" name="nivel" required>
-                                <option value="">Selecione...</option>
-                                <option value="iniciante">Iniciante</option>
-                                <option value="intermediario">Intermediário</option>
-                                <option value="avancado">Avançado</option>
-                            </select>
-                        </fieldset>
-
-                        <div class="botoes-formulario">
-                            <button type="submit">Enviar Cadastro</button>
-                            <button type="reset">Limpar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- PÁGINA DOADOR - SPA ACRESCENTADO -->
-        <section id="doador" class="page">
-            <div class="container">
-                <h1>Cadastro de Doador</h1>
-                <div class="card grande">
-                    <h2>Faça uma Doação</h2>
-                    <p>Sua contribuição ajuda a manter nossos projetos e transformar mais vidas!</p>
-
-                    <!-- Formulário do doador movido para cá -->
-                    <form id="form-doador-spa">
-                        <fieldset>
-                            <legend>Informações do Doador</legend>
-
-                            <label for="nomeDoadorSpa">Nome Completo *</label>
-                            <input type="text" id="nomeDoadorSpa" name="nome" required>
-
-                            <label for="emailDoadorSpa">E-mail *</label>
-                            <input type="email" id="emailDoadorSpa" name="email" required>
-
-                            <label for="telefoneDoadorSpa">Telefone *</label>
-                            <input type="tel" id="telefoneDoadorSpa" name="telefone" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
-                                placeholder="(11) 91234-5678" required>
-
-                            <label for="valorDoacaoSpa">Valor da Doação</label>
-                            <select id="valorDoacaoSpa" name="valor">
-                                <option value="">Selecione...</option>
-                                <option value="50">R$ 50,00</option>
-                                <option value="100">R$ 100,00</option>
-                                <option value="200">R$ 200,00</option>
-                                <option value="outro">Outro valor</option>
-                            </select>
-                        </fieldset>
-
-                        <div class="botoes-formulario">
-                            <button type="submit">Enviar Cadastro</button>
-                            <button type="reset">Limpar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer>
@@ -366,31 +232,7 @@
 
     <script type="module" src="AulaDesenvWebJS/main.js"></script>
 
-    <!-- SPA - APENAS ACRESCENTADO -->
     <script>
-        // SPA SIMPLES
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-
-                // Esconde todas as páginas
-                document.querySelectorAll('.page').forEach(page => {
-                    page.classList.remove('active');
-                });
-
-                // Mostra página clicada
-                const pageId = link.getAttribute('data-page');
-                document.getElementById(pageId).classList.add('active');
-
-                // Destaca link ativo
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('nav-active'));
-                link.classList.add('nav-active');
-
-                console.log('SPA Cadastro: Navegando para', pageId);
-            });
-        });
-
-        // Validação dos formulários SPA
         document.querySelectorAll('form').forEach(form => {
             form.addEventListener('submit', function (e) {
                 e.preventDefault();

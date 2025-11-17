@@ -6,15 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início - ONG Skate SP</title>
 
-    <!-- ======== CSS GLOBAL ======== -->
     <link rel="stylesheet" href="AulaDesenvWebCSS/style.css?v=1.0">
     <link rel="stylesheet" href="AulaDesenvWebCSS/index.css?v=1.0">
 
-    <!-- ======== FONTES ======== -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=Roboto:wght@300;400;700&display=swap"
         rel="stylesheet">
 
-    <!-- SPA - APENAS ACRESCENTADO -->
     <style>
         .page {
             display: none;
@@ -44,16 +41,14 @@
 
             <nav>
                 <ul>
-                    <!-- LINKS NORMAIS - NÃO ALTERADO -->
                     <li><a href="index.html">Início</a></li>
 
-                    <!-- SPA - APENAS ACRESCENTADO data-page -->
                     <li class="nav-item">
-                        <a href="#projetos" class="nav-link" data-page="projetos">Projetos ▼</a>
+                        <a href="projeto.html" class="nav-link">Projetos ▼</a>
                         <div class="dropdown-menu">
-                            <a href="#skate-todos" class="nav-link" data-page="skate-todos">Skate Para Todos</a>
-                            <a href="#skate-elas" class="nav-link" data-page="skate-elas">Skate Para Elas</a>
-                            <a href="#skate-verde" class="nav-link" data-page="skate-verde">Skate Verde</a>
+                            <a href="projeto.html#skate-todos" class="nav-link">Skate Para Todos</a>
+                            <a href="projeto.html#skate-elas" class="nav-link">Skate Para Elas</a>
+                            <a href="projeto.html#skate-verde" class="nav-link">Skate Verde</a>
                         </div>
                     </li>
                     <li><a href="cadastro.html">Cadastro</a></li>
@@ -62,12 +57,9 @@
         </div>
     </header>
 
-    <!-- SPA - APENAS ACRESCENTADO -->
     <main id="main-content">
-        <!-- PÁGINA INICIAL - SEU CONTEÚDO ORIGINAL -->
         <section id="inicio" class="page active">
             <div class="container">
-                <!-- TODO SEU CONTEÚDO ORIGINAL - NÃO ALTERADO -->
                 <div class="cards-container">
                     <section class="cards-info">
                         <div class="card pequeno hover-lift">
@@ -234,7 +226,6 @@
             </div>
         </section>
 
-        <!-- PÁGINA SOBRE - SPA ACRESCENTADO -->
         <section id="sobre" class="page">
             <div class="container">
                 <h1>Sobre a ONG</h1>
@@ -265,9 +256,7 @@
         </div>
     </footer>
 
-    <!-- ✅ SCRIPT ESPECÍFICO PARA INDEX.HTML - NÃO ALTERADO -->
     <script>
-        // CÓDIGO QUE FUNCIONA APENAS NA PÁGINA INICIAL
         document.addEventListener('DOMContentLoaded', function () {
             console.log('Página inicial da ONG Skate SP carregada!');
 
@@ -302,31 +291,6 @@
                 item.addEventListener('mouseleave', function () {
                     console.log('Menu dropdown fechado');
                 });
-            });
-        });
-    </script>
-
-    <!-- SPA - APENAS ACRESCENTADO -->
-    <script>
-        // SPA SIMPLES
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-
-                // Esconde todas as páginas
-                document.querySelectorAll('.page').forEach(page => {
-                    page.classList.remove('active');
-                });
-
-                // Mostra página clicada
-                const pageId = link.getAttribute('data-page');
-                document.getElementById(pageId).classList.add('active');
-
-                // Destaca link ativo
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('nav-active'));
-                link.classList.add('nav-active');
-
-                console.log('SPA: Navegando para', pageId);
             });
         });
     </script>

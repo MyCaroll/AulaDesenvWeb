@@ -6,15 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos - ONG Skate SP</title>
 
-    <!-- ======== CSS GLOBAL ======== -->
     <link rel="stylesheet" href="AulaDesenvWebCSS/style.css?v=1.0">
     <link rel="stylesheet" href="AulaDesenvWebCSS/Projeto.css?v=1.0">
 
-    <!-- ======== FONTES ======== -->
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=Roboto:wght@300;400;700&display=swap"
         rel="stylesheet">
 
-    <!-- SPA - APENAS ACRESCENTADO -->
     <style>
         .page {
             display: none;
@@ -45,10 +42,8 @@
 
             <nav>
                 <ul>
-                    <!-- LINKS NORMAIS - NÃO ALTERADO -->
                     <li><a href="index.html">Início</a></li>
 
-                    <!-- SPA - APENAS ACRESCENTADO data-page -->
                     <li class="nav-item">
                         <a href="#projetos" class="nav-link" data-page="projetos">Projetos ▼</a>
                         <div class="dropdown-menu">
@@ -63,9 +58,7 @@
         </div>
     </header>
 
-    <!-- SPA - APENAS ACRESCENTADO -->
     <main id="main-content">
-        <!-- PÁGINA PROJETOS - SEU CONTEÚDO ORIGINAL -->
         <section id="projetos" class="page active">
             <div class="projetos-container">
                 <section class="projeto-card projeto1 hover-lift">
@@ -171,7 +164,6 @@
             </section>
         </section>
 
-        <!-- PÁGINA SKATE TODOS - SPA ACRESCENTADO -->
         <section id="skate-todos" class="page">
             <div class="container">
                 <h1>Skate Para Todos - Detalhes</h1>
@@ -190,7 +182,6 @@
             </div>
         </section>
 
-        <!-- PÁGINA SKATE ELAS - SPA ACRESCENTADO -->
         <section id="skate-elas" class="page">
             <div class="container">
                 <h1>Skate Para Elas - Detalhes</h1>
@@ -209,7 +200,6 @@
             </div>
         </section>
 
-        <!-- PÁGINA SKATE VERDE - SPA ACRESCENTADO -->
         <section id="skate-verde" class="page">
             <div class="container">
                 <h1>Skate Verde - Detalhes</h1>
@@ -243,29 +233,44 @@
         </div>
     </footer>
 
-    <!-- ✅ SCRIPT ESPECÍFICO DA PÁGINA - NÃO ALTERADO -->
     <script src="../AulaDesenvWebJS/projeto.js"></script>
 
-    <!-- SPA - APENAS ACRESCENTADO -->
     <script>
-        // SPA SIMPLES
+        // Função unificada para ativar uma página e destacar o link
+        function ativarPagina(pageId) {
+            // 1. Esconde todas as páginas
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // 2. Mostra a página alvo
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            // 3. Destaca o link ativo
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('nav-active'));
+            // Procura o link correspondente para adicionar o destaque
+            const activeLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('nav-active');
+            }
+        }
+
+        // 1. Inicialização FORÇADA: Garante que a página "projetos" esteja ativa ao carregar
+        // Usa 'load' para garantir que o CSS já foi processado, resolvendo o erro ao retornar de index/cadastro.
+        window.addEventListener('load', () => {
+            ativarPagina('projetos');
+            console.log('SPA Projetos: Inicialização Forçada para #projetos no LOAD.');
+        });
+
+        // 2. Comportamento SPA: Adiciona o listener para cliques nos links internos
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-
-                // Esconde todas as páginas
-                document.querySelectorAll('.page').forEach(page => {
-                    page.classList.remove('active');
-                });
-
-                // Mostra página clicada
                 const pageId = link.getAttribute('data-page');
-                document.getElementById(pageId).classList.add('active');
-
-                // Destaca link ativo
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('nav-active'));
-                link.classList.add('nav-active');
-
+                ativarPagina(pageId); // Usa a função unificada
                 console.log('SPA Projetos: Navegando para', pageId);
             });
         });

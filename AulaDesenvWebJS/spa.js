@@ -1,4 +1,36 @@
 // spa.js - SISTEMA SINGLE PAGE APPLICATION
+// CÓDIGO DE INICIALIZAÇÃO PARA GARANTIR QUE A PÁGINA PADRÃO APAREÇA E O DESTAQUE
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Garante que todas as páginas estejam ocultas
+    document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+    });
+
+    // 2. Força a exibição da página principal #projetos
+    const paginaPrincipal = document.getElementById('projetos');
+    if (paginaPrincipal) {
+        paginaPrincipal.classList.add('active');
+    }
+
+    // 3. Garante que o link 'Projetos' seja destacado (corrigido o loop forEach)
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('nav-active');
+        if (link.getAttribute('data-page') === 'projetos') {
+            link.classList.add('nav-active');
+        }
+    });
+
+    console.log('SPA Projetos: Inicialização Forçada para #projetos');
+});
+// =========================================================================
+
+// SPA SIMPLES (CÓDIGO EXISTENTE - sem alterações necessárias, mas verifique o fechamento)
+document.querySelectorAll('.nav-link').forEach(link => {
+    // ...
+    // Seu código existente aqui
+    // ...
+});
+
 class SPARouter {
     constructor() {
         this.routes = {
