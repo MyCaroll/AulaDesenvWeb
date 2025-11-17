@@ -13,6 +13,27 @@
         rel="stylesheet">
 
     <style>
+        /* CSS para esconder o texto de forma acessível */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Estilo para o indicador de campo obrigatório */
+        .required-indicator {
+            color: var(--primary);
+            /* Use a cor de destaque da sua ONG (ex: vermelho ou a primary/secondary) */
+            font-weight: bold;
+            margin-left: 2px;
+        }
+
         .page {
             display: none;
         }
@@ -22,7 +43,6 @@
         }
 
         .nav-active {
-            /* Como o menu de cadastro não é SPA, esta classe não é usada, mas mantida por consistência */
             background-color: var(--secondary) !important;
         }
     </style>
@@ -34,83 +54,95 @@
         <div class="container">
             <h1>ONG SKATE SP</h1>
 
-            <input type="checkbox" id="menu-checkbox">
-            <label for="menu-checkbox" class="menu-toggle" aria-label="Abrir menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+            <div class="header-controls">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
+                    <span class="icon">🌙</span>
+                </button>
 
-            <nav>
+                <input type="checkbox" id="menu-checkbox" class="sr-only">
+                <label for="menu-checkbox" class="menu-toggle" aria-label="Abrir menu de navegação">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+
+            <nav aria-label="Navegação Principal">
                 <ul>
                     <li><a href="index.html">Início</a></li>
 
-                    <li class="nav-item">
-                        <a href="projeto.html" class="nav-link">Projetos ▼</a>
-                        <div class="dropdown-menu">
+                    <li class="nav-item" role="none">
+                        <a href="projeto.html" class="nav-link dropdown-toggle" aria-haspopup="true"
+                            aria-expanded="false" role="button" id="projetos-dropdown-link">Projetos ▼</a>
+                        <div class="dropdown-menu" aria-labelledby="projetos-dropdown-link">
                             <a href="projeto.html#skate-todos" class="nav-link">Skate Para Todos</a>
                             <a href="projeto.html#skate-elas" class="nav-link">Skate Para Elas</a>
                             <a href="projeto.html#skate-verde" class="nav-link">Skate Verde</a>
                         </div>
                     </li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
+                    <li><a href="cadastro.html" aria-current="page">Cadastro</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main id="main-content">
-        <section id="cadastros" class="page active">
-            <h1 class="page-title">Cadastro de Voluntário, Aluno e Doador</h1>
+        <section id="cadastros" class="page active" aria-labelledby="titulo-principal-cadastro">
+            <h1 id="titulo-principal-cadastro" class="page-title">Cadastro de Voluntário, Aluno e Doador</h1>
 
             <div class="card pequeno">
-                <h2>Cadastro de Voluntário</h2>
+                <h3>Cadastro de Voluntário</h3>
                 <p>Se você quer compartilhar sua paixão pelo skate como instrutor, ou colaborar de outras formas -
-                    junte-se
-                    a nós!</p>
+                    junte-se a nós! **(Campos marcados com <span class="required-indicator">&#42;</span>
+                    são&nbsp;obrigatórios)**</p>
 
-                <form id="form-voluntario">
+                <form id="form-voluntario" aria-describedby="instrucao-obrigatorio">
+                    <p id="instrucao-obrigatorio" class="sr-only">Todos os campos marcados com um asterisco são
+                        obrigatórios.</p>
+
                     <fieldset>
                         <legend>Informações Pessoais</legend>
 
-                        <label for="nomeVoluntario">Nome Completo *</label>
+                        <label for="nomeVoluntario">Nome Completo <span class="required-indicator">*</span></label>
                         <input type="text" id="nomeVoluntario" name="nome" required>
 
-                        <label for="emailVoluntario">E-mail *</label>
+                        <label for="emailVoluntario">E-mail <span class="required-indicator">*</span></label>
                         <input type="email" id="emailVoluntario" name="email" required>
 
-                        <label for="cpfVoluntario">CPF *</label>
+                        <label for="cpfVoluntario">CPF <span class="required-indicator">*</span></label>
                         <input type="text" id="cpfVoluntario" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-                            placeholder="000.000.000-00" required>
+                            placeholder="000.000.000-00" required inputmode="numeric">
 
-                        <label for="telefoneVoluntario">Telefone *</label>
-                        <input type="tel" id="telefoneVoluntario" name="telefone" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
-                            placeholder="(11) 91234-5678" required>
+                        <label for="telefoneVoluntario">Telefone <span class="required-indicator">*</span></label>
+                        <input type="tel" id="telefoneVoluntario" name="telefone"
+                            pattern="\(\d{2}\)\s?\d{4,5}[-\s]?\d{4}" placeholder="(11) 91234-5678" required
+                            inputmode="tel">
 
-                        <label for="dataNascVoluntario">Data de Nascimento *</label>
+                        <label for="dataNascVoluntario">Data de Nascimento <span
+                                class="required-indicator">*</span></label>
                         <input type="date" id="dataNascVoluntario" name="dataNasc" required>
                     </fieldset>
 
                     <fieldset>
                         <legend>Endereço</legend>
 
-                        <label for="ruaVoluntario">Rua *</label>
+                        <label for="ruaVoluntario">Rua <span class="required-indicator">*</span></label>
                         <input type="text" id="ruaVoluntario" name="rua" required>
 
-                        <label for="numeroVoluntario">Nº *</label>
-                        <input type="text" id="numeroVoluntario" name="numero" required>
+                        <label for="numeroVoluntario">Nº <span class="required-indicator">*</span></label>
+                        <input type="text" id="numeroVoluntario" name="numero" required inputmode="numeric">
 
                         <label for="complementoVoluntario">Complemento</label>
                         <input type="text" id="complementoVoluntario" name="complemento">
 
-                        <label for="cepVoluntario">CEP *</label>
+                        <label for="cepVoluntario">CEP <span class="required-indicator">*</span></label>
                         <input type="text" id="cepVoluntario" name="cep" pattern="\d{5}-\d{3}" placeholder="00000-000"
-                            required>
+                            required inputmode="numeric">
 
-                        <label for="cidadeVoluntario">Cidade *</label>
+                        <label for="cidadeVoluntario">Cidade <span class="required-indicator">*</span></label>
                         <input type="text" id="cidadeVoluntario" name="cidade" required>
 
-                        <label for="estadoVoluntario">Estado *</label>
+                        <label for="estadoVoluntario">Estado <span class="required-indicator">*</span></label>
                         <input type="text" id="estadoVoluntario" name="estado" required>
                     </fieldset>
 
@@ -122,27 +154,29 @@
             </div>
 
             <div class="card pequeno">
-                <h2>Cadastro de Alunos</h2>
-                <p>Se você quer participar das aulas de skate da nossa ONG, cadastre-se!</p>
+                <h3>Cadastro de Alunos</h3>
+                <p>Se você quer participar das aulas de skate da nossa ONG, cadastre-se! **(Campos marcados com <span
+                        class="required-indicator">&#42;</span> são&nbsp;obrigatórios)**</p>
 
-                <form id="form-aluno">
+                <form id="form-aluno" aria-describedby="instrucao-obrigatorio">
                     <fieldset>
                         <legend>Informações do Aluno</legend>
 
-                        <label for="nomeAluno">Nome Completo *</label>
+                        <label for="nomeAluno">Nome Completo <span class="required-indicator">*</span></label>
                         <input type="text" id="nomeAluno" name="nome" required>
 
-                        <label for="emailAluno">E-mail *</label>
+                        <label for="emailAluno">E-mail <span class="required-indicator">*</span></label>
                         <input type="email" id="emailAluno" name="email" required>
 
-                        <label for="telefoneAluno">Telefone *</label>
-                        <input type="tel" id="telefoneAluno" name="telefone" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
-                            placeholder="(11) 91234-5678" required>
+                        <label for="telefoneAluno">Telefone <span class="required-indicator">*</span></label>
+                        <input type="tel" id="telefoneAluno" name="telefone" pattern="\(\d{2}\)\s?\d{4,5}[-\s]?\d{4}"
+                            placeholder="(11) 91234-5678" required inputmode="tel">
 
-                        <label for="dataNascAluno">Data de Nascimento *</label>
+                        <label for="dataNascAluno">Data de Nascimento <span class="required-indicator">*</span></label>
                         <input type="date" id="dataNascAluno" name="dataNasc" required>
 
-                        <label for="nivelAluno">Nível de Habilidade no Skate *</label>
+                        <label for="nivelAluno">Nível de Habilidade no Skate <span
+                                class="required-indicator">*</span></label>
                         <select id="nivelAluno" name="nivel" required>
                             <option value="">Selecione...</option>
                             <option value="iniciante">Iniciante</option>
@@ -154,20 +188,20 @@
                     <fieldset>
                         <legend>Endereço</legend>
 
-                        <label for="ruaAluno">Rua *</label>
+                        <label for="ruaAluno">Rua <span class="required-indicator">*</span></label>
                         <input type="text" id="ruaAluno" name="rua" required>
 
-                        <label for="numeroAluno">Nº *</label>
-                        <input type="text" id="numeroAluno" name="numero" required>
+                        <label for="numeroAluno">Nº <span class="required-indicator">*</span></label>
+                        <input type="text" id="numeroAluno" name="numero" required inputmode="numeric">
 
-                        <label for="cepAluno">CEP *</label>
+                        <label for="cepAluno">CEP <span class="required-indicator">*</span></label>
                         <input type="text" id="cepAluno" name="cep" pattern="\d{5}-\d{3}" placeholder="00000-000"
-                            required>
+                            required inputmode="numeric">
 
-                        <label for="cidadeAluno">Cidade *</label>
+                        <label for="cidadeAluno">Cidade <span class="required-indicator">*</span></label>
                         <input type="text" id="cidadeAluno" name="cidade" required>
 
-                        <label for="estadoAluno">Estado *</label>
+                        <label for="estadoAluno">Estado <span class="required-indicator">*</span></label>
                         <input type="text" id="estadoAluno" name="estado" required>
                     </fieldset>
 
@@ -179,24 +213,25 @@
             </div>
 
             <div class="card pequeno">
-                <h2>Quer fazer uma doação?</h2>
-                <p>Preencha seus dados e entraremos em contato com você!</p>
+                <h3>Quer fazer uma doação?</h3>
+                <p>Preencha seus dados e entraremos em contato com você! **(Campos marcados com <span
+                        class="required-indicator">&#42;</span> são&nbsp;obrigatórios)**</p>
 
-                <form id="form-doador">
+                <form id="form-doador" aria-describedby="instrucao-obrigatorio">
                     <fieldset>
                         <legend>Informações do Doador</legend>
 
-                        <label for="nomeDoador">Nome Completo *</label>
+                        <label for="nomeDoador">Nome Completo <span class="required-indicator">*</span></label>
                         <input type="text" id="nomeDoador" name="nome" required>
 
-                        <label for="emailDoador">E-mail *</label>
+                        <label for="emailDoador">E-mail <span class="required-indicator">*</span></label>
                         <input type="email" id="emailDoador" name="email" required>
 
-                        <label for="telefoneDoador">Telefone *</label>
-                        <input type="tel" id="telefoneDoador" name="telefone" pattern="\(\d{2}\)\s?\d{4,5}-\d{4}"
-                            placeholder="(11) 91234-5678" required>
+                        <label for="telefoneDoador">Telefone <span class="required-indicator">*</span></label>
+                        <input type="tel" id="telefoneDoador" name="telefone" pattern="\(\d{2}\)\s?\d{4,5}[-\s]?\d{4}"
+                            placeholder="(11) 91234-5678" required inputmode="tel">
 
-                        <label for="valorDoacao">Valor da Doação</label>
+                        <label for="valorDoacao">Valor da Doação (Sugestão)</label>
                         <select id="valorDoacao" name="valor">
                             <option value="">Selecione...</option>
                             <option value="50">R$ 50,00</option>
@@ -213,24 +248,29 @@
                 </form>
             </div>
         </section>
-
     </main>
 
     <footer>
-        <div class="footer-left">
-            <p>📍 Rua Ladeira, 82 - Vila Primavera - São Paulo/SP</p>
-            <p>📞 Telefone: <strong>(11) 99999-9999</strong></p>
-            <p>📧 Email: <strong class="glitter-text">skate@skate.com.br</strong></p>
+        <div class="footer-left" role="contentinfo">
+            <address>
+                <p>📍 Rua Ladeira, 82 - Vila Primavera - São Paulo/SP</p>
+                <p>📞 Telefone: <strong><a href="tel:+5511999999999" aria-label="Ligar para (11) 99999-9999">(11)
+                            99999-9999</a></strong></p>
+                <p>📧 Email: <strong class="glitter-text"><a href="mailto:skate@skate.com.br"
+                            aria-label="Enviar email para skate@skate.com.br">skate@skate.com.br</a></strong></p>
+            </address>
         </div>
         <div class="footer-center">
             <p>&copy; 2025 ONG Skate SP - Todos os direitos reservados</p>
         </div>
         <div class="footer-right">
-            <a href="#">Instagram</a> | <a href="#">YouTube</a>
+            <a href="#" aria-label="Instagram da ONG Skate SP">Instagram</a> | <a href="#"
+                aria-label="Canal da ONG Skate SP no YouTube">YouTube</a>
         </div>
     </footer>
 
-    <script type="module" src="AulaDesenvWebJS/main.js"></script>
+    <script src="AulaDesenvWebJS/main.js"></script>
+    <script src="AulaDesenvWebJS/cadastro.js"></script>
 
     <script>
         document.querySelectorAll('form').forEach(form => {
@@ -240,9 +280,61 @@
                     alert('✅ Cadastro enviado com sucesso! Entraremos em contato em breve.');
                     this.reset();
                 } else {
+                    // O navegador já trata a validação, mas este alerta serve como fallback visual.
                     alert('❌ Por favor, preencha todos os campos obrigatórios.');
                 }
             });
+        });
+
+        // Função para garantir que o link do dropdown receba foco no hover
+        const projetosDropdownLink = document.getElementById('projetos-dropdown-link');
+        if (projetosDropdownLink) {
+            projetosDropdownLink.addEventListener('focus', function () {
+                this.setAttribute('aria-expanded', 'true');
+            });
+            projetosDropdownLink.addEventListener('blur', function () {
+                // Pequeno delay para permitir o foco nos itens do menu
+                setTimeout(() => {
+                    if (!this.parentElement.querySelector('.dropdown-menu:focus-within')) {
+                        this.setAttribute('aria-expanded', 'false');
+                    }
+                }, 100);
+            });
+        }
+    </script>
+
+    <script>
+        // Sistema Claro/Escuro
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle?.querySelector('.icon');
+
+            // Verificar preferência salva ou do sistema
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (themeIcon) themeIcon.textContent = '☀️';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                if (themeIcon) themeIcon.textContent = '🌙';
+            }
+
+            // Alternar tema
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function () {
+                    const currentTheme = document.documentElement.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+
+                    if (themeIcon) {
+                        themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                    }
+                });
+            }
         });
     </script>
 </body>

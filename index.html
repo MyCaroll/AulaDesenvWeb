@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+
     <title>Início - ONG Skate SP</title>
 
     <link rel="stylesheet" href="AulaDesenvWebCSS/style.css?v=1.0">
@@ -24,6 +26,19 @@
         .nav-active {
             background-color: var(--secondary) !important;
         }
+
+        /* Adicionada a classe SR-ONLY, essencial para acessibilidade */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
     </style>
 </head>
 
@@ -32,20 +47,27 @@
         <div class="container">
             <h1>ONG SKATE SP</h1>
 
-            <input type="checkbox" id="menu-checkbox">
-            <label for="menu-checkbox" class="menu-toggle" aria-label="Abrir menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+            <div class="header-controls">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
+                    <span class="icon">🌙</span>
+                </button>
 
-            <nav>
+                <input type="checkbox" id="menu-checkbox" class="sr-only">
+                <label for="menu-checkbox" class="menu-toggle" aria-label="Abrir menu de navegação">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+
+            <nav aria-label="Navegação Principal">
                 <ul>
-                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html" aria-current="page">Início</a></li>
 
-                    <li class="nav-item">
-                        <a href="projeto.html" class="nav-link">Projetos ▼</a>
-                        <div class="dropdown-menu">
+                    <li class="nav-item" role="none">
+                        <a href="projeto.html" class="nav-link dropdown-toggle" aria-haspopup="true"
+                            aria-expanded="false" role="button" id="projetos-dropdown-link">Projetos ▼</a>
+                        <div class="dropdown-menu" aria-labelledby="projetos-dropdown-link">
                             <a href="projeto.html#skate-todos" class="nav-link">Skate Para Todos</a>
                             <a href="projeto.html#skate-elas" class="nav-link">Skate Para Elas</a>
                             <a href="projeto.html#skate-verde" class="nav-link">Skate Verde</a>
@@ -58,20 +80,22 @@
     </header>
 
     <main id="main-content">
-        <section id="inicio" class="page active">
+        <section id="inicio" class="page active" aria-labelledby="h2-inicio-titulo">
+            <h2 id="h2-inicio-titulo" class="sr-only">Conteúdo Principal e Informativo da ONG</h2>
             <div class="container">
                 <div class="cards-container">
+
                     <section class="cards-info">
-                        <div class="card pequeno hover-lift">
-                            <h2>Missão</h2>
+                        <div class="card pequeno hover-lift" aria-labelledby="missao-titulo">
+                            <h3 id="missao-titulo">Missão</h3>
                             <p>Transformar vidas através do skate, oferecendo às crianças e jovens não apenas um
                                 esporte,
                                 mas um caminho para sonhar, acreditar em si mesmas e construir futuros brilhantes. O
                                 skate como
                                 ferramenta de esperança e mudança.</p>
                         </div>
-                        <div class="card pequeno hover-lift">
-                            <h2>Visão</h2>
+                        <div class="card pequeno hover-lift" aria-labelledby="visao-titulo">
+                            <h3 id="visao-titulo">Visão</h3>
                             <p>Construir uma sociedade onde o acesso ao esporte e à cultura sejam direitos universais
                                 garantidos,
                                 não privilégios. Formar uma geração consciente de que a transformação social começa
@@ -81,8 +105,8 @@
                                 através do
                                 skate.</p>
                         </div>
-                        <div class="card pequeno hover-lift">
-                            <h2>Valores</h2>
+                        <div class="card pequeno hover-lift" aria-labelledby="valores-titulo">
+                            <h3 id="valores-titulo">Valores</h3>
                             <p><strong>🎯 Foco no Futuro</strong> - Cada criança é um mundo de possibilidades<br>
                                 <strong>🛹 Skate que Transforma</strong> - Mais que esporte, é educação para vida<br>
                                 <strong>🌟 Brilho nos Olhos</strong> - Acreditamos no potencial de cada um<br>
@@ -90,9 +114,8 @@
                             </p>
                         </div>
                     </section>
-
-                    <section class="card grande hover-lift">
-                        <h2>Sobre a ONG</h2>
+                    <section class="card grande hover-lift" aria-labelledby="sobre-ong-titulo">
+                        <h3 id="sobre-ong-titulo">Sobre a ONG</h3>
                         <p>A <strong>ONG Skate SP</strong> nasce da compreensão de que o skate é muito mais do que um
                             esporte -
                             é
@@ -149,78 +172,89 @@
                     </section>
                 </div>
 
-                <section class="grid-container mt-4">
+                <section class="grid-container mt-4" aria-labelledby="atividades-titulo">
+                    <h2 class="sr-only" id="atividades-titulo">Nossas Atividades</h2>
+
                     <div class="grid-col-12">
-                        <div class="card bg-primary text-white p-3 text-center hover-lift">
-                            <h2 class="grid-col-12 text-center">🛹 Nossas Atividades</h2>
-                            <h3>Aulas de Skate</h3>
+                        <article class="card bg-primary text-white p-3 text-center hover-lift"
+                            aria-labelledby="aulas-titulo">
+                            <h3 id="aulas-titulo">🛹 Aulas de Skate</h3>
                             <p class="subtitle">Para todas as idades e níveis</p>
-                            <p class="horario-aulas">Aulas todos os dias das 9:30 às 11h e das 14h às 15:30</p>
-                        </div>
+                            <p class="horario-aulas">Aulas todos os dias das <time datetime="09:30">9:30</time> às <time
+                                    datetime="11:00">11h</time> e das <time datetime="14:00">14h</time> às <time
+                                    datetime="15:30">15:30</time></p>
+                        </article>
                     </div>
 
                     <div class="grid-col-6">
-                        <div class="card bg-light p-3 text-center hover-lift h-100">
-                            <h3>Campeonatos</h3>
+                        <section class="card bg-light p-3 text-center hover-lift h-100"
+                            aria-labelledby="campeonatos-titulo">
+                            <h3 id="campeonatos-titulo">🏆 Campeonatos</h3>
                             <div class="proximos-eventos" style="display: flex; flex-direction: column; gap: 20px;">
-                                <div class="evento-item">
-                                    <h4>🏆 Campeonato Verão 2026</h4>
-                                    <p class="evento-data">📅 15 de Janeiro - 14h</p>
+                                <article class="evento-item" aria-labelledby="campeonato-verao">
+                                    <h4 id="campeonato-verao">Campeonato Verão 2026</h4>
+                                    <p class="evento-data">📅 <time datetime="2026-01-15">15 de Janeiro - 14h</time></p>
                                     <p class="evento-categorias">Categorias: Iniciante, Intermediário, Avançado</p>
-                                </div>
+                                </article>
 
-                                <div class="evento-item">
-                                    <h4>🥇 Copa Skate SP</h4>
-                                    <p class="evento-data">📅 12 de Abril - 15h</p>
+                                <article class="evento-item" aria-labelledby="copa-skate-sp">
+                                    <h4 id="copa-skate-sp">Copa Skate SP</h4>
+                                    <p class="evento-data">📅 <time datetime="2026-04-12">12 de Abril - 15h</time></p>
                                     <p class="evento-categorias">Categorias: Sub-15, Sub-18, Livre, Master 30+</p>
-                                </div>
+                                </article>
                             </div>
-                        </div>
+                        </section>
                     </div>
 
                     <div class="grid-col-6">
-                        <div class="card bg-light p-3 text-center hover-lift h-100">
-                            <h3>Workshops</h3>
+                        <section class="card bg-light p-3 text-center hover-lift h-100"
+                            aria-labelledby="workshops-titulo">
+                            <h3 id="workshops-titulo">🔥 Workshops</h3>
                             <p>Aprenda manobras novas</p>
 
                             <div class="proximos-workshops" style="display: flex; flex-direction: column; gap: 20px;">
-                                <div class="workshop-item">
-                                    <h4>🛹 Workshop Iniciante</h4>
-                                    <p class="workshop-data">📅 20 de Dezembro/2025 - 9h às 12h</p>
+                                <article class="workshop-item" aria-labelledby="workshop-iniciante">
+                                    <h4 id="workshop-iniciante">Workshop Iniciante</h4>
+                                    <p class="workshop-data">📅 <time datetime="2025-12-20T09:00">20 de
+                                            Dezembro/2025</time> -
+                                        9h às 12h</p>
                                     <p class="workshop-desc">Manobras básicas e equilíbrio</p>
-                                </div>
+                                </article>
 
-                                <div class="workshop-item">
-                                    <h4>🔥 Workshop Intermediário</h4>
-                                    <p class="workshop-data">📅 27 de Novembro/2025 - 14h às 17h</p>
+                                <article class="workshop-item" aria-labelledby="workshop-intermediario">
+                                    <h4 id="workshop-intermediario">Workshop Intermediário</h4>
+                                    <p class="workshop-data">📅 <time datetime="2025-11-27T14:00">27 de
+                                            Novembro/2025</time> -
+                                        14h às 17h</p>
                                     <p class="workshop-desc">Ollies, flips e técnicas avançadas</p>
-                                </div>
+                                </article>
                             </div>
-                        </div>
+                        </section>
                     </div>
+
                     <div class="grid-col-12">
-                        <div class="card p-3 text-center hover-lift">
-                            <h3>Voluntariado</h3>
+                        <section class="card p-3 text-center hover-lift" aria-labelledby="voluntariado-titulo">
+                            <h3 id="voluntariado-titulo">🤗 Voluntariado</h3>
                             <p>Junte-se à nossa causa</p>
 
                             <div class="voluntariado-linha">
                                 <div class="voluntariado-coluna">
-                                    <div class="vaga-item">
-                                        <h4>👨‍🏫 Instrutor de Skate</h4>
+                                    <article class="vaga-item" aria-labelledby="vaga-instrutor">
+                                        <h4 id="vaga-instrutor">Instrutor de Skate</h4>
                                         <p class="vaga-desc">Ensine técnicas para iniciantes</p>
                                         <p class="vaga-requisito">2x por semana</p>
-                                    </div>
+                                    </article>
                                 </div>
 
                                 <div class="voluntariado-coluna">
-                                    <div class="vaga-item">
-                                        <h4>🎯 Auxiliar de Eventos</h4>
+                                    <article class="vaga-item" aria-labelledby="vaga-auxiliar">
+                                        <h4 id="vaga-auxiliar">Auxiliar de Eventos</h4>
                                         <p class="vaga-desc">Apoie na organização</p>
                                         <p class="vaga-requisito">Finais de semana</p>
-                                    </div>
+                                    </article>
                                 </div>
                             </div>
-                        </div>
+                        </section>
                     </div>
                 </section>
             </div>
@@ -228,13 +262,13 @@
 
         <section id="sobre" class="page">
             <div class="container">
-                <h1>Sobre a ONG</h1>
+                <h2>Sobre a ONG (Conteúdo Secundário/SPA)</h2>
                 <div class="card grande">
-                    <h2>Nossa História</h2>
+                    <h3 id="nossa-historia-titulo">Nossa História</h3>
                     <p>Fundada em 2015, a ONG Skate SP começou como um pequeno projeto comunitário e hoje transforma a
                         vida de mais de 500 crianças e jovens através do skate.</p>
 
-                    <h3>Nossa Equipe</h3>
+                    <h4>Nossa Equipe</h4>
                     <p>Contamos com voluntários dedicados que compartilham a paixão pelo skate e pela transformação
                         social.</p>
                 </div>
@@ -244,15 +278,20 @@
 
     <footer>
         <div class="footer-left">
-            <p>📍 Rua Ladeira, 82 - Vila Primavera - São Paulo/SP</p>
-            <p>📞 Telefone: <strong>(11) 99999-9999</strong></p>
-            <p>📧 Email: <strong class="glitter-text">skate@skate.com.br</strong></p>
+            <address role="contentinfo">
+                <p>📍 Rua Ladeira, 82 - Vila Primavera - São Paulo/SP</p>
+                <p>📞 Telefone: <strong><a href="tel:+5511999999999" aria-label="Ligar para (11) 99999-9999">(11)
+                            99999-9999</a></strong></p>
+                <p>📧 Email: <strong class="glitter-text"><a href="mailto:skate@skate.com.br"
+                            aria-label="Enviar email para skate@skate.com.br">skate@skate.com.br</a></strong></p>
+            </address>
         </div>
         <div class="footer-center">
             <p>&copy; 2025 ONG Skate SP - Todos os direitos reservados</p>
         </div>
         <div class="footer-right">
-            <a href="#">Instagram</a> | <a href="#">YouTube</a>
+            <a href="#" aria-label="Instagram da ONG Skate SP">Instagram</a> | <a href="#"
+                aria-label="Canal da ONG Skate SP no YouTube">YouTube</a>
         </div>
     </footer>
 
@@ -260,13 +299,22 @@
         document.addEventListener('DOMContentLoaded', function () {
             console.log('Página inicial da ONG Skate SP carregada!');
 
-            // Adicionar interação aos cards
-            const cards = document.querySelectorAll('.hover-lift');
-            cards.forEach(card => {
-                card.addEventListener('click', function () {
-                    console.log('Card clicado:', this.querySelector('h2, h3').textContent);
+            // --- Menu Dropdown (Acessibilidade de Teclado) ---
+            const dropdownToggle = document.getElementById('projetos-dropdown-link');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            if (dropdownToggle) {
+                dropdownToggle.addEventListener('keydown', function (event) {
+                    // Ativa/Desativa o dropdown com Enter ou Barra de Espaço
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault(); // Impede o scroll da barra de espaço
+                        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                        this.setAttribute('aria-expanded', !isExpanded);
+                        // A classe 'show' seria gerenciada no CSS para exibir o menu
+                        dropdownMenu.classList.toggle('show');
+                    }
                 });
-            });
+            }
 
             // Contador de visitas (simulado)
             let visitas = localStorage.getItem('visitas_index') || 0;
@@ -279,22 +327,75 @@
             if (menuToggle) {
                 menuToggle.addEventListener('click', function () {
                     console.log('Menu mobile aberto/fechado');
+                    // Adicionar lógica de ARIA:
+                    const isChecked = document.getElementById('menu-checkbox').checked;
+                    // CORREÇÃO: A propriedade `checked` é atualizada *depois* do click no label, 
+                    // mas o estado ARIA deve refletir o estado do menu, que é acionado pelo checkbox.
+                    // O estado de `aria-expanded` deve ser *oposto* ao estado atual do checkbox, 
+                    // pois o click no label irá alterá-lo.
+                    // No entanto, para simplificar e garantir a leitura correta no toggle, 
+                    // o estado ARIA deve ser configurado para refletir se o menu *está* aberto.
+                    // Para o seu setup, o menu está aberto quando `isChecked` é true (depois do click).
+                    this.setAttribute('aria-expanded', !isChecked);
                 });
             }
 
-            // Menu dropdown
+            // Menu dropdown (mantido o mouseenter/mouseleave para mouse)
             const dropdownItems = document.querySelectorAll('.nav-item');
             dropdownItems.forEach(item => {
                 item.addEventListener('mouseenter', function () {
+                    // No mouseenter, se for o item pai do dropdown
+                    const toggle = this.querySelector('.dropdown-toggle');
+                    if (toggle) {
+                        toggle.setAttribute('aria-expanded', 'true');
+                    }
                     console.log('Menu dropdown aberto');
                 });
                 item.addEventListener('mouseleave', function () {
+                    const toggle = this.querySelector('.dropdown-toggle');
+                    if (toggle) {
+                        toggle.setAttribute('aria-expanded', 'false');
+                    }
                     console.log('Menu dropdown fechado');
                 });
             });
         });
     </script>
 
+    <script>
+        // Sistema Claro/Escuro (Mantido)
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle?.querySelector('.icon');
+
+            // Verificar preferência salva ou do sistema
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (themeIcon) themeIcon.textContent = '☀️';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                if (themeIcon) themeIcon.textContent = '🌙';
+            }
+
+            // Alternar tema
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function () {
+                    const currentTheme = document.documentElement.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+
+                    if (themeIcon) {
+                        themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

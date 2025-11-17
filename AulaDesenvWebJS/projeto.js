@@ -1,5 +1,48 @@
-// projeto.js - FUNCIONALIDADES ESPECÍFICAS DA PÁGINA DE PROJETOS
+// projeto.js - FUNCIONALIDADES GLOBAIS E ESPECÍFICAS DA PÁGINA DE PROJETOS
+
+// =======================================================
+// 💡 LÓGICA DO TEMA (MODO ESCURO/CLARO)
+// =======================================================
+function initTheme() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle?.querySelector('.icon');
+    const htmlElement = document.documentElement;
+
+    // Verificar preferência salva ou do sistema
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // 1. Inicializa o tema
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        htmlElement.setAttribute('data-theme', 'dark');
+        if (themeIcon) themeIcon.textContent = '☀️';
+    } else {
+        htmlElement.setAttribute('data-theme', 'light');
+        if (themeIcon) themeIcon.textContent = '🌙';
+    }
+
+    // 2. Adiciona o listener para alternar
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            console.log(`🎨 Tema alternado para: ${newTheme}`);
+
+            if (themeIcon) {
+                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+            }
+        });
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded', function () {
+    // Inicializa o tema imediatamente
+    initTheme();
+
     console.log('🎯 Página de Projetos carregada!');
 
     // Contador de visitas específico para a página de projetos
@@ -12,26 +55,28 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('#projetos .projeto-card').forEach(card => {
         card.style.cursor = 'pointer';
         card.addEventListener('click', function () {
-            const titulo = this.querySelector('h2').textContent;
+            const titulo = this.querySelector('h4').textContent; // Mudado de h2 para h4 (estrutura HTML)
             console.log('🛹 Projeto clicado:', titulo);
 
             // Efeito visual temporário
             this.style.transform = 'scale(0.98)';
             setTimeout(() => (this.style.transform = 'scale(1)'), 150);
 
-            // Navegação automática baseada no card clicado
-            let targetHash = '';
-            if (titulo.includes('Todos')) targetHash = '#skate-todos';
-            else if (titulo.includes('Elas')) targetHash = '#skate-elas';
-            else if (titulo.includes('Verde')) targetHash = '#skate-verde';
+            // Navegação automática baseada no card clicado (se houver a lógica SPA no HTML)
+            let targetId = '';
+            if (titulo.includes('Todos')) targetId = 'skate-todos';
+            else if (titulo.includes('Elas')) targetId = 'skate-elas';
+            else if (titulo.includes('Verde')) targetId = 'skate-verde';
 
-            if (targetHash && window.spaRouter) {
-                window.spaRouter.handleAnchorNavigation(targetHash);
+            // Simula clique no link correspondente para usar a lógica SPA
+            const targetLink = document.querySelector(`.dropdown-menu .nav-link[data-page="${targetId}"]`);
+            if (targetLink) {
+                targetLink.click();
             }
         });
     });
 
-    // Interação com estatísticas - APENAS QUANDO EXISTIR
+    // Interação com estatísticas
     document.querySelectorAll('.estatisticas-card').forEach(card => {
         card.addEventListener('mouseenter', () => {
             card.querySelectorAll('.numero-grande').forEach(n => {
@@ -42,16 +87,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         card.addEventListener('mouseleave', () => {
             card.querySelectorAll('.numero-grande').forEach(n => {
-                n.style.color = '';
+                n.style.color = ''; // Volta ao padrão CSS
                 n.style.transform = 'scale(1)';
             });
         });
     });
 
-    // Animação de contagem dos números - SE HOUVER ELEMENTOS
+    // Animação de contagem dos números
     const iniciarContagem = () => {
         const numeros = document.querySelectorAll('.numero-grande');
         if (numeros.length > 0) {
+            // Pequeno delay para a animação começar após o carregamento
             setTimeout(() => {
                 numeros.forEach(numero => {
                     const textoOriginal = numero.textContent;
@@ -63,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         if (atual >= final) {
                             atual = final;
                             clearInterval(timer);
-                            numero.textContent = textoOriginal; // Volta ao texto original
+                            numero.textContent = textoOriginal;
                         } else {
                             numero.textContent = atual.toLocaleString('pt-BR');
                         }
@@ -73,30 +119,30 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
-    // Inicia contagem quando a página de projetos estiver ativa
-    const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-                const target = mutation.target;
-                if (target.id === 'projetos' && target.classList.contains('active')) {
-                    iniciarContagem();
-                }
-            }
-        });
-    });
-
-    // Observa mudanças na página de projetos
+    // Observa mudanças na página de projetos (mantido para a lógica SPA)
     const projetosPage = document.getElementById('projetos');
     if (projetosPage) {
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    const target = mutation.target;
+                    // Inicia contagem APENAS se estiver na página de visão geral
+                    if (target.id === 'projetos' && target.classList.contains('active')) {
+                        iniciarContagem();
+                    }
+                }
+            });
+        });
+
         observer.observe(projetosPage, { attributes: true });
 
-        // Inicia contagem se já estiver ativa
+        // Inicia contagem se a página já estiver ativa no carregamento
         if (projetosPage.classList.contains('active')) {
             iniciarContagem();
         }
     }
 
-    // Adiciona conteúdo dinâmico às subpáginas se estiverem vazias
+    // Adiciona conteúdo dinâmico às subpáginas (Mantido)
     const preencherSubpaginas = () => {
         const subpaginas = [
             { id: 'skate-todos', titulo: 'Skate Para Todos', cor: 'var(--primary)' },
@@ -106,8 +152,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         subpaginas.forEach(pagina => {
             const elemento = document.getElementById(pagina.id);
-            if (elemento && elemento.querySelector('.card.grande').children.length <= 1) {
+            // Verifica se o card grande está quase vazio (apenas h2 e h3)
+            if (elemento && elemento.querySelector('.card.grande').children.length < 5) {
                 const card = elemento.querySelector('.card.grande');
+
                 card.innerHTML = `
                     <h1 style="color: ${pagina.cor}; margin-bottom: 20px;">${pagina.titulo}</h1>
                     <div class="projeto-detalhes">
@@ -144,14 +192,14 @@ document.addEventListener('DOMContentLoaded', function () {
     preencherSubpaginas();
 });
 
-// Adiciona estilos dinâmicos para as subpáginas
+// Adiciona estilos dinâmicos para as subpáginas (Mantido com correções de tema)
 const projetoStyles = `
     .projeto-detalhes {
         line-height: 1.6;
     }
     
     .projeto-detalhes h3 {
-        color: var(--dark);
+        color: var(--text-color); /* Adaptado ao tema */
         margin: 25px 0 15px 0;
         font-size: 1.3rem;
         border-left: 4px solid var(--primary);
@@ -182,12 +230,13 @@ const projetoStyles = `
     }
     
     .beneficio-tag {
-        background: var(--light);
+        background: var(--input-bg); /* Adaptado ao tema */
+        color: var(--text-color); /* Adaptado ao tema */
         padding: 8px 12px;
         border-radius: 20px;
         text-align: center;
         font-size: 0.9rem;
-        border: 1px solid #ddd;
+        border: 1px solid var(--border-color); /* Adaptado ao tema */
     }
     
     .btn-voltar {

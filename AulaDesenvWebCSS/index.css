@@ -2,6 +2,9 @@
 /* ======== AJUSTE DE ESCALA GLOBAL ======== */
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 
+/* NOTA: Estilos de body, header e footer (e modo escuro/claro) 
+   devem estar no arquivo style.css ou em um arquivo comum. */
+
 main {
     margin-top: var(--space-4);
 }
@@ -31,13 +34,23 @@ main>.container {
 }
 
 .card {
-    background-color: var(--white);
+    /* CORREÇÃO 1: Usar variáveis do tema para o fundo do Card */
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    /* Garante que o texto se adapte */
     padding: var(--space-2);
     border-radius: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Adiciona borda sutil para tema escuro */
+    border: 1px solid var(--border-color);
+}
+
+/* Ajuste de sombra para tema escuro */
+[data-theme="dark"] .card {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
 }
 
 .card:hover {
@@ -63,7 +76,8 @@ main>.container {
     height: 100%;
     background-size: cover;
     background-position: center;
-    opacity: 0.25;
+    /* Opacidade ajustada para melhor legibilidade em ambos os temas */
+    opacity: 0.1;
     z-index: 0;
 }
 
@@ -102,6 +116,11 @@ main>.container {
     font-size: var(--text-2xl);
 }
 
+.card p {
+    /* Garante que o texto de parágrafo use a cor principal do tema (se não for explicitamente definida) */
+    color: var(--text-color);
+}
+
 /* ======== SEÇÃO DE ATIVIDADES (GRID INFERIOR) ======== */
 .grid-container {
     display: grid;
@@ -125,7 +144,9 @@ main>.container {
 }
 
 .bg-light {
-    background-color: #f9f9f9;
+    /* CORREÇÃO 1: Usar a variável light do tema para o fundo */
+    background-color: var(--light) !important;
+    color: var(--text-color) !important;
 }
 
 .text-white {
@@ -160,10 +181,12 @@ main>.container {
 }
 
 .vaga-item {
-    background: rgba(255, 255, 255, 0.9);
+    /* CORREÇÃO 1: Usar a variável do Card (fundo branco/escuro) */
+    background: var(--card-bg);
     padding: 15px;
     border-radius: 10px;
-    border: 1px solid #eee;
+    /* CORREÇÃO 1: Usar a variável da borda do tema */
+    border: 1px solid var(--border-color);
 }
 
 .vaga-item h4 {
@@ -174,6 +197,7 @@ main>.container {
 }
 
 .vaga-desc {
+    /* CORREÇÃO 1: Usar a variável gray do tema */
     color: var(--gray);
     font-size: 0.9rem;
 }
@@ -192,6 +216,11 @@ main>.container {
 
 .hover-shadow:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Ajuste de sombra para tema escuro no hover */
+[data-theme="dark"] .hover-shadow:hover {
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
 }
 
 /* ======== RESPONSIVIDADE ======== */
@@ -216,10 +245,10 @@ main>.container {
         gap: var(--space-2);
     }
 
-    /* DROPDOWN NO MOBILE - IGUAL AO CADASTRO.CSS */
+    /* CORREÇÃO 2: Dropdown no mobile desativado por hover (igual aos outros CSS) */
     .nav-item:hover .dropdown-menu {
         position: static;
-        display: block;
+        display: none;
         margin-top: 10px;
     }
 }

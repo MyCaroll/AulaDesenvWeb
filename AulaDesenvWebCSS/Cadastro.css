@@ -1,24 +1,23 @@
 /* ======== VARIÁVEIS DO SISTEMA DE DESIGN ======== */
-
-/* ======== AJUSTE DE ESCALA GLOBAL ======== */
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 
 html {
     font-size: 67%;
-    /* Deixa a página no tamanho compacto desejado */
 }
 
 body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: var(--light);
-    color: #222;
+    /* CORREÇÃO 1: Usar as variáveis globais de tema */
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 /* ======== CABEÇALHO (UNIFICADO) ======== */
 header {
-    background-color: var(--dark);
+    /* Usar variáveis de tema para header/footer */
+    background-color: var(--header-bg);
     color: var(--white);
     padding: 20px 0;
     position: relative;
@@ -35,7 +34,6 @@ header .container {
 header h1 {
     font-family: 'Rock Salt', cursive;
     font-size: 2.5rem;
-    /* UNIFICADO */
     margin: 0;
     color: var(--white);
 }
@@ -97,7 +95,8 @@ nav ul li a:hover {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--white);
+    /* CORREÇÃO 1: Usar variáveis do tema */
+    background-color: var(--dropdown-bg);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     overflow: hidden;
@@ -108,16 +107,17 @@ nav ul li a:hover {
 .dropdown-menu a {
     display: block;
     padding: 10px 15px;
-    color: #222;
-    text-decoration: none;
-    border-bottom: 1px solid var(--light);
-    background-color: var(--white);
+    /* CORREÇÃO 1: Usar variáveis do tema */
+    color: var(--dropdown-text);
+    /* CORREÇÃO 1: Usar variáveis do tema */
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--dropdown-bg);
     border-radius: 0;
 }
 
 .dropdown-menu a:hover {
-    background-color: var(--light);
-    color: var(--secondary);
+    background-color: var(--primary);
+    color: var(--white);
 }
 
 .nav-item:hover .dropdown-menu {
@@ -127,7 +127,6 @@ nav ul li a:hover {
 /* ======== CONTEÚDO PRINCIPAL (E CARDS DE CADASTRO) ======== */
 main {
     padding: var(--space-4) 0;
-    /* Centraliza e organiza os cards */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -149,9 +148,12 @@ main {
     border-radius: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.85);
+    /* CORREÇÃO 2: Substituir cor fixa por variável do tema */
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    /* Adiciona borda para tema escuro */
 
-    /* AJUSTE PARA COMPACTAR CARDS */
     width: 100%;
     max-width: 650px;
 }
@@ -160,7 +162,6 @@ main {
 .card.pequeno {
     margin-bottom: 0;
 }
-
 
 /* Imagens de fundo para os cards */
 .card::before {
@@ -173,28 +174,24 @@ main {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.2;
+    /* Opacidade ajustada para melhor legibilidade no tema escuro */
+    opacity: 0.1;
     z-index: 1;
 }
 
-/* ======== IMAGENS DOS CARDS - MÉTODO SIMPLES E FUNCIONAL ======== */
-
-/* Card de Voluntário - PRIMEIRO card */
+/* IMAGENS - O código de imagens segue inalterado */
 .card.pequeno:nth-child(1)::before {
     background-image: url('img/Skateeste.jfif');
 }
 
-/* Card de Alunos - SEGUNDO card */
 .card.pequeno:nth-child(2)::before {
     background-image: url('img/Skatedoe3.jpg');
 }
 
-/* Card de Doação - TERCEIRO card */
 .card.pequeno:nth-child(3)::before {
     background-image: url('img/Skatedoe5.jfif');
 }
 
-/* GARANTIA EXTRA - se ainda não funcionar */
 main .card.pequeno:nth-of-type(1)::before {
     background-image: url('img/Skateeste.jfif');
 }
@@ -217,6 +214,7 @@ main .card.pequeno:nth-of-type(3)::before {
 
 .card p {
     margin-bottom: var(--space-2);
+    /* CORREÇÃO 3: Usar variável gray para cor do texto menos proeminente */
     color: var(--gray);
     position: relative;
     z-index: 2;
@@ -237,7 +235,8 @@ fieldset {
     border-radius: 10px;
     padding: var(--space-3);
     margin-bottom: var(--space-3);
-    background-color: rgba(255, 255, 255, 0.9);
+    /* CORREÇÃO 4: Substituir cor fixa por variável do tema (fundo de campo) */
+    background-color: var(--form-bg);
     position: relative;
     z-index: 2;
 }
@@ -255,7 +254,8 @@ label {
     display: block;
     font-weight: 500;
     margin-bottom: 5px;
-    color: #333;
+    /* CORREÇÃO 5: Usar a cor de texto principal do tema */
+    color: var(--text-color);
     position: relative;
     z-index: 2;
     font-size: var(--text-base);
@@ -265,7 +265,10 @@ input,
 select {
     width: 100%;
     padding: 8px 10px;
-    border: 1px solid #ccc;
+    /* CORREÇÃO 6: Usar variáveis do tema para input/select */
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+    color: var(--text-color);
     border-radius: 6px;
     font-size: 0.95rem;
     margin-bottom: var(--space-2);
@@ -289,7 +292,7 @@ input:valid:not(:focus):not(:placeholder-shown) {
     border-color: var(--success);
 }
 
-/* ======== BOTÕES COM ESTADOS COMPLETOS ======== */
+/* ======== BOTÕES E COMPONENTES DE FEEDBACK (Sem alteração no tema) ======== */
 button[type="submit"],
 button[type="reset"] {
     display: inline-block;
@@ -342,6 +345,7 @@ button[type="reset"]:disabled {
 }
 
 .alert-success {
+    /* Manter cores fixas para alerts, mas garantir contraste */
     background-color: #d4edda;
     color: #155724;
     border-color: #c3e6cb;
@@ -359,7 +363,7 @@ button[type="reset"]:disabled {
     border-color: #bee5eb;
 }
 
-/* ======== BADGES E TAGS ======== */
+/* ======== BADGES E TAGS (Manter cores fixas, usando variáveis de cor) ======== */
 .badge,
 .tag {
     display: inline-block;
@@ -390,7 +394,8 @@ button[type="reset"]:disabled {
 
 /* ======== RODAPÉ (UNIFICADO) ======== */
 footer {
-    background-color: var(--dark);
+    /* CORREÇÃO 7: Usar variável de tema para o footer */
+    background-color: var(--footer-bg);
     color: var(--white);
     display: flex;
     justify-content: space-between;
@@ -399,7 +404,6 @@ footer {
     font-size: 0.95rem;
     flex-wrap: wrap;
     margin-top: var(--space-4);
-    /* Adicionado para consistência */
 }
 
 .footer-left,
@@ -478,9 +482,10 @@ footer {
         margin-top: 20px;
     }
 
+    /* CORREÇÃO 8: Dropdown no mobile desativado por hover (igual aos outros CSS) */
     .nav-item:hover .dropdown-menu {
         position: static;
-        display: block;
+        display: none;
         margin-top: 10px;
     }
 

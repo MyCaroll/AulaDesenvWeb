@@ -1,7 +1,5 @@
-/* ======== VARIÁVEIS DO SISTEMA DE DESIGN ======== */
-
-/* ======== AJUSTE DE ESCALA GLOBAL ======== */
-@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+/* ======== VARIÁVEIS DO SISTEMA DE DESIGN (Assumi que o style.css define as variáveis) ======== */
+@import url('https://fonts.com/css2?family=Rock+Salt&display=swap');
 
 html {
     font-size: 67%;
@@ -10,14 +8,17 @@ html {
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: var(--light);
-    color: #222;
+    /* CORREÇÃO 1: Usar as variáveis do tema */
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-size: var(--text-base);
 }
 
-/* ======== CABEÇALHO (UNIFICADO) ======== */
+/* ======== CABEÇALHO (UNIFICADO) ======== 
+   * Nota: Estes estilos devem ser movidos para o style.css, se ainda não estiverem.
+*/
 header {
-    background-color: var(--dark);
+    background-color: var(--header-bg);
     color: var(--white);
     padding: 20px 0;
     position: relative;
@@ -87,7 +88,7 @@ nav ul li a:hover {
     background-color: var(--secondary);
 }
 
-/* Dropdown menu - ESTILO IDÊNTICO AO CADASTRO.CSS */
+/* Dropdown menu */
 .nav-item {
     position: relative;
 }
@@ -97,7 +98,8 @@ nav ul li a:hover {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--white);
+    /* CORREÇÃO 1: Usar variáveis do tema */
+    background-color: var(--dropdown-bg);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     border-radius: 10px;
     overflow: hidden;
@@ -108,16 +110,18 @@ nav ul li a:hover {
 .dropdown-menu a {
     display: block;
     padding: 10px 15px;
-    color: #222;
-    text-decoration: none;
-    border-bottom: 1px solid var(--light);
-    background-color: var(--white);
+    /* CORREÇÃO 1: Usar variáveis do tema */
+    color: var(--dropdown-text);
+    /* CORREÇÃO 1: Usar variáveis do tema */
+    border-bottom: 1px solid var(--border-color);
+    /* CORREÇÃO 1: Usar variáveis do tema */
+    background-color: var(--dropdown-bg);
     border-radius: 0;
 }
 
 .dropdown-menu a:hover {
-    background-color: var(--light);
-    color: var(--secondary);
+    background-color: var(--primary);
+    color: var(--white);
 }
 
 .nav-item:hover .dropdown-menu {
@@ -135,25 +139,30 @@ main {
     align-items: center;
 }
 
-/* CONTAINER PARA OS TRÊS PRIMEIROS CARDS LADO A LADO */
+/* ======== CORREÇÃO DE LAYOUT: CONTAINER DE DESCRIÇÕES ======== */
 .projetos-container {
-    display: flex;
+    /* Aplicando Grid 12-colunas para alinhamento correto */
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
     gap: var(--space-2);
     width: 100%;
+    /* Centraliza o conteúdo no grid */
     justify-content: center;
 }
 
 /* CARDS DOS PROJETOS PRINCIPAIS */
 .projeto-card {
-    background-color: var(--white);
+    /* CORREÇÃO 1: Usar variáveis do tema */
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    /* Garante que o texto se adapte */
     padding: var(--space-2);
     border-radius: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     position: relative;
     overflow: hidden;
-    flex: 1;
-    min-width: 250px;
-    max-width: 350px;
+    grid-column: span 4;
+    border: 1px solid var(--border-color);
 }
 
 /* BACKGROUND DOS CARDS */
@@ -166,7 +175,8 @@ main {
     height: 100%;
     background-size: cover;
     background-position: center;
-    opacity: 0.15;
+    /* Ajustado para melhor legibilidade */
+    opacity: 0.1;
     z-index: 0;
     pointer-events: none;
 }
@@ -185,13 +195,17 @@ main {
 
 /* SEÇÃO CONTRIBUA */
 .contribua {
-    background-color: var(--white);
+    /* CORREÇÃO 1: Usar variáveis do tema */
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    /* Garante que o texto se adapte */
     padding: var(--space-2) var(--space-3);
     border-radius: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     position: relative;
     overflow: hidden;
     width: 70%;
+    border: 1px solid var(--border-color);
 }
 
 /* BACKGROUND DA SEÇÃO CONTRIBUA */
@@ -205,13 +219,14 @@ main {
     background-image: url('img/skatedoacao.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.15;
+    /* Ajustado para melhor legibilidade */
+    opacity: 0.1;
     z-index: 0;
     pointer-events: none;
 }
 
 /* CONTEÚDO DOS CARDS */
-.projeto-card h2,
+.projeto-card h3,
 .projeto-card p,
 .contribua h2,
 .contribua p,
@@ -220,10 +235,10 @@ main {
     z-index: 1;
 }
 
-.projeto-card h2 {
+.projeto-card h3 {
     color: var(--secondary);
     margin-bottom: var(--space-2);
-    font-size: 1.4rem;
+    font-size: 1.8rem;
 }
 
 .contribua h2 {
@@ -235,6 +250,8 @@ main {
 .projeto-card p,
 .contribua p {
     margin-bottom: var(--space-2);
+    /* CORREÇÃO 1: Garante texto correto no tema escuro */
+    color: var(--text-color);
     font-size: 1rem;
 }
 
@@ -265,7 +282,7 @@ main {
     transform: translateY(0);
 }
 
-/* ======== GRID DE ATIVIDADES - IDÊNTICO À PÁGINA INICIAL ======== */
+/* ======== CORREÇÃO DE LAYOUT: GRID DE ESTATÍSTICAS ======== */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -273,6 +290,7 @@ main {
     width: 100%;
     margin-top: var(--space-3);
     margin-bottom: var(--space-4);
+    justify-content: center;
 }
 
 .grid-col-12 {
@@ -299,18 +317,22 @@ main {
     padding: var(--space-2);
 }
 
-/* ======== ESTILO DOS CARDS ======== */
+/* ======== ESTILO DOS CARDS DE ESTATÍSTICAS ======== */
 .card {
-    background-color: var(--white);
+    /* CORREÇÃO 1: Usar variáveis do tema */
+    background-color: var(--card-bg);
+    color: var(--text-color);
     padding: var(--space-3);
     border-radius: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
     position: relative;
     overflow: hidden;
     margin-bottom: var(--space-4);
+    border: 1px solid var(--border-color);
 }
 
-.card h3 {
+.card h3,
+.card h4 {
     color: var(--secondary);
     margin-bottom: var(--space-2);
     font-size: 1.2rem;
@@ -318,6 +340,7 @@ main {
 
 .card p {
     margin-bottom: var(--space-1);
+    /* CORREÇÃO 1: Usar variáveis do tema */
     color: var(--gray);
     font-size: 0.95rem;
 }
@@ -328,7 +351,9 @@ main {
 }
 
 .bg-light {
-    background-color: #f8f9fa !important;
+    /* CORREÇÃO 1: Usar variáveis do tema (o light do tema escuro é escuro) */
+    background-color: var(--light) !important;
+    color: var(--text-color) !important;
 }
 
 .text-white {
@@ -340,28 +365,18 @@ main {
     color: var(--white) !important;
 }
 
-/* ======== COMPONENTES DE FEEDBACK ======== */
+/* ======== COMPONENTES DE FEEDBACK (Aleras) ======== */
 .alert {
     padding: var(--space-2);
     border-radius: 8px;
     margin: var(--space-2) 0;
     border: 1px solid transparent;
     font-size: 1rem;
+    /* Garante contraste */
+    color: var(--dark);
 }
 
-.alert-success {
-    background-color: #d4edda;
-    color: #155724;
-    border-color: #c3e6cb;
-}
-
-.alert-info {
-    background-color: #d1ecf1;
-    color: #0c5460;
-    border-color: #bee5eb;
-}
-
-/* BADGES E TAGS - ESTILO IDÊNTICO À PÁGINA INICIAL */
+/* BADGES E TAGS - Estilo coerente */
 .badge,
 .tag {
     display: inline-block;
@@ -399,6 +414,10 @@ main {
 .hover-shadow:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     transition: box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] .hover-shadow:hover {
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
 }
 
 /* ESTILOS ESPECÍFICOS PARA ESTATÍSTICAS */
@@ -442,7 +461,7 @@ main {
 
 /* ======== RODAPÉ (UNIFICADO) ======== */
 footer {
-    background-color: var(--dark);
+    background-color: var(--footer-bg);
     color: var(--white);
     display: flex;
     justify-content: space-between;
@@ -499,6 +518,8 @@ footer {
 
     .projeto-card {
         padding: var(--space-2);
+        /* 2 cards por linha */
+        grid-column: span 6;
     }
 
     .contribua {
@@ -531,20 +552,20 @@ footer {
         margin-top: 20px;
     }
 
-    /* DROPDOWN NO MOBILE - IGUAL AO CADASTRO.CSS */
+    /* CORREÇÃO 2: Dropdown no mobile desativado por hover */
     .nav-item:hover .dropdown-menu {
         position: static;
-        display: block;
+        display: none;
         margin-top: 10px;
     }
 
     /* Ajustes específicos de fonte para Mobile (em rem) */
-    .projeto-card h2 {
-        font-size: 1.2rem;
+    .projeto-card h3 {
+        font-size: 1.6rem;
     }
 
     .contribua h2 {
-        font-size: 1.6rem;
+        font-size: 2.1rem;
     }
 
     .projeto-card p,
@@ -552,7 +573,8 @@ footer {
         font-size: 0.9rem;
     }
 
-    .card h3 {
+    .card h3,
+    .card h4 {
         font-size: 1.1rem;
     }
 
@@ -566,8 +588,10 @@ footer {
         text-align: center;
     }
 
+    /* FORÇA QUE TODOS OS ITENS DE GRID TENHAM 1 COLUNA (12 SPAN) NO MOBILE */
     .grid-col-6,
-    .grid-col-4 {
+    .grid-col-4,
+    .projeto-card {
         grid-column: span 12;
     }
 
@@ -589,7 +613,7 @@ footer {
         font-size: var(--text-3xl);
     }
 
-    .projeto-card h2,
+    .projeto-card h3,
     .contribua h2 {
         font-size: var(--text-xl);
     }

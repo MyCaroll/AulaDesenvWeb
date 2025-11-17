@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
     <title>Projetos - ONG Skate SP</title>
 
     <link rel="stylesheet" href="AulaDesenvWebCSS/style.css?v=1.0">
@@ -14,42 +15,65 @@
 
     <style>
         .page {
+            /* WCAG: Usar visibility: hidden/display: none ou aria-hidden */
             display: none;
+            visibility: hidden;
         }
 
         .page.active {
             display: block;
+            visibility: visible;
         }
 
         .nav-active {
             background-color: var(--secondary) !important;
         }
+
+        /* CSS para esconder o texto de forma acessível */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
     </style>
 </head>
-
 
 <body class="pagina-projetos">
     <header>
         <div class="container">
             <h1>ONG SKATE SP</h1>
 
-            <input type="checkbox" id="menu-checkbox">
-            <label for="menu-checkbox" class="menu-toggle" aria-label="Abrir menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+            <div class="header-controls">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
+                    <span class="icon">🌙</span>
+                </button>
 
-            <nav>
+                <input type="checkbox" id="menu-checkbox" class="sr-only">
+                <label for="menu-checkbox" class="menu-toggle" aria-label="Abrir menu de navegação">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+
+            <nav aria-label="Navegação Principal">
                 <ul>
                     <li><a href="index.html">Início</a></li>
 
-                    <li class="nav-item">
-                        <a href="#projetos" class="nav-link" data-page="projetos">Projetos ▼</a>
-                        <div class="dropdown-menu">
-                            <a href="#skate-todos" class="nav-link" data-page="skate-todos">Skate Para Todos</a>
-                            <a href="#skate-elas" class="nav-link" data-page="skate-elas">Skate Para Elas</a>
-                            <a href="#skate-verde" class="nav-link" data-page="skate-verde">Skate Verde</a>
+                    <li class="nav-item" role="none">
+                        <a href="projeto.html" class="nav-link dropdown-toggle nav-active" aria-haspopup="true"
+                            aria-expanded="false" role="button" id="projetos-dropdown-link"
+                            data-page="projetos">Projetos ▼</a>
+                        <div class="dropdown-menu" aria-labelledby="projetos-dropdown-link">
+                            <a href="#" data-page="skate-todos" class="nav-link">Skate Para Todos</a>
+                            <a href="#" data-page="skate-elas" class="nav-link">Skate Para Elas</a>
+                            <a href="#" data-page="skate-verde" class="nav-link">Skate Verde</a>
                         </div>
                     </li>
                     <li><a href="cadastro.html">Cadastro</a></li>
@@ -59,47 +83,54 @@
     </header>
 
     <main id="main-content">
-        <section id="projetos" class="page active">
-            <div class="projetos-container">
-                <section class="projeto-card projeto1 hover-lift">
-                    <h2>Skate para Todos</h2>
-                    <p>Mais do que ensinar manobras, este projeto usa o skate como ferramenta de transformação. Sobre
-                        quatro
-                        rodas, crianças e jovens constroem autoconfiança, respeito e trabalho em equipe. A iniciativa
-                        quebra
-                        barreiras sociais, criando um ambiente inclusivo onde todos são bem-vindos para crescer e se
-                        desenvolver juntos.</p>
+        <h2 id="titulo-visao-geral" class="sr-only">Visão Geral dos Projetos da ONG Skate SP</h2>
+
+        <section id="projetos" class="page active" aria-labelledby="titulo-visao-geral">
+
+            <div class="container">
+                <section class="projetos-container mt-4" aria-labelledby="titulo-descricoes"
+                    style="gap: var(--space-4);">
+                    <h3 id="titulo-descricoes" class="sr-only">Descrição dos Projetos</h3>
+
+                    <section class="grid-col-4 projeto-card projeto1 hover-lift" aria-labelledby="titulo-skate-todos">
+                        <h4 id="titulo-skate-todos">Skate para Todos</h4>
+                        <p>Mais do que ensinar manobras, este projeto usa o skate como ferramenta de transformação.
+                            Sobre
+                            quatro rodas, crianças e jovens constroem autoconfiança, respeito e trabalho em equipe. A
+                            iniciativa quebra barreiras sociais, criando um ambiente inclusivo onde todos são bem-vindos
+                            para crescer e se desenvolver juntos.</p>
+                    </section>
+
+                    <section class="grid-col-4 projeto-card projeto2 hover-lift" aria-labelledby="titulo-skate-elas">
+                        <h4 id="titulo-skate-elas">Skate para Elas</h4>
+                        <p>Este programa cria um espaço de acolhimento e incentivo exclusivo para meninas e mulheres no
+                            skate. Através da prática esportiva, ele fortalece a autoestima, a sororidade e a coragem
+                            para
+                            ocuparem qualquer lugar que desejarem. Sobre o shape, elas quebram não apenas as barreiras
+                            do
+                            equilíbrio, mas também os preconceitos que limitam seu potencial.</p>
+                    </section>
+
+                    <section class="grid-col-4 projeto-card projeto3 hover-lift" aria-labelledby="titulo-skate-verde">
+                        <h4 id="titulo-skate-verde">Skate Verde</h4>
+                        <p>Esta iniciativa integra a cultura do skate a um compromisso com o futuro do planeta. Os
+                            skatistas
+                            se tornam agentes ativos, participando de ações de sustentabilidade que preservam e
+                            revigoram
+                            os espaços públicos da comunidade. A mensagem é clara: a adrenalina do esporte e o cuidado
+                            com
+                            o meio ambiente andam juntos, criando um legado de skate verde para as próximas gerações.
+                        </p>
+                    </section>
                 </section>
 
-                <section class="projeto-card projeto2 hover-lift">
-                    <h2>Skate para Elas</h2>
-                    <p>Este programa cria um espaço de acolhimento e incentivo exclusivo para meninas e mulheres no
-                        skate.
-                        Através da prática esportiva, ele fortalece a autoestima, a sororidade e a coragem para ocuparem
-                        qualquer
-                        lugar que desejarem. Sobre o shape, elas quebram não apenas as barreiras do equilíbrio, mas
-                        também
-                        os
-                        preconceitos que limitam seu potencial.</p>
-                </section>
+                <section class="grid-container mt-4" aria-labelledby="titulo-impacto-numeros"
+                    style="gap: var(--space-4);">
+                    <h3 id="titulo-impacto-numeros" class="sr-only">Impacto e Estatísticas dos Projetos</h3>
 
-                <section class="projeto-card projeto3 hover-lift">
-                    <h2>Skate Verde</h2>
-                    <p>Esta iniciativa integra a cultura do skate a um compromisso com o futuro do planeta. Os skatistas
-                        se
-                        tornam agentes ativos, participando de ações de sustentabilidade que preservam e revigoram os
-                        espaços
-                        públicos da comunidade. A mensagem é clara: a adrenalina do esporte e o cuidado com o meio
-                        ambiente
-                        andam
-                        juntos, criando um legado de skate verde para as próximas gerações.</p>
-                </section>
-            </div>
-
-            <section class="grid-container mt-4">
-                <div class="grid-col-4">
-                    <div class="card estatisticas-card hover-lift">
-                        <h3>📊 Impacto do Skate para Todos</h3>
+                    <article class="grid-col-4 card estatisticas-card hover-lift" role="region"
+                        aria-labelledby="estatisticas-todos-titulo">
+                        <h4 id="estatisticas-todos-titulo">📊 Impacto do Skate para Todos</h4>
                         <div class="numeros-estatisticas">
                             <div class="numero-item"><span class="numero-grande">1.250</span><span
                                     class="numero-label">Crianças Atendidas</span></div>
@@ -112,12 +143,11 @@
                                     class="numero-label">Total de Vidas Transformadas</span></div>
                         </div>
                         <p class="destaque-texto">Mais que skate: é sobre acreditar que todos podem fazer parte!</p>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="grid-col-4">
-                    <div class="card estatisticas-card hover-lift">
-                        <h3>👩‍👧‍👦 Impacto do Skate para Elas</h3>
+                    <article class="grid-col-4 card estatisticas-card hover-lift" role="region"
+                        aria-labelledby="estatisticas-elas-titulo">
+                        <h4 id="estatisticas-elas-titulo">👩‍👧‍👦 Impacto do Skate para Elas</h4>
                         <div class="numeros-estatisticas">
                             <div class="numero-item"><span class="numero-grande">180</span><span
                                     class="numero-label">Mulheres 30+ Inscritas</span></div>
@@ -132,12 +162,11 @@
                         </div>
                         <p class="destaque-texto">Mulheres descobrindo a alegria do skate, muitas vezes junto com seus
                             filhos!</p>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="grid-col-4">
-                    <div class="card estatisticas-card hover-lift">
-                        <h3>🌱 Impacto do Skate Verde</h3>
+                    <article class="grid-col-4 card estatisticas-card hover-lift" role="region"
+                        aria-labelledby="estatisticas-verde-titulo">
+                        <h4 id="estatisticas-verde-titulo">🌱 Impacto do Skate Verde</h4>
                         <div class="numeros-estatisticas">
                             <div class="numero-item"><span class="numero-grande">850</span><span
                                     class="numero-label">Árvores Plantadas</span></div>
@@ -150,86 +179,92 @@
                                     class="numero-label">Skatistas Conscientizados</span></div>
                         </div>
                         <p class="destaque-texto">Unindo a paixão pelo skate com o cuidado com o meio ambiente!</p>
-                    </div>
-                </div>
-            </section>
+                    </article>
+                </section>
 
-            <section class="contribua">
-                <h2>Quer contribuir?</h2>
-                <p>Junte-se a nós como voluntário ou apoiador e faça parte desta transformação. Sua energia e recursos
-                    são a
-                    base que permite levar os benefícios do skate para cada vez mais vidas, criando um futuro com mais
-                    oportunidades e inclusão.</p>
-                <p><a href="cadastro.html">Cadastre-se</a></p>
-            </section>
+                <section class="contribua" aria-labelledby="titulo-contribua" role="region">
+                    <h3 id="titulo-contribua">Quer contribuir?</h3>
+                    <p>Junte-se a nós como voluntário ou apoiador e faça parte desta transformação. Sua energia e
+                        recursos
+                        são a base que permite levar os benefícios do skate para cada vez mais vidas, criando um futuro
+                        com
+                        mais oportunidades e inclusão.</p>
+                    <p><a href="cadastro.html" role="button">Cadastre-se</a></p>
+                </section>
+            </div>
         </section>
 
-        <section id="skate-todos" class="page">
+        <section id="skate-todos" class="page" aria-labelledby="h2-skate-todos" aria-hidden="true">
             <div class="container">
-                <h1>Skate Para Todos - Detalhes</h1>
-                <div class="card grande">
-                    <h2>Projeto de Inclusão Social</h2>
+                <h2 id="h2-skate-todos">Skate Para Todos - Detalhes</h2>
+                <article class="card grande" aria-labelledby="h3-inclusao" role="article">
+                    <h3 id="h3-inclusao">Projeto de Inclusão Social</h3>
                     <p>O Skate Para Todos é nosso projeto principal, focando na inclusão de crianças e jovens de
                         comunidades carentes através do skate.</p>
-                    <h3>Atividades:</h3>
+                    <h4>Atividades:</h4>
                     <ul>
                         <li>Aulas gratuitas de skate</li>
                         <li>Workshops educacionais</li>
                         <li>Eventos comunitários</li>
                         <li>Acompanhamento escolar</li>
                     </ul>
-                </div>
+                </article>
             </div>
         </section>
 
-        <section id="skate-elas" class="page">
+        <section id="skate-elas" class="page" aria-labelledby="h2-skate-elas" aria-hidden="true">
             <div class="container">
-                <h1>Skate Para Elas - Detalhes</h1>
-                <div class="card grande">
-                    <h2>Empoderamento Feminino</h2>
+                <h2 id="h2-skate-elas">Skate Para Elas - Detalhes</h2>
+                <article class="card grande" aria-labelledby="h3-empoderamento" role="article">
+                    <h3 id="h3-empoderamento">Empoderamento Feminino</h3>
                     <p>Espaço seguro e acolhedor para mulheres e meninas descobrirem o skate e se fortalecerem através
                         do esporte.</p>
-                    <h3>Atividades:</h3>
+                    <h4>Atividades:</h4>
                     <ul>
                         <li>Aulas exclusivas para mulheres</li>
                         <li>Workshops de autoestima</li>
                         <li>Encontros de sororidade</li>
                         <li>Eventos femininos</li>
                     </ul>
-                </div>
+                </article>
             </div>
         </section>
 
-        <section id="skate-verde" class="page">
+        <section id="skate-verde" class="page" aria-labelledby="h2-skate-verde" aria-hidden="true">
             <div class="container">
-                <h1>Skate Verde - Detalhes</h1>
-                <div class="card grande">
-                    <h2>Sustentabilidade e Skate</h2>
+                <h2 id="h2-skate-verde">Skate Verde - Detalhes</h2>
+                <article class="card grande" aria-labelledby="h3-sustentabilidade" role="article">
+                    <h3 id="h3-sustentabilidade">Sustentabilidade e Skate</h3>
                     <p>Unindo a paixão pelo skate com a conscientização ambiental e ações de preservação do meio
                         ambiente.</p>
-                    <h3>Atividades:</h3>
+                    <h4>Atividades:</h4>
                     <ul>
                         <li>Mutirões de limpeza</li>
                         <li>Oficinas de reciclagem</li>
                         <li>Plantação de árvores</li>
                         <li>Educação ambiental</li>
                     </ul>
-                </div>
+                </article>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-left">
-            <p>📍 Rua Ladeira, 82 - Vila Primavera - São Paulo/SP</p>
-            <p>📞 Telefone: <strong>(11) 99999-9999</strong></p>
-            <p>📧 Email: <strong class="glitter-text">skate@skate.com.br</strong></p>
+            <address role="contentinfo">
+                <p>📍 Rua Ladeira, 82 - Vila Primavera - São Paulo/SP</p>
+                <p>📞 Telefone: <strong><a href="tel:+5511999999999" aria-label="Ligar para (11) 99999-9999">(11)
+                            99999-9999</a></strong></p>
+                <p>📧 Email: <strong class="glitter-text"><a href="mailto:skate@skate.com.br"
+                            aria-label="Enviar email para skate@skate.com.br">skate@skate.com.br</a></strong></p>
+            </address>
         </div>
         <div class="footer-center">
             <p>&copy; 2025 ONG Skate SP - Todos os direitos reservados</p>
         </div>
         <div class="footer-right">
-            <a href="#">Instagram</a> | <a href="#">YouTube</a>
+            <a href="#" aria-label="Instagram da ONG Skate SP">Instagram</a> | <a href="#"
+                aria-label="Canal da ONG Skate SP no YouTube">YouTube</a>
         </div>
     </footer>
 
@@ -238,41 +273,128 @@
     <script>
         // Função unificada para ativar uma página e destacar o link
         function ativarPagina(pageId) {
-            // 1. Esconde todas as páginas
+            // 1. Esconde todas as páginas e define aria-hidden
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
+                page.setAttribute('aria-hidden', 'true');
             });
 
-            // 2. Mostra a página alvo
+            // 2. Mostra a página alvo e remove aria-hidden
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
                 targetPage.classList.add('active');
+                targetPage.removeAttribute('aria-hidden');
+
+                // Garante que o foco vá para o conteúdo principal da nova página
+                // targetPage.focus(); // Necessário adicionar tabindex="-1" na seção para ser focável
             }
 
-            // 3. Destaca o link ativo
+            // 3. Destaca o link ativo (Nav)
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('nav-active'));
-            // Procura o link correspondente para adicionar o destaque
+            // Adicionado um seletor mais genérico para pegar links do menu principal e do dropdown
             const activeLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
+            const parentLink = document.querySelector(`.nav-link[data-page="projetos"]`);
+
             if (activeLink) {
                 activeLink.classList.add('nav-active');
             }
+            // Garante que o link pai 'Projetos' esteja sempre ativo quando qualquer sub-projeto estiver ativo
+            if (pageId !== 'projetos' && parentLink) {
+                parentLink.classList.add('nav-active');
+            } else if (pageId === 'projetos' && parentLink) {
+                parentLink.classList.add('nav-active');
+            }
+        }
+
+        // Adiciona suporte a teclado e ARIA para o dropdown 
+        const dropdownToggle = document.getElementById('projetos-dropdown-link');
+        if (dropdownToggle) {
+            dropdownToggle.addEventListener('click', function () {
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+            });
+            dropdownToggle.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    this.click();
+                }
+            });
         }
 
         // 1. Inicialização FORÇADA: Garante que a página "projetos" esteja ativa ao carregar
-        // Usa 'load' para garantir que o CSS já foi processado, resolvendo o erro ao retornar de index/cadastro.
+        // E checa se há uma âncora na URL (ex: projeto.html#skate-elas)
         window.addEventListener('load', () => {
-            ativarPagina('projetos');
-            console.log('SPA Projetos: Inicialização Forçada para #projetos no LOAD.');
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                ativarPagina(hash);
+            } else {
+                ativarPagina('projetos');
+            }
         });
 
         // 2. Comportamento SPA: Adiciona o listener para cliques nos links internos
-        document.querySelectorAll('.nav-link').forEach(link => {
+        document.querySelectorAll('.dropdown-menu .nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const pageId = link.getAttribute('data-page');
-                ativarPagina(pageId); // Usa a função unificada
-                console.log('SPA Projetos: Navegando para', pageId);
+                // Atualiza o hash da URL para permitir compartilhamento e recarga
+                history.pushState(null, '', `#${pageId}`);
+                ativarPagina(pageId);
+
+                // Fecha o menu dropdown após a navegação (melhor UX)
+                if (dropdownToggle) {
+                    dropdownToggle.setAttribute('aria-expanded', 'false');
+                    // A classe 'show' (que deve ser gerenciada pelo CSS) seria removida aqui
+                }
             });
+        });
+
+        // Listener para o link principal 'Projetos' na nav-bar
+        if (dropdownToggle) {
+            dropdownToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pageId = dropdownToggle.getAttribute('data-page');
+                // Atualiza o hash da URL para permitir compartilhamento e recarga
+                history.pushState(null, '', `projeto.html`);
+                ativarPagina(pageId);
+            });
+        }
+
+        // CORREÇÃO 4: O evento keydown em elementos sem tabindex não é necessário
+        // (removido bloco que lidava com .hover-lift[tabindex="0"])
+    </script>
+    <script>
+        // Sistema Claro/Escuro (Mantido)
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle?.querySelector('.icon');
+
+            // Verificar preferência salva ou do sistema
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (themeIcon) themeIcon.textContent = '☀️';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                if (themeIcon) themeIcon.textContent = '🌙';
+            }
+
+            // Alternar tema
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function () {
+                    const currentTheme = document.documentElement.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+
+                    if (themeIcon) {
+                        themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                    }
+                });
+            }
         });
     </script>
 </body>
