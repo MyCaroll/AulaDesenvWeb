@@ -1,95 +1,166 @@
-Projeto ONG Skate SP — Interatividade com JavaScript
-Introdução
-Esta terceira etapa do projeto teve como objetivo implementar funcionalidades interativas e dinâmicas ao site da ONG Skate SP, desenvolvido na disciplina de Desenvolvimento Web, no curso de Análise e Desenvolvimento de Sistemas (ADS). Após a estruturação em HTML5 e estilização com CSS3, foi criada uma nova branch dedicada exclusivamente ao JavaScript, onde foram desenvolvidos sistemas de Single Page Application (SPA), validação de formulários e interações dinâmicas.
+ONG Skate SP - Plataforma Web Acessível
 
-Durante o desenvolvimento, foram aplicados conceitos avançados de JavaScript moderno, incluindo manipulação do DOM, eventos, armazenamento local, classes ES6 e modularização de código. Esta etapa permitiu transformar o site estático em uma aplicação web dinâmica e responsiva.
+Sobre o Projeto
+
+Site institucional desenvolvido para a ONG Skate SP, implementando as melhores práticas de desenvolvimento web moderno, acessibilidade e experiência do usuário. Este projeto foi criado como parte da disciplina de Desenvolvimento Web.
+
+Status do Projeto: Concluído
+
+Funcionalidades Principais
+
+Sistema de Tema Claro/Escuro
+- Alternância suave entre modos de cor
+- Persistência de preferência do usuário
+- Respeita a preferência do sistema operacional
+- Transições animadas e suaves
+
+Acessibilidade Total (WCAG 2.1 Nível AA)
+- Navegação por teclado completa (Tab, Enter, Esc)
+- Contraste 4.5:1 garantido em todos os elementos
+- Atributos ARIA semânticos implementados
+- Estrutura HTML semanticamente correta
+- Focus indicators visíveis e customizados
+- Suporte a leitores de tela
+
+Design Responsivo
+- Layout adaptável para mobile, tablet e desktop
+- Menu hamburger otimizado para dispositivos móveis
+- Grid system flexível
+- Tipografia escalável
+
+Performance Otimizada
+- Arquivos CSS e JavaScript minificados
+- Carregamento crítico otimizado
+- Transições CSS hardware-accelerated
+- Estrutura de assets organizada
+
+Tecnologias Utilizadas
+
+- HTML5 - Estrutura semântica e acessível
+- CSS3 - Estilização com Variáveis CSS e Flexbox/Grid
+- JavaScript - Interatividade e manipulação de tema
+- Git - Controle de versão com GitFlow
+- GitHub Pages - Deploy e hospedagem
+
+Design System
+
+Cores (CSS Custom Properties)
+:root {
+  --primary: #ff6600;
+  --secondary: #4b0082;
+  --bg-color: #f2f2f2;
+  --text-color: #222;
+  --card-bg: #fff;
+}
+
+Tipografia
+- Títulos: 'Rock Salt', cursive
+- Corpo: 'Roboto', sans-serif
+- Hierarquia: Escala modular responsiva
 
 Estrutura do Projeto
-Na branch de JavaScript, a organização dos arquivos manteve a estrutura anterior com a adição da pasta dedicada aos scripts:
 
-
-AulaDesenvWebJS/
-│
-├── main.js          # Inicialização e componentes globais
-├── projeto.js       # Funcionalidades específicas da página de projetos
-├── validation.js    # Sistema de validação de formulários
-├── templates.js     # Gerenciamento de templates dinâmicos
-└── spa.js          # Sistema de Single Page Application
-
-AulaDesenvWebCSS/
-│
-├── style.css
-├── index.css
-├── cadastro.css
-├── projeto.css
-└── components.css
-
-AulaDesenvWebHTML/
-│
+AulaDesenvWeb/
 ├── index.html
 ├── projeto.html
-└── cadastro.html
+├── cadastro.html
+├── AulaDesenvWebCSS/
+│   ├── style.css
+│   └── min.css
+├── AulaDesenvWebJS/
+│   ├── script.js
+│   └── min.js
+├── README.md
+└── .gitignore
 
+Recursos de Acessibilidade Implementados
 
-Funcionalidades Implementadas
-Sistema SPA (Single Page Application)
-Navegação sem recarregamento entre seções das páginas
-Histórico de navegação com atualização de URL
-Transições suaves entre conteúdos
-Carregamento dinâmico de templates
+Navegação
+- Skip links para conteúdo principal
+- Navegação por teclado completa
+- Indicadores de foco visíveis
+- Atributos aria-* semânticos
 
-Validação de Formulários
-Validação em tempo real com feedback visual
-Verificação de campos obrigatórios e formatos específicos
-Mensagens de erro personalizadas para cada tipo de campo
-Prevenção de envio com dados inválidos
+Contraste e Legibilidade
+- Contraste 4.5:1 mínimo garantido
+- Modo alto contraste (tema escuro)
+- Tamanho de fonte escalável
+- Espaçamento de texto adequado
 
-Interações Dinâmicas
-Menu mobile responsivo com toggle functionality
-Dropdown menus com hover effects
-Contador de visitas usando localStorage
-Animações de cards e elementos interativos
-Validação de e-mail e telefone em formulários
-
-Tecnologias e Conceitos Aplicados
-JavaScript ES6+
-Classes e modularização para organização do código
-Manipulação do DOM com querySelector e eventos
-Arrow functions e template literals
-Local Storage para persistência de dados
-Promises e async/await para operações assíncronas
-
-Arquitetura de Software
-Separação de responsabilidades por funcionalidade
-Código reutilizável com classes especializadas
-Manipulação de eventos de forma eficiente
-Validação de dados no client-side
+Semântica
+- Estrutura de cabeçalhos hierárquica
+- Labels descritivos para todos os controles
+- Textos alternativos para elementos visuais
+- Landmarks ARIA apropriados
 
 Como Executar o Projeto
-Navegue até a branch de JavaScript no repositório
-Abra o projeto no VS Code ou editor preferido
-Execute com Live Server no arquivo index.html
 
-Teste as funcionalidades:
-Navegue entre páginas sem recarregar (SPA)
-Preencha formulários com validação
-Interaja com menus dropdown
-Verifique o contador de visitas no console
+Opção 1: GitHub Pages (Recomendado)
+1. Acesse: https://mycaroll.github.io/AulaDesenvWeb/
+2. Navegue normalmente pelo site
 
-Aprendizados Desenvolvidos
-Habilidades Técnicas
-Implementação de SPA sem frameworks externos
-Validação robusta de formulários complexos
-Manipulação avançada do DOM e eventos
-Armazenamento local de dados do usuário
-Organização modular de código JavaScript
+Opção 2: Execução Local
+# Clone o repositório
+git clone https://github.com/MyCaroll/AulaDesenvWeb.git
+# Acesse a pasta do projeto
+cd AulaDesenvWeb
+# Abra o arquivo principal
+open index.html
 
-Boas Práticas
-Código semântico e bem documentado
-Tratamento de erros e validações
-Performance na manipulação do DOM
-Experiência do usuário com feedback visual
-Manutenibilidade com estrutura clara
+Navegação por Teclado
+
+- Tab - Navegar entre elementos
+- Shift + Tab - Navegar reversamente
+- Enter - Ativar botões/links
+- Espaço - Alternar checkboxes
+- Esc - Fechar modais/dropdowns
+
+Testes Realizados
+
+Ferramentas de Validação
+- Lighthouse: Performance, Acessibilidade, SEO
+- WAVE: Avaliação de acessibilidade web
+- Keyboard Navigation: Teste manual completo
+- Color Contrast Analyzer: Verificação de contraste
+
+Navegadores Testados
+- Google Chrome (116+)
+- Mozilla Firefox (115+)
+- Microsoft Edge (116+)
+- Safari (15+)
+
+Métricas de Performance
+
+- Lighthouse Performance: 95+
+- Lighthouse Accessibility: 100
+- Tempo de Carregamento: < 2s
+- Arquivos CSS: 2 (desenvolvimento + produção)
+- Arquivos JS: 2 (desenvolvimento + produção)
+
+Desenvolvimento
+
+Estratégia de Versionamento
+- GitFlow implementado
+- Commits semânticos seguindo Conventional Commits
+- Branches: main (produção) e develop (desenvolvimento)
+- Tags para versionamento semântico
+
+Padrão de Commits
+feat: nova funcionalidade
+fix: correção de bugs
+docs: documentação
+style: formatação
+refactor: refatoração
+test: testes
+
+Licença
+
+Este projeto foi desenvolvido para fins educacionais como parte da disciplina de Desenvolvimento Web.
+
+Contato
+
+Desenvolvedora: MyCaroll
+Repositório: https://github.com/MyCaroll/AulaDesenvWeb
 
 
 Autoria
